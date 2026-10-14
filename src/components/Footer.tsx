@@ -32,7 +32,7 @@ export function Contacto() {
           </div>
           <ul className="divide-y divide-white/10 border-t border-white/10 bg-white/5 p-7 sm:p-10 lg:border-l lg:border-t-0">
             {[
-              ["Horario", `${BUSINESS.hours}`, "Respondemos cotizaciones en horario hábil."],
+              ["Horario", "Respuesta en menos de 3h", "Respondemos cotizaciones en horario hábil."],
               ["Base operativa", BUSINESS.base, "Salidas locales y foráneas programadas."],
               ["Factura", "CFDI + carta porte", "Indícalo en tu cotización y la emitimos el mismo día."],
             ].map(([t, v, d]) => (
@@ -75,7 +75,6 @@ export function Footer() {
     ["Inicio", "/"],
     ["Flota y medidas", "/flota"],
     ["Rutas y cobertura", "/cobertura"],
-    ["Servicios", "/servicios"],
     ["Nosotros", "/nosotros"],
   ];
   const rutasTop: [string, string][] = [
@@ -98,7 +97,7 @@ export function Footer() {
           </p>
           <p className="mt-4 text-sm text-white/70">
             <span className="font-semibold text-white">{BUSINESS.base}</span>
-            <span className="mt-1 block text-white/50">{BUSINESS.hours}</span>
+            <span className="mt-1 block text-white/50">Respuesta en menos de 3h</span>
           </p>
         </div>
         <nav aria-label="Sitio">

@@ -21,10 +21,16 @@ html {
 }
 
 /* ——— Bloques por scroll (Home) ———
-   Cada hijo directo de #home-blocks es un bloque distinto:
-   un gesto de scroll ≈ un bloque. `proximity` (no mandatory)
-   para no atrapar al usuario en bloques más altos que la pantalla
-   (Flota, Cotizador). */
+   El scroller es el viewport (html), no #home-blocks:
+   por eso el snap-type debe ir en html en laptop.
+   `proximity` (no mandatory) para no atrapar en bloques
+   más altos que la pantalla (Flota, Cotizador). */
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
+}
+
 #home-blocks {
   scroll-snap-type: y proximity;
 }
@@ -32,8 +38,8 @@ html {
 .snap-block {
   scroll-snap-align: start;
   scroll-snap-stop: normal;
-  /* Compensa el navbar fijo al anclar */
-  scroll-margin-top: 80px;
+  /* Navbar fijo h-16 = 64px */
+  scroll-margin-top: 64px;
   /* Altura natural del contenido: sin min-height forzado,
      así no se generan huecos en bloques cortos */
 }

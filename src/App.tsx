@@ -8,7 +8,6 @@ import FlotaPage from "./pages/FlotaPage";
 import Home from "./pages/Home";
 import NosotrosPage from "./pages/NosotrosPage";
 import RutaPage from "./pages/RutaPage";
-import ServiciosPage from "./pages/ServiciosPage";
 
 export default function App() {
   const route = useHashRoute();
@@ -21,7 +20,7 @@ export default function App() {
         {route.name === "flota" && <FlotaPage />}
         {route.name === "cobertura" && <CoberturaPage />}
         {route.name === "ruta" && <RutaPage slug={route.param} />}
-        {route.name === "servicios" && <ServiciosPage />}
+        {route.name === "servicios" && <NosotrosPage />}
         {route.name === "nosotros" && <NosotrosPage />}
         {route.name === "cotizar" && <CotizarPage modo="cotizar" />}
         {route.name === "contacto" && <CotizarPage modo="contacto" />}
@@ -43,7 +42,6 @@ export default function App() {
         <a href={href("/")}>Inicio</a>
         <a href={href("/flota")}>Flota</a>
         <a href={href("/cobertura")}>Cobertura</a>
-        <a href={href("/servicios")}>Servicios</a>
         <a href={href("/nosotros")}>Nosotros</a>
         <a href={href("/cotizar")}>Cotizar</a>
         <a href={href("/contacto")}>Contacto</a>

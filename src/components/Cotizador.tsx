@@ -148,7 +148,7 @@ export default function Cotizador() {
                 <span><span className="font-semibold text-[#0b2a4a]">WhatsApp:</span> {BUSINESS.whatsappDisplay}</span>
               </p>
               <p><span className="font-semibold text-[#0b2a4a]">Correo:</span> {BUSINESS.email}</p>
-              <p><span className="font-semibold text-[#0b2a4a]">Base:</span> {BUSINESS.base} · {BUSINESS.hours}</p>
+              <p><span className="font-semibold text-[#0b2a4a]">Base:</span> {BUSINESS.base}</p>
             </div>
           </div>
 

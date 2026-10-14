@@ -21,7 +21,7 @@ export function TrustStrip() {
   ];
   return (
     <div className="border-y border-[#dce4ed] bg-white">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-6 sm:px-8 lg:grid-cols-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-6 sm:px-8 lg:grid-cols-4 lg:gap-4 lg:py-4">
         {items.map(([v, l]) => (
           <div key={l} className="flex items-center gap-3">
             <span className="h-2 w-2 shrink-0 rounded-full bg-[#0077c8]" />
@@ -38,8 +38,8 @@ export function TrustStrip() {
 
 export function Flota() {
   return (
-    <section id="flota" className="bg-[#e8edf3] py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section id="flota" className="flex flex-col justify-center bg-[#e8edf3] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <p className="eyebrow text-[#0077c8]">Flota</p>
@@ -167,8 +167,8 @@ export function FlotaDetalle() {
 
 export function Cobertura() {
   return (
-    <section id="cobertura" className="bg-[#f2f5f9] py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section id="cobertura" className="flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <p className="eyebrow text-[#0077c8]">Cobertura</p>
@@ -233,17 +233,17 @@ export function Cobertura() {
 
 export function Servicios() {
   return (
-    <section id="servicios" className="bg-white py-16 sm:py-20">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section id="servicios" className="flex flex-col justify-center bg-white py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Heading eyebrow="Servicios" title="Lo que contratás, lo que recibís" desc="Tres servicios claros, precio cerrado por escrito." />
-          <a href={href("/servicios")} className="text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
+          <a href={href("/nosotros")} className="text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
             Ver detalle de servicios →
           </a>
         </div>
         <div className="mt-8 grid gap-5 lg:grid-cols-2">
           <a
-            href={href("/servicios")}
+            href={href("/nosotros")}
             className="group flex flex-col justify-between rounded-2xl bg-[#0b2a4a] p-7 text-white transition hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,74,0.35)] sm:p-8"
           >
             <div>
@@ -290,7 +290,7 @@ export function Servicios() {
             ].map((s) => (
               <a
                 key={s.t}
-                href={href("/servicios")}
+                href={href("/nosotros")}
                 className="group flex items-start justify-between gap-4 rounded-2xl border border-[#dce4ed] bg-[#f2f5f9] p-6 transition hover:-translate-y-1 hover:border-[#0077c8] hover:bg-white hover:shadow-[0_12px_28px_rgba(11,42,74,0.12)] sm:p-7"
               >
                 <div>
@@ -320,8 +320,8 @@ export function Proceso() {
     ["04", "Entregamos", "Puerta a puerta con factura.", "Puerta a puerta"],
   ];
   return (
-    <section id="proceso" className="bg-[#0b2a4a] py-16 text-white sm:py-20">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section id="proceso" className="flex flex-col justify-center bg-[#0b2a4a] py-16 text-white sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <p className="eyebrow text-sky-300">Proceso</p>
         <h2 className="font-heading mt-3 text-3xl font-bold sm:text-4xl">De la cotización a la entrega</h2>
 
@@ -381,8 +381,8 @@ export function Proceso() {
 
 export function PorQue() {
   return (
-    <section id="nosotros" className="bg-white py-16 sm:py-20">
-      <div className="mx-auto grid max-w-7xl items-stretch gap-6 px-6 sm:px-8 lg:grid-cols-2">
+    <section id="nosotros" className="flex flex-col justify-center bg-white py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+      <div className="mx-auto grid w-full max-w-7xl items-stretch gap-6 px-6 sm:px-8 lg:grid-cols-2">
         <div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-[#0b2a4a]">
           <img
             src="/hero/unidad-principal.jpg"
@@ -446,8 +446,8 @@ export function Faq() {
     ["¿Cómo reservo?", "Por WhatsApp o correo. Confirmamos unidad, horario y precio cerrado."],
   ];
   return (
-    <section id="faq" className="bg-[#f2f5f9] py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
+    <section id="faq" className="flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+      <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">
         <p className="eyebrow text-center text-[#0077c8]">FAQ</p>
         <h2 className="font-heading mt-3 text-center text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Preguntas frecuentes</h2>
         <div className="mt-8 grid items-start gap-4 md:grid-cols-2">

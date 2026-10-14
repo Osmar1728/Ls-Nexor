@@ -14,14 +14,14 @@ export default function Home() {
         <Hero />
       </ScrollBlock>
 
-      {/* Tira de confianza — ancla sin forzar pantalla */}
-      <ScrollBlock fill={false}>
-        <TrustStrip />
-      </ScrollBlock>
-
-      {/* Bloque 2 — Dolores / selector */}
+      {/* Bloque 2 — Confianza + soluciones: un solo scroll en laptop.
+          En la captura ambos deben verse juntos y el gris de Flota
+          debe quedar justo al borde inferior (lo marcado en rojo). */}
       <ScrollBlock id="bloque-soluciones">
-        <PainSelector />
+        <div className="flex flex-col bg-white pb-10 lg:min-h-[calc(100vh-64px)] lg:justify-center lg:pb-12">
+          <TrustStrip />
+          <PainSelector />
+        </div>
       </ScrollBlock>
 
       {/* Bloque 3 — Flota */}
@@ -29,19 +29,19 @@ export default function Home() {
         <Flota />
       </ScrollBlock>
 
-      {/* Bloque 4 — Cobertura */}
+      {/* Bloque 4 — Proceso / timeline (arriba de Cobertura) */}
+      <ScrollBlock id="bloque-proceso">
+        <Proceso />
+      </ScrollBlock>
+
+      {/* Bloque 5 — Cobertura */}
       <ScrollBlock id="bloque-cobertura">
         <Cobertura />
       </ScrollBlock>
 
-      {/* Bloque 5 — Servicios */}
+      {/* Bloque 6 — Servicios */}
       <ScrollBlock id="bloque-servicios">
         <Servicios />
-      </ScrollBlock>
-
-      {/* Bloque 6 — Proceso */}
-      <ScrollBlock id="bloque-proceso">
-        <Proceso />
       </ScrollBlock>
 
       {/* Bloque 7 — Nosotros / Por qué */}

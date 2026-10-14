@@ -71,8 +71,8 @@ const DOLORES = [
 
 export default function PainSelector() {
   return (
-    <section className="bg-white pb-8 pt-8 sm:pb-10 sm:pt-10">
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
+    <section className="flex flex-1 flex-col justify-center bg-white pb-8 pt-8 sm:pb-10 sm:pt-10 lg:py-6">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <p className="eyebrow text-[#0077c8]">Encuentra tu solución en segundos</p>
         <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
           ¿Qué necesitas resolver hoy?
@@ -80,12 +80,12 @@ export default function PainSelector() {
         <p className="mt-3 max-w-2xl text-[15px] text-slate-600">
           Elige tu tipo de carga o ruta y te guiamos a la solución exacta.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-4">
           {DOLORES.map(({ Icon, q, a, cta, to }) => (
             <a
               key={q}
               href={to}
-              className="group flex flex-col rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-6 transition hover:-translate-y-1 hover:border-[#0077c8] hover:bg-white hover:shadow-[0_12px_28px_rgba(11,42,74,0.12)]"
+              className="group flex flex-col rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-6 transition hover:-translate-y-1 hover:border-[#0077c8] hover:bg-white hover:shadow-[0_12px_28px_rgba(11,42,74,0.12)] lg:p-5"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#0b2a4a] text-white transition group-hover:bg-[#0077c8]">
                 <Icon />

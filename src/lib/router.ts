@@ -23,7 +23,7 @@ export function parseHash(hash: string): ParsedRoute {
   if (path === "/" || path === "") return { name: "home" };
   if (path === "/flota") return { name: "flota" };
   if (path === "/cobertura" || path === "/rutas") return { name: "cobertura" };
-  if (path === "/servicios") return { name: "servicios" };
+  if (path === "/servicios") return { name: "nosotros" };
   if (path === "/nosotros") return { name: "nosotros" };
   if (path === "/cotizar") return { name: "cotizar" };
   if (path === "/contacto") return { name: "contacto" };

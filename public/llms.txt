@@ -17,7 +17,7 @@
 - Flete dedicado puerta a puerta (principal): unidad exclusiva, sin consolidar. Local en ZMG y foráneo en 7 corredores.
 - Seguro de carga por evento (opcional): se cotiza junto al flete.
 - Maniobras de carga y descarga (adicional): personal de apoyo en origen y/o destino.
-- Detalle: https://www.lsnexor.mx/#/servicios
+- Detalle: https://www.lsnexor.mx/#/nosotros
 
 ## Flota (caja seca cerrada, medidas aproximadas)
 
