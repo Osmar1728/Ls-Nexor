@@ -383,13 +383,16 @@ export default function Cotizador() {
 
             {/* Navegación */}
             <div className="mt-6 flex items-center justify-between border-t border-slate-100 pt-5">
-              <button
-                onClick={() => paso > 0 && irAPaso(paso - 1)}
-                disabled={paso === 0}
-                className="text-sm font-semibold text-slate-400 transition enabled:text-[#0b2a4a] enabled:hover:text-[#0077c8] disabled:cursor-default"
-              >
-                ← Atrás
-              </button>
+              {paso > 0 ? (
+                <button
+                  onClick={() => irAPaso(paso - 1)}
+                  className="text-sm font-semibold text-[#0b2a4a] transition hover:text-[#0077c8]"
+                >
+                  ← Atrás
+                </button>
+              ) : (
+                <span />
+              )}
               {paso < 2 ? (
                 <button onClick={continuar} className="rounded-lg bg-[#0b2a4a] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#071d34]">
                   Continuar →

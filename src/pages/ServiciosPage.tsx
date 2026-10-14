@@ -90,12 +90,13 @@ export default function ServiciosPage() {
 
           <div className="rounded-2xl bg-[#f2f5f9] p-7 sm:p-9">
             <h3 className="font-heading text-xl font-bold text-[#0b2a4a] sm:text-2xl">¿Cómo se calcula tu precio?</h3>
-            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
               {[
                 ["Ruta", "Origen, destino y km."],
                 ["Unidad", "1T, 3.5T, Rabón u Tráiler según peso/volumen."],
-                ["Carga", "Peso, bultos y si requiere maniobras."],
-                ["Factura + seguro", "Carta porte y cobertura opcional."],
+                ["Carga", "Peso y bultos."],
+                ["Seguro", "Cobertura opcional."],
+                ["Maniobras", "Carga y descarga en origen y destino."],
               ].map(([t, d], i) => (
                 <div key={t} className="relative rounded-2xl bg-white p-5 pt-6">
                   <span className="font-heading absolute -top-3 left-5 flex h-7 w-7 items-center justify-center rounded-lg bg-[#0077c8] text-xs font-bold text-white">

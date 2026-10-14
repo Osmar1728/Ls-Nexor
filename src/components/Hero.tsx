@@ -45,7 +45,7 @@ export default function Hero() {
             Flete dedicado desde Guadalajara
           </h1>
           <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600">
-            Unidades de carga apartir de 1 hasta 15 toneladas con servicio local ZMG y entregas foráneas. Cotiza vía WhatsApp, facturación con Carta Porte y evidencia fotográfica al finalizar la entrega.
+            Unidades de carga apartir de 1 hasta 15 toneladas con servicio local ZMG y entregas foráneas. Cotiza con nosotros, facturación de inmediato, evidencia fotográfica, cuenta espejo.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <button
@@ -64,7 +64,7 @@ export default function Hero() {
           <div className="mt-7 grid max-w-lg grid-cols-3 gap-6 border-t border-[#dce4ed] pt-6">
             {[
               ["100%", "Dedicado"],
-              ["7+1", "ZMG + rutas"],
+              ["7 + 1", "ZMG + rutas"],
               ["- 3h", "Respuesta"],
             ].map(([v, l]) => (
               <div key={l}>

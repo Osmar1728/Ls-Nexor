@@ -9,13 +9,13 @@ export default function NosotrosPage() {
       <VideoHero
         video="/hero/video/hero-main.webm"
         poster="/hero-rutas-bajio.webp"
-        eyebrow="Nosotros · Operador PyME"
+        eyebrow="Operador PyME"
         title="Acompañamiento directo en cada kilómetro"
         desc="Logística y Servicio NEXOR. Pocas unidades, bien mantenidas y comunicación directa. Sin conmutador, sin ejecutivos rotando tu cuenta."
         crumbs={[["Inicio", "/"], ["Nosotros", "/nosotros"]]}
         ctaPrimary={{ label: "Cotizar directo", to: "/cotizar" }}
         ctaSecondary={{ label: "Contactar", to: "/contacto" }}
-        stats={[["100%", "Dedicado"], ["<3h", "Respuesta"], ["7+1", "ZMG + rutas"]]}
+        stats={[["100%", "Dedicado"], [" - 3h", "Respuesta"], ["7 + 1", "ZMG + rutas"]]}
       />
 
       <section className="bg-white py-16">
@@ -31,32 +31,19 @@ export default function NosotrosPage() {
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a] via-[#0b2a4a]/25 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 grid grid-cols-3 gap-3 p-5 sm:p-6">
-              {[
-                ["100%", "Dedicado"],
-                ["7+1", "ZMG + rutas"],
-                ["<3h", "Respuesta"],
-              ].map(([v, l]) => (
-                <div key={l} className="rounded-xl bg-white/10 p-3 text-center backdrop-blur-sm">
-                  <p className="font-heading text-lg font-bold text-white sm:text-xl">{v}</p>
-                  <p className="text-[11px] font-medium uppercase tracking-wider text-white/70">{l}</p>
-                </div>
-              ))}
-            </div>
           </div>
           <div className="flex flex-col justify-center">
             <p className="eyebrow text-[#0077c8]">Por qué existimos</p>
             <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">Velocidad y palabra para PyMEs que no pueden parar</h2>
             <p className="mt-4 text-[15px] leading-relaxed text-slate-600">
-              Nacimos en Guadalajara para resolver lo que los grandes operadores complican: un flete dedicado,
-              con precio cerrado por WhatsApp en menos de 3 horas, factura con carta porte y entrega con evidencia.
+              Sabemos que la logística no para, es por eso que nos comprometemos en brindarte un servicio que cumpla con todos tus requerimientos.
             </p>
             <ul className="mt-6 space-y-3">
               {[
-                "Precio cerrado por escrito antes de cargar",
-                "Factura con carta porte el mismo día",
+                "Precios acorde a los servicios contratados",
+                "Facturación inmediata",
                 "Foto de entrega + ubicación en ruta",
-                `Base ${BUSINESS.base} · ${BUSINESS.hours}`,
+                `Base ${BUSINESS.base}`,
               ].map((c) => (
                 <li key={c} className="flex items-start gap-3 text-sm text-[#0b2a4a]">
                   <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700">✓</span>
@@ -74,8 +61,8 @@ export default function NosotrosPage() {
           <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">Tres razones para quedarse</h2>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {[
-              ["<3h", "Respuesta real", "Cotización por WhatsApp en horario hábil, sin conmutador ni vueltas."],
-              ["$ cerrado", "Precio honesto", "Si tu carga pide unidad menor, te lo decimos. Lo escrito es lo que pagas."],
+              ["- 3h", "Respuesta real", "Cotización por WhatsApp en horario hábil, sin conmutador ni vueltas."],
+              ["Precio", "Precios dignos", "Precios relacionados a los servicios prestados."],
               ["1 a 1", "Siempre avisado", "Ubicación y avisos durante tu flete, de la recolección a la entrega."],
             ].map(([v, t, d]) => (
               <div key={t} className="rounded-2xl border border-[#dce4ed] bg-white p-7">

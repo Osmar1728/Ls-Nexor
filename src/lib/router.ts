@@ -105,7 +105,7 @@ export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   },
   flota: {
     title: "Flota y medidas | LS NEXOR Guadalajara",
-    desc: "Pickup 1T, camión 3.5T caja seca, Rabón 8T y Tráiler 15+T. Medidas, volumen y uso recomendado. Cotiza con la unidad exacta.",
+    desc: "Camioneta 1T, camión 3.5T caja seca, Rabón 8T y Tráiler 15+T. Medidas, volumen y uso recomendado. Cotiza con la unidad exacta.",
   },
   cobertura: {
     title: "Cobertura y rutas | LS NEXOR",

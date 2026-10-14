@@ -439,7 +439,7 @@ export function PorQue() {
 export function Faq() {
   const faqs = [
     ["¿Cuánto cuesta un flete?", "Depende de origen, destino, unidad y carga. Envíanos el cotizador y respondemos en menos de 3 horas (Lun–Vie 8–18)."],
-    ["¿Qué unidades tienen?", "Pickup Express 1T, 3.5T caja seca, Rabón 8T y Trailer 15+T. Todas caja cerrada; medidas aproximadas."],
+    ["¿Qué unidades tienen?", "Camioneta 1T, 3.5T caja seca, Rabón 8T y Trailer 15+T. Todas caja cerrada; medidas aproximadas."],
     ["¿Qué incluye el servicio?", "Flete dedicado puerta a puerta. Seguro de carga y maniobras se cotizan como adicionales."],
     ["¿A dónde llegan?", "ZMG + San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Otras rutas bajo cotización."],
     ["¿Emiten factura?", "Sí. Indícalo en el formulario y emitimos factura con carta porte."],

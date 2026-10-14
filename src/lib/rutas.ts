@@ -38,7 +38,7 @@ export const RUTAS: RutaInfo[] = [
     imagen: "/rutas/puerto-vallarta.webp",
     destino: "Puerto Vallarta",
     distancia: "~ 300 km desde GDL",
-    ideal: "Pickup 1T y 3.5T para hotelería, retail y mudanzas a costa",
+    ideal: "Camioneta 1T y 3.5T para hotelería, retail y mudanzas a costa",
     casos: ["Abasto a hoteles y restaurantes", "Mudanzas GDL ↔ Vallarta", "Equipos y mobiliario"],
     faqs: [
       ["¿Bajan con caja seca a Vallarta?", "Sí, toda la flota es caja cerrada, ideal para costa por lluvia y seguridad."],
@@ -62,7 +62,7 @@ export const RUTAS: RutaInfo[] = [
     imagen: "/rutas/tequila.webp",
     destino: "Tequila",
     distancia: "~ 60 km desde GDL",
-    ideal: "Pickup y 3.5T para industria tequilera y proveeduría local",
+    ideal: "Camioneta 1T y 3.5T para industria tequilera y proveeduría local",
     casos: ["Proveeduría a destilerías", "Movimientos locales de insumos", "Repartos express"],
     faqs: [
       ["¿Hacen servicio local en ZMG y Tequila?", "Sí, recolectamos y entregamos puerta a puerta con unidad dedicada."],

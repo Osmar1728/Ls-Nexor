@@ -6,7 +6,6 @@ export const BUSINESS = {
   whatsappDisplay: "+52 33 1319 6892",
   whatsappNumber: "523313196892",
   base: "Guadalajara, Jalisco",
-  hours: "Lun–Vie 8am–6pm",
   facturacion: true,
   logo: "/logo-ls-nexor.webp",
   logoIcon: "/logo-ls-nexor-icon.webp",
@@ -42,7 +41,7 @@ export interface FleetUnit {
 export const FLEET_UNITS: FleetUnit[] = [
   {
     id: "pickup",
-    name: "Camioneta Express",
+    name: "Camioneta 1 Tonelada",
     short: "1 Ton",
     maxWeight: "1,000 kg / 1 Ton",
     dimensions: { largo: "2.45 m", ancho: "1.80 m", alto: "1.70 m" },
@@ -85,11 +84,11 @@ export const FLEET_UNITS: FleetUnit[] = [
 export const FLOTA: FlotaUnit[] = [
   {
     id: "pickup",
-    nombre: "Pickup / Camioneta Express",
+    nombre: "Camioneta 1 Tonelada",
     capacidad: "Hasta 1 ton",
     medidas: "2.45 x 1.80 x 1.70 m",
     volumen: "7.5 m³",
-    desc: "Pickup / estaquitas con caja cerrada. Ideal para fletes locales y repartos.",
+    desc: "Camioneta de 1 tonelada / estaquitas con caja cerrada. Ideal para fletes locales y repartos.",
   },
   {
     id: "3.5t",
@@ -166,7 +165,7 @@ export const initialQuote: QuoteForm = {
   telefono: "",
   email: "",
   tipo: "Local",
-  unidad: "Pickup / Camioneta Express",
+  unidad: "Camioneta 1 Tonelada",
   origen: "",
   destino: "",
   fecha: "",

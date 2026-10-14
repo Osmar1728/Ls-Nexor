@@ -21,7 +21,7 @@
 
 ## Flota (caja seca cerrada, medidas aproximadas)
 
-- Pickup / Camioneta Express — hasta 1 ton, 2.45 x 1.80 x 1.70 m, 7.5 m³. Fletes locales y repartos express.
+- Camioneta 1 Tonelada — hasta 1 ton, 2.45 x 1.80 x 1.70 m, 7.5 m³. Fletes locales y repartos express.
 - Camión 3.5 Toneladas (Caja Seca) — hasta 3.5 ton, 4.50 x 2.20 x 2.20 m, 21 m³. Mudanzas y carga comercial.
 - Camión Rabón (8 Ton) — hasta 8 ton, 7.00 x 2.50 x 2.60 m, 45 m³. Carga industrial media y rutas regionales.
 - Trailer / Flete Pesado (15+ Ton) — 15+ ton, 16.00 x 2.60 x 2.70 m, 100 m³. Alto volumen y larga distancia.

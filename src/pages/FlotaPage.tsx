@@ -92,7 +92,7 @@ export default function FlotaPage() {
             <div className="p-7 sm:p-10">
               <p className="eyebrow text-sky-300">Compromiso honesto</p>
               <h2 className="font-heading mt-3 text-2xl font-bold sm:text-3xl">
-                Si tu carga no necesita esa unidad, te lo decimos
+                Tenemos el compromiso de ofrecer el mejor servicio adecuado a tus necesidades
               </h2>
               <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/70">
                 No queremos cobrar de más ni mandarte un camión sobrado. Si con una unidad menor sale tu flete,
@@ -101,9 +101,9 @@ export default function FlotaPage() {
             </div>
             <ul className="divide-y divide-white/10 border-t border-white/10 bg-white/5 p-7 sm:p-10 lg:border-l lg:border-t-0">
               {[
-                ["Unidad a tu medida", "Ni más grande ni más cara de lo que tu carga pide."],
-                ["Te avisamos antes", "Si vemos sobrecupo o riesgo, lo decimos antes de cargar."],
-                ["Precio cerrado", "Lo cotizado por escrito es lo que pagas. Sin sorpresas."],
+                ["Unidad a tu medida", "Calculamos el cubicaje según las dimensiones de tu carga para asignar la unidad correcta."],
+                ["Notificación anticipada", "Nos anticipamos con toda la información correspondiente para evitar fletes en falso."],
+                ["Precios correctos", "Precios acordes a los servicios prestados; en caso de cargos extras, notificamos para la autorización del cliente."],
               ].map(([t, d]) => (
                 <li key={t} className="flex gap-4 py-4 first:pt-0 last:pb-0">
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-emerald-500 font-heading text-sm font-bold text-white">
