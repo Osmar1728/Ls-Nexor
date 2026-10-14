@@ -1,0 +1,9 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# SPA con hash-routing: todo lo sirve index.html (los assets existen tal cual)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

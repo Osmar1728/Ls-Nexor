@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Bots de IA bienvenidos (alimentan respuestas con datos oficiales)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+# Reemplazar con el dominio final cuando esté publicado
+Sitemap: https://www.lsnexor.mx/sitemap.xml
