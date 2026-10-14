@@ -11,7 +11,7 @@ interface Props {
 
 export default function PageHero({ eyebrow, title, desc, crumbs, ctaPrimary, ctaSecondary }: Props) {
   return (
-    <section className="bg-[#0b2a4a] pb-10 pt-[132px] text-white sm:pt-[140px]">
+    <section className="bg-[#0b2a4a] pb-10 pt-[96px] text-white sm:pt-[104px]">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         {crumbs && crumbs.length > 0 && (
           <nav aria-label="Breadcrumb" className="mb-4 flex flex-wrap items-center gap-2 text-xs text-white/60">

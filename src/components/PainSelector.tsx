@@ -41,8 +41,8 @@ function DocCheckIcon({ className = "h-7 w-7" }: { className?: string }) {
 const DOLORES = [
   {
     Icon: BoltIcon,
-    q: "«Lo necesito hoy en Guadalajara»",
-    a: "ZMG mismo día con unidad dedicada",
+    q: "«Lo necesito en Guadalajara»",
+    a: "ZMG con unidad dedicada",
     cta: "Cotizar local",
     to: buildCotizarHref({ origen: "Guadalajara", tipo: "Local" }),
   },
@@ -56,14 +56,14 @@ const DOLORES = [
   {
     Icon: PinIcon,
     q: "«Me urge foráneo a Bajío u Occidente»",
-    a: "7 rutas directas en 24–48h",
+    a: "7 rutas directas",
     cta: "Ver rutas",
     to: href("/cobertura"),
   },
   {
     Icon: DocCheckIcon,
-    q: "«Necesito factura y precio cerrado»",
-    a: "CFDI + Carta Porte por escrito en <3h",
+    q: "«Necesito factura»",
+    a: "CFDI + Carta Porte",
     cta: "Cotizar foráneo",
     to: buildCotizarHref({ origen: "Guadalajara", tipo: "Foráneo" }),
   },

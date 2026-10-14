@@ -48,7 +48,7 @@ export default function NosotrosPage() {
             <p className="eyebrow text-[#0077c8]">Por qué existimos</p>
             <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">Velocidad y palabra para PyMEs que no pueden parar</h2>
             <p className="mt-4 text-[15px] leading-relaxed text-slate-600">
-              Nacimos en Guadalajara para resolver lo que los grandes operadores complican: un flete dedicado hoy mismo,
+              Nacimos en Guadalajara para resolver lo que los grandes operadores complican: un flete dedicado,
               con precio cerrado por WhatsApp en menos de 3 horas, factura con carta porte y entrega con evidencia.
             </p>
             <ul className="mt-6 space-y-3">
@@ -97,7 +97,7 @@ export default function NosotrosPage() {
               <ul className="mt-5 space-y-3 text-sm text-white/85">
                 <li>✓ Cotización en menos de 3 horas por WhatsApp</li>
                 <li>✓ Avisos durante todo el viaje</li>
-                <li>✓ ZMG hoy mismo, foráneo 24–48h</li>
+                <li>✓ ZMG y foráneo con unidad dedicada</li>
                 <li>✓ Ideal 1T a 15T para PyME</li>
               </ul>
             </div>

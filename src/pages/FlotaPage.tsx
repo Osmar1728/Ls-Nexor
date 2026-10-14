@@ -7,11 +7,11 @@ export default function FlotaPage() {
 
   return (
     <>
-      <section className="relative flex flex-col justify-center overflow-hidden bg-[#0b2a4a] pb-12 pt-[132px] text-white sm:pt-[140px]">
+      <section className="relative flex flex-col justify-center overflow-hidden bg-[#0b2a4a] pb-12 pt-[96px] text-white sm:pt-[104px]">
         <video
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover"
-          src="/hero/video/hero-main.webm"
+          src="/hero/video/trailer-24s.webm"
           poster="/hero-rutas-bajio.webp"
           autoPlay
           muted
@@ -58,7 +58,7 @@ export default function FlotaPage() {
 
       <FlotaDetalle />
 
-      <section id="comparativa" className="scroll-mt-[110px] bg-[#f2f5f9] py-16">
+      <section id="comparativa" className="scroll-mt-20 bg-[#f2f5f9] py-16">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <p className="eyebrow text-[#0077c8]">Comparativa rápida</p>
           <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">¿Cuál te conviene?</h2>

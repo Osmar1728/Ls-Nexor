@@ -25,7 +25,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
   }
 
   const wa = `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(
-    `Hola LS NEXOR, quiero cotizar flete GDL → ${ruta.destino}. ¿Tiempo y precio con unidad dedicada?`
+    `Hola LS NEXOR, quiero cotizar flete GDL → ${ruta.destino}. ¿Precio con unidad dedicada?`
   )}`;
 
   return (
@@ -33,7 +33,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
       <VideoHero
         video="/hero/video/hero-ruta.webm"
         poster="/hero-rutas-bajio.webp"
-        eyebrow={`Foráneo · ${ruta.tiempo} · ${ruta.distancia}`}
+        eyebrow={`Foráneo · ${ruta.distancia}`}
         title={`Flete Guadalajara → ${ruta.destino}`}
         desc={`${ruta.ideal}. Unidad dedicada puerta a puerta, precio cerrado por escrito, factura con carta porte y seguro opcional.`}
         crumbs={[["Inicio", "/"], ["Cobertura", "/cobertura"], [ruta.destino, `/ruta/${ruta.slug}`]]}
@@ -53,8 +53,8 @@ export default function RutaPage({ slug }: { slug?: string }) {
                   <p className="font-heading text-3xl font-bold text-white">{ruta.distancia}</p>
                 </div>
                 <div className="text-right">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-sky-300">Tiempo</p>
-                  <p className="font-heading text-3xl font-bold text-white">{ruta.tiempo}</p>
+                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-sky-300">Unidad</p>
+                  <p className="font-heading text-3xl font-bold text-white">Dedicada</p>
                 </div>
               </div>
               <span className="absolute left-5 top-5 rounded-full bg-white/90 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-[#0b2a4a] backdrop-blur-sm">

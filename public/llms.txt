@@ -14,7 +14,7 @@
 
 ## Servicios
 
-- Flete dedicado puerta a puerta (principal): unidad exclusiva, sin consolidar. Local ZMG el mismo día, foráneo 24–48h.
+- Flete dedicado puerta a puerta (principal): unidad exclusiva, sin consolidar. Local en ZMG y foráneo en 7 corredores.
 - Seguro de carga por evento (opcional): se cotiza junto al flete.
 - Maniobras de carga y descarga (adicional): personal de apoyo en origen y/o destino.
 - Detalle: https://www.lsnexor.mx/#/servicios
@@ -29,20 +29,20 @@
 
 ## Cobertura
 
-- Local mismo día (ZMG): Guadalajara, Zapopan, Tlaquepaque, Tonalá, Tlajomulco, El Salto, Zapotlanejo, Ixtlahuacán de los Membrillos, Chapala.
-- Foráneo 24–48h (7 rutas base): San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao, Manzanillo.
+- Local (ZMG): Guadalajara, Zapopan, Tlaquepaque, Tonalá, Tlajomulco, El Salto, Zapotlanejo, Ixtlahuacán de los Membrillos, Chapala.
+- Foráneo (7 rutas base): San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao, Manzanillo.
 - Otras rutas nacionales bajo cotización.
 - Mapa de rutas: https://www.lsnexor.mx/#/cobertura
 
-## Rutas foráneas (fichas con tiempos y unidad ideal)
+## Rutas foráneas (fichas con distancia y unidad ideal)
 
-- GDL → San Luis Potosí (24–48h, ~330 km): https://www.lsnexor.mx/#/ruta/san-luis-potosi
-- GDL → Querétaro (24–48h, ~400 km): https://www.lsnexor.mx/#/ruta/queretaro
-- GDL → Puerto Vallarta (24h, ~300 km): https://www.lsnexor.mx/#/ruta/puerto-vallarta
-- GDL → Morelia (24–48h, ~290 km): https://www.lsnexor.mx/#/ruta/morelia
-- GDL → Tequila (mismo día, ~60 km): https://www.lsnexor.mx/#/ruta/tequila
-- GDL → Silao (24–48h, ~230 km): https://www.lsnexor.mx/#/ruta/silao
-- GDL → Manzanillo (24h, ~290 km): https://www.lsnexor.mx/#/ruta/manzanillo
+- GDL → San Luis Potosí (~330 km): https://www.lsnexor.mx/#/ruta/san-luis-potosi
+- GDL → Querétaro (~400 km): https://www.lsnexor.mx/#/ruta/queretaro
+- GDL → Puerto Vallarta (~300 km): https://www.lsnexor.mx/#/ruta/puerto-vallarta
+- GDL → Morelia (~290 km): https://www.lsnexor.mx/#/ruta/morelia
+- GDL → Tequila (~60 km): https://www.lsnexor.mx/#/ruta/tequila
+- GDL → Silao (~230 km): https://www.lsnexor.mx/#/ruta/silao
+- GDL → Manzanillo (~290 km): https://www.lsnexor.mx/#/ruta/manzanillo
 
 ## Proceso
 

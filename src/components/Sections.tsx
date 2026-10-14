@@ -14,10 +14,10 @@ function Heading({ eyebrow, title, desc }: { eyebrow: string; title: string; des
 
 export function TrustStrip() {
   const items = [
-    ["ZMG hoy mismo", "Servicio local"],
-    ["Foráneo 24–48h", "7 rutas base"],
+    ["Servicio local", "ZMG y Jalisco"],
+    ["Rutas foráneas", "7 corredores"],
     ["Caja seca", "Toda la flota"],
-    ["Factura + Seguro", "Cobertura opcional"],
+    ["Seguro de mercancia", "Cobertura opcional"],
   ];
   return (
     <div className="border-y border-[#dce4ed] bg-white">
@@ -57,7 +57,6 @@ export function Flota() {
           {FLEET_UNITS.map((u) => (
             <a
               key={u.id}
-              href={href("/flota")}
               className="group flex flex-col overflow-hidden rounded-2xl bg-white p-4 transition hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,74,0.16)] sm:p-5"
             >
               <div className="overflow-hidden rounded-xl bg-[#f2f5f9]">
@@ -109,7 +108,7 @@ export function FlotaDetalle() {
               <article
                 key={u.id}
                 id={`unidad-${u.id}`}
-                className="grid scroll-mt-[110px] overflow-hidden rounded-2xl border border-[#dce4ed] bg-white shadow-[0_8px_30px_rgba(11,42,74,0.08)] lg:grid-cols-2"
+                className="grid scroll-mt-20 overflow-hidden rounded-2xl border border-[#dce4ed] bg-white shadow-[0_8px_30px_rgba(11,42,74,0.08)] lg:grid-cols-2"
               >
                 <div className={`relative min-h-[260px] bg-[#0b2a4a] lg:min-h-[360px] ${flip ? "lg:order-2" : ""}`}>
                   <img
@@ -126,7 +125,6 @@ export function FlotaDetalle() {
                   </span>
                 </div>
                 <div className={`p-6 sm:p-9 ${flip ? "lg:order-1" : ""}`}>
-                  <p className="eyebrow text-[#0077c8]">Ficha {i + 1} de 4</p>
                   <h3 className="font-heading mt-2 text-2xl font-bold text-[#005a97]">{u.name}</h3>
                   <dl className="mt-5 divide-y divide-slate-100 border-y border-slate-100">
                     {[
@@ -174,8 +172,8 @@ export function Cobertura() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <p className="eyebrow text-[#0077c8]">Cobertura</p>
-            <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Base en Guadalajara, rutas semanales</h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-slate-600">Operación local en ZMG el mismo día y 7 corredores foráneos directos. Otras rutas bajo cotización.</p>
+            <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Base en Guadalajara, cobertura foránea</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-slate-600">Operación local en ZMG y 7 corredores foráneos directos. Otras rutas bajo cotización.</p>
           </div>
           <a href={href("/cobertura")} className="text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
             Ver página de rutas →
@@ -183,7 +181,7 @@ export function Cobertura() {
         </div>
         <div className="mt-8 grid gap-5 lg:grid-cols-[1fr_1.4fr]">
           <div className="flex flex-col rounded-2xl bg-[#0b2a4a] p-6 text-white sm:p-7">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Local · ZMG · Mismo día</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Local · ZMG </p>
             <div className="mt-4 grid grid-cols-3 gap-2">
               {COBERTURA_LOCAL.map((c) => (
                 <span
@@ -195,7 +193,7 @@ export function Cobertura() {
               ))}
             </div>
             <p className="mt-5 border-t border-white/15 pt-4 text-sm leading-relaxed text-white/70">
-              Recolección y entrega el mismo día, puerta a puerta, con unidad dedicada.
+              Recolección y entrega con unidad dedicada.
             </p>
             <div className="relative mt-5 overflow-hidden rounded-xl">
               <img
@@ -207,9 +205,6 @@ export function Cobertura() {
                   e.currentTarget.style.display = "none";
                 }}
               />
-              <span className="absolute bottom-3 right-3 rounded-full bg-[#0b2a4a]/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
-                ZMG · Hoy mismo
-              </span>
             </div>
           </div>
           <div className="flex flex-col rounded-2xl border border-[#dce4ed] bg-white p-6 sm:p-7">
@@ -221,9 +216,6 @@ export function Cobertura() {
                     <p className="text-[15px] font-semibold text-[#0b2a4a] group-hover:text-[#0077c8]">
                       GDL → {r.destino}
                     </p>
-                    <span className="shrink-0 rounded-full bg-[#e6f3fa] px-3 py-1 text-xs font-bold text-[#0b2a4a]">
-                      {r.tiempo}
-                    </span>
                   </div>
                   <p className="mt-0.5 text-[13px] text-slate-500">{r.distancia}</p>
                 </a>
@@ -263,7 +255,7 @@ export function Servicios() {
               </div>
               <h3 className="font-heading mt-4 text-2xl font-bold sm:text-3xl">Flete dedicado</h3>
               <p className="mt-2 max-w-md text-[15px] leading-relaxed text-white/70">
-                Unidad exclusiva para tu mercancía. Sin consolidar, puerta a puerta, con tiempos de 24–48h en foráneo.
+                Unidad exclusiva para tu mercancía. Sin consolidar, puerta a puerta.
               </p>
               <ul className="mt-5 space-y-2.5">
                 {["Unidad exclusiva, sin compartir", "Puerta a puerta local y foráneo", "Precio cerrado por escrito"].map((f) => (
@@ -406,7 +398,7 @@ export function PorQue() {
             {[
               ["100%", "Dedicado"],
               ["7+1", "ZMG + rutas"],
-              ["24–48h", "Foráneo"],
+              ["Nacional", "Bajo cotización"],
             ].map(([v, l]) => (
               <div key={l} className="rounded-xl bg-white/10 p-3 text-center backdrop-blur-sm">
                 <p className="font-heading text-lg font-bold text-white sm:text-xl">{v}</p>

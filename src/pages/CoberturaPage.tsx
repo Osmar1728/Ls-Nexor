@@ -9,15 +9,15 @@ export default function CoberturaPage() {
   return (
     <>
       <VideoHero
-        video="/hero/video/hero-ruta.webm"
+        video="/hero/video/dron-carretera.webm"
         poster="/hero-rutas-bajio.webp"
         eyebrow="Cobertura · Base Guadalajara"
-        title="ZMG hoy mismo + 7 rutas foráneas directas"
-        desc="Operación local el mismo día y corredores semanales al Bajío y Occidente. Unidad dedicada, sin consolidar. ¿Otra ruta? Cotizamos nacional bajo solicitud."
+        title="ZMG + 7 rutas foráneas directas"
+        desc="Operación local y corredores foráneos nacionales. Unidad dedicada. ¿Otra ruta? Cotizamos nacional bajo solicitud."
         crumbs={[["Inicio", "/"], ["Cobertura", "/cobertura"]]}
         ctaPrimary={{ label: "Cotizar mi ruta", to: "/cotizar" }}
         ctaSecondary={{ label: "Ver flota", to: "/flota" }}
-        stats={[["7+1", "ZMG + rutas"], ["24–48h", "Foráneo"], ["100%", "Dedicado"]]}
+        stats={[["7 + 1", "ZMG + rutas"], ["Foráneo", "Nacional"], ["100%", "Dedicado"]]}
       />
 
       <section className="bg-white py-16">
@@ -32,12 +32,9 @@ export default function CoberturaPage() {
                 e.currentTarget.style.display = "none";
               }}
             />
-            <span className="absolute bottom-4 right-4 rounded-full bg-[#0b2a4a]/85 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
-              ZMG · Hoy mismo
-            </span>
           </div>
           <div className="flex flex-col justify-center rounded-2xl bg-[#0b2a4a] p-7 text-white sm:p-9">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Local · Mismo día</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Local</p>
             <h2 className="font-heading mt-2 text-2xl font-bold sm:text-3xl">Zona Metropolitana de Guadalajara</h2>
             <div className="mt-5 grid grid-cols-3 gap-2">
               {COBERTURA_LOCAL.map((c) => (
@@ -47,7 +44,7 @@ export default function CoberturaPage() {
               ))}
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/70">
-              Recolección y entrega puerta a puerta el mismo día, con maniobras opcionales.
+              Recolección y entrega con maniobras opcionales.
             </p>
             <a href={buildCotizarHref({ origen: "Guadalajara", tipo: "Local" })} className="mt-4 text-sm font-semibold text-sky-300 hover:text-white">
               Cotizar local →
@@ -58,9 +55,9 @@ export default function CoberturaPage() {
 
       <section className="bg-[#f2f5f9] py-16">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <p className="eyebrow text-[#0077c8]">Foráneo · 24–48h</p>
-          <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">Elige tu corredor</h2>
-          <p className="mt-2 text-[15px] text-slate-600">Cada ruta tiene ficha con tiempos, unidad ideal y preguntas. Toca para ver detalle.</p>
+          <p className="eyebrow text-[#0077c8]">Foráneo</p>
+          <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">Elige tu destino</h2>
+          <p className="mt-2 text-[15px] text-slate-600">Cada ruta tiene ficha con distancias, unidad ideal y preguntas. Toca para ver detalle.</p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {RUTAS.map((r, i) => (
               <a
@@ -71,9 +68,6 @@ export default function CoberturaPage() {
                 <div className="flex items-center justify-between gap-3">
                   <span className="font-heading flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b2a4a] text-sm font-bold text-white">
                     {i + 1}
-                  </span>
-                  <span className="rounded-full bg-[#e6f3fa] px-3 py-1 text-xs font-bold text-[#0b2a4a]">
-                    {r.tiempo}
                   </span>
                 </div>
                 <h3 className="mt-4 text-lg font-bold text-[#0b2a4a] group-hover:text-[#0077c8]">

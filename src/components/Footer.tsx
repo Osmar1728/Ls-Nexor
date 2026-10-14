@@ -33,7 +33,7 @@ export function Contacto() {
           <ul className="divide-y divide-white/10 border-t border-white/10 bg-white/5 p-7 sm:p-10 lg:border-l lg:border-t-0">
             {[
               ["Horario", `${BUSINESS.hours}`, "Respondemos cotizaciones en horario hábil."],
-              ["Base operativa", BUSINESS.base, "Salidas locales el mismo día y foráneas programadas."],
+              ["Base operativa", BUSINESS.base, "Salidas locales y foráneas programadas."],
               ["Factura", "CFDI + carta porte", "Indícalo en tu cotización y la emitimos el mismo día."],
             ].map(([t, v, d]) => (
               <li key={t} className="py-4 first:pt-0 last:pb-0">
@@ -55,7 +55,7 @@ export function CtaBanda() {
       <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-6 sm:px-8 lg:flex-row lg:items-center">
         <div>
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-300">Respuesta en menos de 3 horas</p>
-          <h2 className="font-heading mt-2 text-2xl font-bold sm:text-3xl">¿Ya sabes origen y destino? Cotizamos hoy mismo.</h2>
+          <h2 className="font-heading mt-2 text-2xl font-bold sm:text-3xl">¿Ya sabes origen y destino? Cotiza en 1 minuto.</h2>
         </div>
         <div className="flex w-full flex-col gap-3 sm:flex-row lg:w-auto">
           <a href={href("/cotizar")} className="rounded-lg bg-[#0077c8] px-7 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-[#005a97]">

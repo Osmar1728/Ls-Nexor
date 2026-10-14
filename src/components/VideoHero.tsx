@@ -15,7 +15,7 @@ interface Props {
 /** Hero a video completo, mismo formato en todas las páginas internas. */
 export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs, ctaPrimary, ctaSecondary, stats }: Props) {
   return (
-    <section className="relative flex flex-col justify-center overflow-hidden bg-[#0b2a4a] pb-12 pt-[132px] text-white sm:pt-[140px]">
+    <section className="relative flex flex-col justify-center overflow-hidden bg-[#0b2a4a] pb-12 pt-[96px] text-white sm:pt-[104px]">
       <video
         aria-hidden="true"
         className="absolute inset-0 h-full w-full object-cover"

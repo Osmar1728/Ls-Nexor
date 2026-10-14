@@ -33,7 +33,7 @@ html {
   scroll-snap-align: start;
   scroll-snap-stop: normal;
   /* Compensa el navbar fijo al anclar */
-  scroll-margin-top: 100px;
+  scroll-margin-top: 80px;
   /* Altura natural del contenido: sin min-height forzado,
      así no se generan huecos en bloques cortos */
 }

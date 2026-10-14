@@ -1,7 +1,6 @@
 export interface RutaInfo {
   slug: string;
   destino: string;
-  tiempo: string;
   distancia: string;
   imagen: string;
   ideal: string;
@@ -14,12 +13,11 @@ export const RUTAS: RutaInfo[] = [
     slug: "san-luis-potosi",
     imagen: "/rutas/san-luis-potosi.webp",
     destino: "San Luis Potosí",
-    tiempo: "24–48h",
-    distancia: "~330 km desde GDL",
+    distancia: "~ 330 km desde GDL",
     ideal: "3.5T y Rabón para carga comercial e industrial al Bajío",
     casos: ["Refacciones y mercancía comercial", "Mudanza foránea 2–3 habitaciones", "Carga consolidada PyME"],
     faqs: [
-      ["¿Cuánto tarda GDL → SLP?", "Salida directa en 24–48h con unidad dedicada, sin consolidar ni trasbordos."],
+      ["¿Cómo opera GDL → SLP?", "Salida directa con unidad dedicada, sin consolidar ni trasbordos."],
       ["¿Qué unidad me conviene?", "3.5T para mudanzas y carga media, Rabón 8T para carga industrial. Te confirmamos por fotos y peso."],
     ],
   },
@@ -27,8 +25,7 @@ export const RUTAS: RutaInfo[] = [
     slug: "queretaro",
     imagen: "/rutas/queretaro.webp",
     destino: "Querétaro",
-    tiempo: "24–48h",
-    distancia: "~400 km desde GDL",
+    distancia: "~ 400 km desde GDL",
     ideal: "Corredor industrial Bajío: Rabón y Tráiler para alto volumen",
     casos: ["Proveeduría industrial", "Muebles y mercancía voluminosa", "Carga 8T a 15T+"],
     faqs: [
@@ -40,8 +37,7 @@ export const RUTAS: RutaInfo[] = [
     slug: "puerto-vallarta",
     imagen: "/rutas/puerto-vallarta.webp",
     destino: "Puerto Vallarta",
-    tiempo: "24h",
-    distancia: "~300 km desde GDL",
+    distancia: "~ 300 km desde GDL",
     ideal: "Pickup 1T y 3.5T para hotelería, retail y mudanzas a costa",
     casos: ["Abasto a hoteles y restaurantes", "Mudanzas GDL ↔ Vallarta", "Equipos y mobiliario"],
     faqs: [
@@ -53,12 +49,11 @@ export const RUTAS: RutaInfo[] = [
     slug: "morelia",
     imagen: "/rutas/morelia.webp",
     destino: "Morelia",
-    tiempo: "24–48h",
-    distancia: "~290 km desde GDL",
+    distancia: "~ 290 km desde GDL",
     ideal: "3.5T para carga comercial Michoacán–Jalisco",
     casos: ["Distribución comercial", "Mudanzas regionales", "Carga general tarimada"],
     faqs: [
-      ["¿Tienen salidas semanales?", "Sí, operamos la ruta cada semana. Cotiza y apartamos unidad y horario."],
+      ["¿Operan la ruta a Morelia?", "Sí. Cotiza y apartamos unidad y horario."],
       ["¿El precio incluye maniobras?", "Se cotizan como adicional. Indícalo y te damos precio cerrado por escrito."],
     ],
   },
@@ -66,12 +61,11 @@ export const RUTAS: RutaInfo[] = [
     slug: "tequila",
     imagen: "/rutas/tequila.webp",
     destino: "Tequila",
-    tiempo: "Mismo día",
-    distancia: "~60 km desde GDL",
+    distancia: "~ 60 km desde GDL",
     ideal: "Pickup y 3.5T para industria tequilera y proveeduría local",
     casos: ["Proveeduría a destilerías", "Movimientos locales de insumos", "Repartos express"],
     faqs: [
-      ["¿Hacen servicio local el mismo día?", "Sí, en ZMG y Tequila recolectamos y entregamos el mismo día."],
+      ["¿Hacen servicio local en ZMG y Tequila?", "Sí, recolectamos y entregamos puerta a puerta con unidad dedicada."],
       ["¿Pueden facturar a empresas tequileras?", "Sí, emitimos factura y carta porte para tus auditorías."],
     ],
   },
@@ -79,8 +73,7 @@ export const RUTAS: RutaInfo[] = [
     slug: "silao",
     imagen: "/rutas/silao.webp",
     destino: "Silao",
-    tiempo: "24–48h",
-    distancia: "~230 km desde GDL",
+    distancia: "~ 230 km desde GDL",
     ideal: "Rabón y Tráiler para corredor automotriz del Bajío",
     casos: ["Autopartes y proveeduría", "Carga industrial tarimada", "Flete dedicado de alto volumen"],
     faqs: [
@@ -91,13 +84,12 @@ export const RUTAS: RutaInfo[] = [
   {
     slug: "manzanillo",
     destino: "Manzanillo",
-    tiempo: "24h",
-    distancia: "~290 km desde GDL",
+    distancia: "~ 290 km desde GDL",
     imagen: "/rutas/manzanillo.webp",
     ideal: "Tráiler y Rabón para carga al puerto y retornos a Guadalajara",
     casos: ["Carga comercial hacia el puerto", "Retorno Manzanillo → GDL", "Mudanzas y equipos"],
     faqs: [
-      ["¿Cuánto tarda GDL → Manzanillo?", "Servicio directo en 24h con unidad dedicada, sin consolidar ni trasbordos."],
+      ["¿Cómo opera GDL → Manzanillo?", "Servicio directo con unidad dedicada, sin consolidar ni trasbordos."],
       ["¿Hacen el regreso Manzanillo → GDL?", "Sí, cotizamos el retorno con la misma unidad. Escríbenos origen y destino."],
     ],
   },

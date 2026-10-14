@@ -6,31 +6,46 @@ export default function Hero() {
   };
 
   return (
-    <section id="inicio" className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-8 pt-[132px] sm:pt-[140px]">
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 top-[100px]" aria-hidden="true">
+    <section id="inicio" className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-8 pt-[96px] sm:pt-[104px]">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-y-0 right-0 hidden w-[62%] sm:block">
-          <img
-            src="/hero-rutas-bajio.webp"
-            alt=""
+          <video
+            src="/hero/video/hero-main.webm"
+            poster="/hero-rutas-bajio.webp"
             className="h-full w-full object-cover object-center"
-            loading="eager"
-            fetchPriority="high"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/10 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#f2f5f9] to-transparent" />
         </div>
+        {/* Móvil: video a ancho completo debajo del texto */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 sm:hidden" aria-hidden="true">
+          <video
+            src="/hero/video/hero-main.webm"
+            poster="/hero-rutas-bajio.webp"
+            className="h-full w-full object-cover object-center opacity-30"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#f2f5f9] via-[#f2f5f9]/60 to-transparent" />
+        </div>
       </div>
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex max-w-2xl flex-col justify-center">
-          <p className="inline-flex w-fit items-center gap-2 rounded-full border border-[#dce4ed] bg-white px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-[#0077c8]">
-            <span className="h-2 w-2 rounded-full bg-emerald-500" />
-            Flete dedicado · Guadalajara · Respuesta &lt;3h
-          </p>
           <h1 className="font-heading mt-5 text-4xl font-extrabold text-[#0b2a4a] sm:text-5xl lg:text-[58px]">
-            Flete dedicado hoy mismo desde Guadalajara
+            Flete dedicado desde Guadalajara
           </h1>
           <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600">
-            Unidades exclusivas de 1 a 15+ toneladas con servicio local ZMG y entregas foráneas hacia el Bajío y Occidente. Cotiza con precio cerrado vía WhatsApp, facturación con Carta Porte y evidencia fotográfica al entregar.
+            Unidades de carga apartir de 1 hasta 15 toneladas con servicio local ZMG y entregas foráneas. Cotiza vía WhatsApp, facturación con Carta Porte y evidencia fotográfica al finalizar la entrega.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <button
@@ -50,7 +65,7 @@ export default function Hero() {
             {[
               ["100%", "Dedicado"],
               ["7+1", "ZMG + rutas"],
-              ["<3h", "Respuesta"],
+              ["- 3h", "Respuesta"],
             ].map(([v, l]) => (
               <div key={l}>
                 <p className="font-condensed text-3xl font-semibold tracking-wide text-[#0b2a4a]">{v}</p>

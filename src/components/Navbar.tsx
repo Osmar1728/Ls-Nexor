@@ -45,22 +45,7 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
-      <div className="bg-[#0b2a4a] text-white">
-        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-6 text-[11px] font-medium tracking-wide sm:px-8">
-          <p className="uppercase opacity-80 sm:hidden">GDL · Lun–Vie 8–18</p>
-          <p className="hidden uppercase opacity-80 sm:block">Base Guadalajara · Lun a Vie 8:00 – 18:00</p>
-          <div className="flex items-center gap-4">
-            <span className="hidden items-center gap-2 opacity-80 sm:flex">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              Respuesta en &lt;3h
-            </span>
-            <a href={`https://wa.me/${BUSINESS.whatsappNumber}`} target="_blank" rel="noreferrer" className="font-semibold text-white hover:underline">
-              {BUSINESS.whatsappDisplay}
-            </a>
-          </div>
-        </div>
-      </div>
-      <div className={`border-b border-[#dce4ed] bg-white/95 backdrop-blur ${scrolled ? "shadow-[0_2px_16px_rgba(11,42,74,0.08)]" : ""}`}>
+      <div className={`border-b border-[#dce4ed] bg-white ${scrolled ? "shadow-[0_2px_16px_rgba(11,42,74,0.08)]" : ""}`}>
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 sm:px-8">
           <a href={href("/")} className="flex items-center gap-3" aria-label="LS NEXOR - Inicio">
             <img

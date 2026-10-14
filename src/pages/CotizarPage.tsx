@@ -10,7 +10,7 @@ export default function CotizarPage({ modo }: { modo: "cotizar" | "contacto" }) 
 
   if (!isContacto) {
     return (
-      <div className="pt-[100px]">
+      <div className="pt-16">
         <Cotizador />
       </div>
     );

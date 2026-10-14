@@ -7,7 +7,7 @@ const SERVICIOS = [
     tag: "Principal",
     tagCls: "bg-[#0077c8] text-white",
     t: "Flete dedicado puerta a puerta",
-    d: "Unidad exclusiva para tu mercancía. Sin consolidar, sin trasbordos. Local ZMG el mismo día y foráneo 24–48h en 7 corredores.",
+    d: "Unidad exclusiva para tu mercancía. Sin consolidar, sin trasbordos. Local en ZMG y foráneo en 7 corredores.",
     bullets: ["Precio cerrado por escrito", "Caja seca cerrada 1T a 15+T", "Ubicación compartida en ruta + foto de entrega"],
     cta: "Cotizar flete",
     to: buildCotizarHref({}),
@@ -92,7 +92,7 @@ export default function ServiciosPage() {
             <h3 className="font-heading text-xl font-bold text-[#0b2a4a] sm:text-2xl">¿Cómo se calcula tu precio?</h3>
             <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {[
-                ["Ruta", "Origen, destino y km. Foráneo 24–48h."],
+                ["Ruta", "Origen, destino y km."],
                 ["Unidad", "1T, 3.5T, Rabón u Tráiler según peso/volumen."],
                 ["Carga", "Peso, bultos y si requiere maniobras."],
                 ["Factura + seguro", "Carta porte y cobertura opcional."],
