@@ -21,10 +21,9 @@ html {
 }
 
 /* ——— Bloques por scroll (Home) ———
-   El scroller es el viewport (html), no #home-blocks:
-   por eso el snap-type debe ir en html en laptop.
-   `proximity` (no mandatory) para no atrapar en bloques
-   más altos que la pantalla (Flota, Cotizador). */
+   Una sección por pantalla en laptop (14-16"):
+   el snap va en html porque el scroller es el viewport.
+   `proximity` para no atrapar bloques altos (Cobertura, FAQ). */
 @media (min-width: 1024px) {
   html {
     scroll-snap-type: y proximity;

@@ -1,12 +1,8 @@
 import { href } from "../lib/router";
 
 export default function Hero() {
-  const scrollACotizar = () => {
-    document.getElementById("cotizar")?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
-
   return (
-    <section id="inicio" className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-8 pt-[96px] sm:pt-[104px]">
+    <section id="inicio" className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-10 pt-[96px] sm:pt-[104px]">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="absolute inset-y-0 right-0 hidden w-[62%] sm:block">
           <video
@@ -48,12 +44,12 @@ export default function Hero() {
             Unidades de carga apartir de 1 hasta 15 toneladas con servicio local ZMG y entregas foráneas. Cotiza con nosotros, facturación de inmediato, evidencia fotográfica, cuenta espejo.
           </p>
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-            <button
-              onClick={scrollACotizar}
+            <a
+              href={href("/cotizar")}
               className="rounded-lg bg-[#0077c8] px-7 py-3.5 text-center text-sm font-semibold text-white transition hover:bg-[#005a97]"
             >
               Cotizar
-            </button>
+            </a>
             <a
               href={href("/flota")}
               className="rounded-lg border border-[#0b2a4a]/20 bg-white px-7 py-3.5 text-center text-sm font-semibold text-[#0b2a4a] transition hover:border-[#0b2a4a]"

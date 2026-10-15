@@ -71,7 +71,7 @@ const DOLORES = [
 
 export default function PainSelector() {
   return (
-    <section className="flex flex-1 flex-col justify-center bg-white pb-8 pt-8 sm:pb-10 sm:pt-10 lg:py-6">
+    <section className="flex flex-1 flex-col justify-center bg-white py-10 lg:py-8">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <p className="eyebrow text-[#0077c8]">Encuentra tu solución en segundos</p>
         <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
@@ -80,7 +80,7 @@ export default function PainSelector() {
         <p className="mt-3 max-w-2xl text-[15px] text-slate-600">
           Elige tu tipo de carga o ruta y te guiamos a la solución exacta.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:mt-6 lg:grid-cols-4 lg:gap-4">
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {DOLORES.map(({ Icon, q, a, cta, to }) => (
             <a
               key={q}

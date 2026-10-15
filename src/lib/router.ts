@@ -8,7 +8,6 @@ export type RouteName =
   | "servicios"
   | "nosotros"
   | "cotizar"
-  | "contacto"
   | "notfound";
 
 export interface ParsedRoute {
@@ -26,7 +25,6 @@ export function parseHash(hash: string): ParsedRoute {
   if (path === "/servicios") return { name: "nosotros" };
   if (path === "/nosotros") return { name: "nosotros" };
   if (path === "/cotizar") return { name: "cotizar" };
-  if (path === "/contacto") return { name: "contacto" };
   if (path.startsWith("/ruta/")) {
     const slug = path.replace("/ruta/", "").trim();
     if (slug) return { name: "ruta", param: slug };
@@ -126,10 +124,6 @@ export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   cotizar: {
     title: "Cotiza tu flete en 1 minuto | LS NEXOR",
     desc: "Cotizador de fletes locales y foráneos. Completa origen, destino y unidad y envíalo por WhatsApp o correo. Respuesta en menos de 3 horas.",
-  },
-  contacto: {
-    title: "Contacto directo | LS NEXOR Guadalajara",
-    desc: "WhatsApp, correo y base operativa en Guadalajara. Lun–Vie 8am–6pm. Cotización en menos de 3 horas.",
   },
   notfound: {
     title: "Página no encontrada | LS NEXOR",

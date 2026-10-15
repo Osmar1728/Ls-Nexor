@@ -48,7 +48,7 @@ export default function NosotrosPage() {
         desc="Logística y Servicio NEXOR. Pocas unidades, bien mantenidas y comunicación directa. Sin conmutador, sin ejecutivos rotando tu cuenta."
         crumbs={[["Inicio", "/"], ["Nosotros", "/nosotros"]]}
         ctaPrimary={{ label: "Cotizar directo", to: "/cotizar" }}
-        ctaSecondary={{ label: "Contactar", to: "/contacto" }}
+        ctaSecondary={{ label: "Ver flota", to: "/flota" }}
         stats={[["100%", "Dedicado"], [" - 3h", "Respuesta"], ["7 + 1", "ZMG + rutas"]]}
       />
 

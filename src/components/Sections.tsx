@@ -36,9 +36,16 @@ export function TrustStrip() {
   );
 }
 
-export function Flota() {
+export function Flota({ fill = true }: { fill?: boolean }) {
   return (
-    <section id="flota" className="flex flex-col justify-center bg-[#e8edf3] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+    <section
+      id="flota"
+      className={
+        fill
+          ? "flex flex-col justify-center bg-[#e8edf3] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10"
+          : "bg-[#e8edf3] py-16 sm:py-20 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:py-10"
+      }
+    >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
@@ -53,7 +60,7 @@ export function Flota() {
           </a>
         </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:gap-5 xl:grid-cols-4">
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-5 xl:grid-cols-4">
           {FLEET_UNITS.map((u) => (
             <a
               key={u.id}
@@ -179,7 +186,7 @@ export function Cobertura() {
             Ver página de rutas →
           </a>
         </div>
-        <div className="mt-8 grid gap-5 lg:grid-cols-[1fr_1.4fr]">
+        <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_1.4fr]">
           <div className="flex flex-col rounded-2xl bg-[#0b2a4a] p-6 text-white sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Local · ZMG </p>
             <div className="mt-4 grid grid-cols-3 gap-2">
@@ -231,9 +238,16 @@ export function Cobertura() {
   );
 }
 
-export function Servicios() {
+export function Servicios({ fill = true }: { fill?: boolean }) {
   return (
-    <section id="servicios" className="flex flex-col justify-center bg-white py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+    <section
+      id="servicios"
+      className={
+        fill
+          ? "flex flex-col justify-center bg-white py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10"
+          : "bg-white py-16 sm:py-20 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:py-10"
+      }
+    >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <Heading eyebrow="Servicios" title="Lo que contratás, lo que recibís" desc="Tres servicios claros, precio cerrado por escrito." />
@@ -241,12 +255,22 @@ export function Servicios() {
             Ver detalle de servicios →
           </a>
         </div>
-        <div className="mt-8 grid gap-5 lg:grid-cols-2">
-          <a
-            href={href("/nosotros")}
-            className="group flex flex-col justify-between rounded-2xl bg-[#0b2a4a] p-7 text-white transition hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,74,0.35)] sm:p-8"
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          <div
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0b2a4a] p-7 text-white sm:p-8"
           >
-            <div>
+            <img
+              src="/hero/unidad-principal.jpg"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover opacity-30 transition duration-500 group-hover:scale-105"
+              loading="lazy"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a] via-[#0b2a4a]/65 to-[#0b2a4a]/30" />
+            <div className="relative">
               <div className="flex items-center justify-between">
                 <span className="rounded-full bg-[#0077c8] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
                   Principal
@@ -266,11 +290,7 @@ export function Servicios() {
                 ))}
               </ul>
             </div>
-            <p className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-sky-300">
-              Cotizar flete dedicado
-              <span className="transition group-hover:translate-x-1">→</span>
-            </p>
-          </a>
+          </div>
           <div className="grid gap-5">
             {[
               {
@@ -288,10 +308,9 @@ export function Servicios() {
                 d: "Carga y descarga en origen y destino con personal de apoyo. Solicítalo en tu cotización.",
               },
             ].map((s) => (
-              <a
+              <div
                 key={s.t}
-                href={href("/nosotros")}
-                className="group flex items-start justify-between gap-4 rounded-2xl border border-[#dce4ed] bg-[#f2f5f9] p-6 transition hover:-translate-y-1 hover:border-[#0077c8] hover:bg-white hover:shadow-[0_12px_28px_rgba(11,42,74,0.12)] sm:p-7"
+                className="flex items-start justify-between gap-4 rounded-2xl border border-[#dce4ed] bg-[#f2f5f9] p-6 sm:p-7"
               >
                 <div>
                   <span className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${s.tagCls}`}>
@@ -300,10 +319,10 @@ export function Servicios() {
                   <h3 className="font-heading mt-3 text-xl font-bold text-[#0b2a4a] sm:text-2xl">{s.t}</h3>
                   <p className="mt-2 max-w-md text-sm leading-relaxed text-slate-600">{s.d}</p>
                 </div>
-                <span className="font-heading shrink-0 text-4xl font-bold text-[#dce4ed] transition group-hover:text-[#0077c8]">
+                <span className="font-heading shrink-0 text-4xl font-bold text-[#dce4ed]">
                   {s.n}
                 </span>
-              </a>
+              </div>
             ))}
           </div>
         </div>
@@ -312,18 +331,34 @@ export function Servicios() {
   );
 }
 
-export function Proceso() {
+export function Proceso({ compact = false }: { compact?: boolean }) {
   const steps = [
     ["01", "Cotiza", "Origen, destino, unidad y fotos por WhatsApp.", "5 min"],
-    ["02", "Confirmamos", "Precio cerrado en menos de 3 horas (Lun–Vie).", "<3h"],
+    ["02", "Confirmamos", "Precio acordado por escrito; si hay cambios se pide tu autorización.", "Acordado"],
     ["03", "Recolectamos", "Unidad puntual + maniobras si aplica.", "Puntual"],
-    ["04", "Entregamos", "Puerta a puerta con factura.", "Puerta a puerta"],
+    ["04", "Entregamos", "Puerta a puerta con entrega garantizada y monitoreo.", "Monitoreo"],
   ];
   return (
-    <section id="proceso" className="flex flex-col justify-center bg-[#0b2a4a] py-16 text-white sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+    <section
+      id="proceso"
+      className={
+        compact
+          ? "bg-[#0b2a4a] py-6 text-white lg:py-6"
+          : "flex flex-col justify-center bg-[#0b2a4a] py-16 text-white sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10"
+      }
+    >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
-        <p className="eyebrow text-sky-300">Proceso</p>
-        <h2 className="font-heading mt-3 text-3xl font-bold sm:text-4xl">De la cotización a la entrega</h2>
+        {compact ? (
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <p className="eyebrow text-sky-300">Proceso</p>
+            <h2 className="font-heading text-lg font-bold lg:text-xl">De la cotización a la entrega</h2>
+          </div>
+        ) : (
+          <>
+            <p className="eyebrow text-sky-300">Proceso</p>
+            <h2 className="font-heading mt-3 text-3xl font-bold sm:text-4xl">De la cotización a la entrega</h2>
+          </>
+        )}
 
         {/* Móvil / tablet: timeline vertical */}
         <ol className="relative mt-10 space-y-6 lg:hidden">
@@ -350,7 +385,25 @@ export function Proceso() {
           ))}
         </ol>
 
-        {/* Desktop: timeline horizontal */}
+        {/* Desktop: timeline horizontal. En modo compact, pasos simples con número
+            fantasma, sin tarjetas, para compartir pantalla con Flota. */}
+        {compact ? (
+          <ol className="relative mt-4 hidden lg:grid lg:grid-cols-4 lg:gap-6">
+            {steps.map(([, t, d, meta], i) => (
+              <li key={t} className="timeline-step relative text-center" style={{ transitionDelay: `${200 + i * 220}ms` }}>
+                {i > 0 && (
+                  <span aria-hidden="true" className="absolute -left-5 top-1/2 -translate-y-1/2 select-none text-lg font-bold leading-none text-sky-300/50">
+                    &gt;
+                  </span>
+                )}
+                <p className="font-heading text-sm font-bold leading-tight">
+                  {t} <span className="font-sans text-[11px] font-medium normal-case tracking-normal text-white/40">· {meta}</span>
+                </p>
+                <p className="mt-1 line-clamp-2 text-xs leading-snug text-white/55">{d}</p>
+              </li>
+            ))}
+          </ol>
+        ) : (
         <ol className="relative mt-14 hidden lg:grid lg:grid-cols-4 lg:gap-6">
           <span aria-hidden="true" className="timeline-rail--x absolute left-8 right-8 top-[25px] h-0.5 bg-white/15" />
           {steps.map(([n, t, d, meta], i) => (
@@ -374,12 +427,42 @@ export function Proceso() {
             </li>
           ))}
         </ol>
+        )}
       </div>
     </section>
   );
 }
 
-export function PorQue() {
+export function PorQue({ compact = false }: { compact?: boolean }) {
+  if (compact) {
+    return (
+      <section id="nosotros" className="border-t border-[#dce4ed] bg-white py-8 lg:py-6">
+        <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-6 sm:px-8 lg:flex-row lg:items-center lg:gap-8">
+          <div className="flex shrink-0 items-center gap-4">
+            <div>
+              <p className="eyebrow text-[#0077c8]">Nosotros</p>
+              <h2 className="font-heading text-lg font-bold leading-tight text-[#0b2a4a] lg:text-xl">
+                Operador PyME, comunicación total
+              </h2>
+            </div>
+          </div>
+          <ul className="grid gap-x-6 gap-y-1.5 text-sm text-[#0b2a4a] sm:grid-cols-2 lg:flex-1">
+            {[
+              "Precios acorde a los servicios contratados",
+              "Facturación inmediata",
+              "Foto de entrega + ubicación en ruta",
+              `Base ${BUSINESS.base}`,
+            ].map((c) => (
+              <li key={c} className="flex items-start gap-2.5">
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-700">✓</span>
+                <span className="font-medium">{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    );
+  }
   return (
     <section id="nosotros" className="flex flex-col justify-center bg-white py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
       <div className="mx-auto grid w-full max-w-7xl items-stretch gap-6 px-6 sm:px-8 lg:grid-cols-2">
@@ -438,29 +521,32 @@ export function PorQue() {
 
 export function Faq() {
   const faqs = [
-    ["¿Cuánto cuesta un flete?", "Depende de origen, destino, unidad y carga. Envíanos el cotizador y respondemos en menos de 3 horas (Lun–Vie 8–18)."],
+    ["¿Cuánto cuesta un flete?", "Depende de origen, destino, unidad y carga. Envíanos el cotizador y respondemos en menos de 3 horas."],
     ["¿Qué unidades tienen?", "Camioneta 1T, 3.5T caja seca, Rabón 8T y Trailer 15+T. Todas caja cerrada; medidas aproximadas."],
     ["¿Qué incluye el servicio?", "Flete dedicado puerta a puerta. Seguro de carga y maniobras se cotizan como adicionales."],
     ["¿A dónde llegan?", "ZMG + San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Otras rutas bajo cotización."],
     ["¿Emiten factura?", "Sí. Indícalo en el formulario y emitimos factura con carta porte."],
     ["¿Cómo reservo?", "Por WhatsApp o correo. Confirmamos unidad, horario y precio cerrado."],
+    ["¿Mi carga viaja sola o consolidada?", "Sola. La unidad va 100% dedicada a tu mercancía, sin compartir ni trasbordos."],
+    ["¿Puedo seguir mi flete en ruta?", "Sí. Te compartimos ubicación durante el viaje y foto de entrega al finalizar."],
+    ["¿Hacen mudanzas?", "Sí. Las cotizamos como flete dedicado y puedes agregar maniobras de carga y descarga."],
+    ["¿Cobran tiempo de espera?", "El precio se acuerda por escrito antes de cargar; si algo cambia en ruta, se pide tu autorización."],
+    ["¿Qué formas de pago aceptan?", "Escríbenos por WhatsApp y te confirmamos formas de pago disponibles y facturación."],
+    ["¿Con cuánta anticipación reservo?", "Entre más antes mejor, pero si tienes urgencia escríbenos: operamos local y foráneo todos los días hábiles."],
   ];
   return (
     <section id="faq" className="flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">
         <p className="eyebrow text-center text-[#0077c8]">FAQ</p>
         <h2 className="font-heading mt-3 text-center text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Preguntas frecuentes</h2>
-        <div className="mt-8 grid items-start gap-4 md:grid-cols-2">
-          {faqs.map(([q, a], i) => (
+        <div className="mt-6 grid items-start gap-4 md:grid-cols-2">
+          {faqs.map(([q, a]) => (
             <details key={q} className="group rounded-2xl border border-[#dce4ed] bg-white px-5 py-4 transition hover:border-[#0077c8]/50 hover:shadow-[0_8px_24px_rgba(11,42,74,0.08)]">
-              <summary className="flex cursor-pointer list-none items-center gap-4">
-                <span className="font-heading shrink-0 text-sm font-bold text-[#0077c8]/40">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+              <summary className="flex cursor-pointer list-none items-center gap-3">
                 <span className="flex-1 text-[15px] font-semibold text-[#0b2a4a]">{q}</span>
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f2f5f9] text-lg font-medium text-[#0077c8] transition group-open:rotate-45 group-open:bg-[#0077c8] group-open:text-white">+</span>
               </summary>
-              <p className="mt-2 border-t border-slate-100 pl-10 pt-3 text-sm leading-relaxed text-slate-600">{a}</p>
+              <p className="mt-2 border-t border-slate-100 pt-3 text-sm leading-relaxed text-slate-600">{a}</p>
             </details>
           ))}
         </div>

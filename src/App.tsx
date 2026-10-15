@@ -22,8 +22,7 @@ export default function App() {
         {route.name === "ruta" && <RutaPage slug={route.param} />}
         {route.name === "servicios" && <NosotrosPage />}
         {route.name === "nosotros" && <NosotrosPage />}
-        {route.name === "cotizar" && <CotizarPage modo="cotizar" />}
-        {route.name === "contacto" && <CotizarPage modo="contacto" />}
+        {route.name === "cotizar" && <CotizarPage />}
         {route.name === "notfound" && (
           <PageHero
             eyebrow="Error 404"
@@ -44,7 +43,6 @@ export default function App() {
         <a href={href("/cobertura")}>Cobertura</a>
         <a href={href("/nosotros")}>Nosotros</a>
         <a href={href("/cotizar")}>Cotizar</a>
-        <a href={href("/contacto")}>Contacto</a>
       </nav>
     </div>
   );

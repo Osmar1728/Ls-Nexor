@@ -1,54 +1,6 @@
 import { BUSINESS } from "../config";
 import { href } from "../lib/router";
 
-export function Contacto() {
-  return (
-    <section className="bg-white py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-6 sm:px-8">
-        <div className="grid overflow-hidden rounded-2xl bg-[#0b2a4a] text-white lg:grid-cols-[1.1fr_1fr]">
-          <div className="p-7 sm:p-10">
-            <p className="eyebrow text-sky-300">Contacto</p>
-            <h2 className="font-heading mt-3 text-3xl font-bold sm:text-4xl">Contacto directo, sin conmutador</h2>
-            <p className="mt-3 max-w-md text-[15px] leading-relaxed text-white/70">
-              Hablamos directo contigo durante todo el viaje. Respuesta en menos de 3 horas en horario hábil.
-            </p>
-            <a
-              href={`https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent("Hola LS NEXOR, quiero cotizar un flete.")}`}
-              target="_blank"
-              rel="noreferrer"
-              className="mt-6 flex items-center justify-center gap-3 rounded-xl bg-[#25D366] px-6 py-4 text-center text-base font-bold text-white transition hover:brightness-110"
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .4-.2 1z" />
-              </svg>
-              {BUSINESS.whatsappDisplay}
-            </a>
-            <a
-              href={`mailto:${BUSINESS.email}`}
-              className="mt-3 block rounded-xl border border-white/20 px-6 py-3.5 text-center text-sm font-semibold text-white transition hover:border-white/60"
-            >
-              {BUSINESS.email}
-            </a>
-          </div>
-          <ul className="divide-y divide-white/10 border-t border-white/10 bg-white/5 p-7 sm:p-10 lg:border-l lg:border-t-0">
-            {[
-              ["Horario", "Respuesta en menos de 3h", "Respondemos cotizaciones en horario hábil."],
-              ["Base operativa", BUSINESS.base, "Salidas locales y foráneas programadas."],
-              ["Factura", "CFDI + carta porte", "Indícalo en tu cotización y la emitimos el mismo día."],
-            ].map(([t, v, d]) => (
-              <li key={t} className="py-4 first:pt-0 last:pb-0">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-300">{t}</p>
-                <p className="font-heading mt-1 text-lg font-bold">{v}</p>
-                <p className="mt-0.5 text-sm text-white/65">{d}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 export function CtaBanda() {
   return (
     <section className="bg-[#0b2a4a] py-12 text-white">

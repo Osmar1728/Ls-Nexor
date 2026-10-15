@@ -114,7 +114,7 @@ export default function Cotizador() {
   const unidadActiva = FLOTA.find((u) => u.nombre === form.unidad) ?? FLOTA[0];
 
   return (
-    <section id="cotizar" className="scroll-mt-20 bg-white py-16 sm:py-20">
+    <section id="cotizar" className="scroll-mt-20 bg-white py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>

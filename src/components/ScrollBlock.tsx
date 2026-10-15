@@ -3,7 +3,7 @@ import { useEffect, useRef, type ReactNode } from "react";
 type Props = {
   id?: string;
   children: ReactNode;
-  /** Bloques cortos (TrustStrip, Contacto) no fuerzan pantalla completa */
+  /** Bloques cortos (TrustStrip) no fuerzan pantalla completa */
   fill?: boolean;
 };
 

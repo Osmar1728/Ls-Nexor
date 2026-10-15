@@ -7,7 +7,6 @@ const LINKS = [
   { to: "/flota", label: "Flota" },
   { to: "/cobertura", label: "Rutas" },
   { to: "/nosotros", label: "Nosotros" },
-  { to: "/contacto", label: "Contacto" },
 ];
 
 function currentPath(): string {
