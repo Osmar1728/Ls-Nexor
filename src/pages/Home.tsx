@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import PainSelector from "../components/PainSelector";
 import ScrollBlock from "../components/ScrollBlock";
-import { Cobertura, Faq, Flota, PorQue, Proceso, Servicios, TrustStrip } from "../components/Sections";
+import { Cobertura, Faq, Flota, PorQue, Proceso, Servicios, Aduana, TrustStrip } from "../components/Sections";
 import { usePageMeta } from "../lib/router";
 
 export default function Home() {
@@ -13,18 +13,18 @@ export default function Home() {
         <Hero />
       </ScrollBlock>
 
-      {/* Bloque 2 — Confianza + soluciones: un solo scroll en laptop. */}
+      {/* Bloque 2 — Confianza + soluciones: un solo scroll en laptop alta. */}
       <ScrollBlock id="bloque-soluciones">
-        <div className="flex flex-col bg-white pb-10 lg:min-h-[calc(100vh-64px)] lg:justify-center lg:pb-12">
+        <div className="fill-screen flex flex-col bg-white pb-10 lg:justify-center lg:pb-12">
           <TrustStrip />
           <PainSelector />
         </div>
       </ScrollBlock>
 
-      {/* Bloque 3+4 — Flota y Proceso en una sola pantalla (desktop).
+      {/* Bloque 3+4 — Flota y Proceso en una sola pantalla (laptop).
           Flota conserva su diseño; Proceso usa versión simple. */}
       <ScrollBlock id="bloque-flota-proceso">
-        <div className="lg:flex lg:min-h-[calc(100vh-64px)] lg:flex-col">
+        <div className="fill-screen lg:flex lg:flex-col lg:justify-center">
           <Flota fill={false} />
           <Proceso compact />
         </div>
@@ -35,11 +35,15 @@ export default function Home() {
         <Cobertura />
       </ScrollBlock>
 
-      {/* Bloque 6+7 — Servicios y Nosotros en una sola pantalla (desktop).
-          Servicios conserva su diseño; Nosotros usa versión simple. */}
-      <ScrollBlock id="bloque-servicios-nosotros">
-        <div className="lg:flex lg:min-h-[calc(100vh-64px)] lg:flex-col">
-          <Servicios fill={false} />
+      {/* Bloque 6 — Servicios (solo Flete, Seguro y Maniobras). */}
+      <ScrollBlock id="bloque-servicios">
+        <Servicios fill={false} />
+      </ScrollBlock>
+
+      {/* Bloque 7 — Aduana + Nosotros en una sola pantalla (laptop). */}
+      <ScrollBlock id="bloque-aduana-nosotros">
+        <div className="fill-screen lg:flex lg:flex-col lg:justify-start">
+          <Aduana />
           <PorQue compact />
         </div>
       </ScrollBlock>

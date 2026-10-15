@@ -38,6 +38,24 @@ function DocCheckIcon({ className = "h-7 w-7" }: { className?: string }) {
   );
 }
 
+function ShieldIcon({ className = "h-7 w-7" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" strokeLinecap="round" className={className} aria-hidden="true">
+      <path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z" />
+      <path d="M9 12l2 2 4-4" />
+    </svg>
+  );
+}
+
+function PlaneIcon({ className = "h-7 w-7" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" strokeLinecap="round" className={className} aria-hidden="true">
+      <path d="M22 2 11 13" />
+      <path d="M22 2l-7 20-4-9-9-4 20-7z" />
+    </svg>
+  );
+}
+
 const DOLORES = [
   {
     Icon: BoltIcon,
@@ -67,32 +85,46 @@ const DOLORES = [
     cta: "Cotizar foráneo",
     to: buildCotizarHref({ origen: "Guadalajara", tipo: "Foráneo" }),
   },
+  {
+    Icon: ShieldIcon,
+    q: "«Mi carga está en aduana»",
+    a: "Despacho con unidades y operadores autorizados",
+    cta: "Cotizar despacho",
+    to: buildCotizarHref({ mensaje: "Necesito despacho de mercancía con ingreso a aduana" }),
+  },
+  {
+    Icon: PlaneIcon,
+    q: "«Importo o exporto»",
+    a: "Aeropuerto GDL y recintos fiscales",
+    cta: "Cotizar despacho",
+    to: buildCotizarHref({ mensaje: "Importo/exporto mercancía, necesito cotización" }),
+  },
 ];
 
 export default function PainSelector() {
   return (
-    <section className="flex flex-1 flex-col justify-center bg-white py-10 lg:py-8">
+    <section className="flex flex-1 flex-col justify-center bg-white py-8 short:py-4 lg:py-6">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <p className="eyebrow text-[#0077c8]">Encuentra tu solución en segundos</p>
-        <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
+        <h2 className="font-heading mt-2.5 text-3xl font-bold text-[#0b2a4a] short:mt-1.5 short:text-2xl sm:text-4xl">
           ¿Qué necesitas resolver hoy?
         </h2>
-        <p className="mt-3 max-w-2xl text-[15px] text-slate-600">
+        <p className="mt-2 max-w-2xl text-[15px] text-slate-600 short:mt-1 short:text-sm">
           Elige tu tipo de carga o ruta y te guiamos a la solución exacta.
         </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-5 grid gap-4 short:mt-3 short:gap-2.5 sm:grid-cols-2 lg:grid-cols-3">
           {DOLORES.map(({ Icon, q, a, cta, to }) => (
             <a
               key={q}
               href={to}
-              className="group flex flex-col rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-6 transition hover:-translate-y-1 hover:border-[#0077c8] hover:bg-white hover:shadow-[0_12px_28px_rgba(11,42,74,0.12)] lg:p-5"
+              className="group flex flex-col rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-5 short:p-3 transition hover:-translate-y-1 hover:border-[#0077c8] hover:bg-white hover:shadow-[0_12px_28px_rgba(11,42,74,0.12)]"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#0b2a4a] text-white transition group-hover:bg-[#0077c8]">
-                <Icon />
+              <span className="flex h-11 w-11 short:h-9 short:w-9 items-center justify-center rounded-xl bg-[#0b2a4a] text-white transition group-hover:bg-[#0077c8]">
+                <Icon className="h-7 w-7 short:h-5 short:w-5" />
               </span>
-              <p className="mt-4 text-[15px] font-bold leading-snug text-[#0b2a4a]">{q}</p>
-              <p className="mt-2 flex-1 text-sm text-slate-600">{a}</p>
-              <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0077c8]">
+              <p className="mt-3 short:mt-2 text-[15px] short:text-sm font-bold leading-snug text-[#0b2a4a]">{q}</p>
+              <p className="mt-1.5 short:mt-1 flex-1 text-sm short:text-[13px] text-slate-600">{a}</p>
+              <p className="mt-3 short:mt-2 inline-flex items-center gap-1.5 text-sm short:text-[13px] font-semibold text-[#0077c8]">
                 {cta}
                 <span className="transition group-hover:translate-x-1">→</span>
               </p>

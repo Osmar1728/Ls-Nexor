@@ -33,6 +33,16 @@ const SERVICIOS = [
     cta: "Cotizar con maniobras",
     to: buildCotizarHref({ mensaje: "Requiero maniobras de carga y descarga" }),
   },
+  {
+    n: "04",
+    tag: "Comercio exterior",
+    tagCls: "bg-sky-100 text-sky-700",
+    t: "Ingreso a aduana y recinto fiscal",
+    d: "Unidades especializadas para el despacho de mercancías en aduana, con permisos vigentes y operadores autorizados. Entramos a aduana, aeropuerto y recintos fiscales.",
+    bullets: ["Unidades especializadas para despacho en aduana", "Permisos vigentes en unidades y operadores autorizados", "Unidad dedicada + precio cerrado por escrito"],
+    cta: "Cotizar despacho",
+    to: buildCotizarHref({ mensaje: "Necesito despacho de mercancía con ingreso a aduana" }),
+  },
 ];
 
 /** Página única Nosotros + Servicios (la ruta /servicios redirige aquí). */
@@ -95,7 +105,7 @@ export default function NosotrosPage() {
             <p className="eyebrow text-[#0077c8]">Servicios · Precio cerrado</p>
             <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">Lo que contratas, lo que recibes</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
-              Tres servicios claros. Sin letras chicas: flete dedicado, seguro opcional y maniobras.
+              Cuatro servicios claros. Sin letras chicas: flete dedicado, seguro opcional, maniobras e ingreso a aduana.
             </p>
           </div>
           {SERVICIOS.map((s, i) => (

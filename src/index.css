@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* Variante `short:` — laptop chaparra (pantallas cortas tipo 1366x768 con chrome).
+   Compacta tarjetas y espacios solo ahí, sin tocar móvil ni monitor grande. */
+@custom-variant short (@media (min-width: 1024px) and (max-height: 800px));
+
 @theme {
   --color-primary: #0b2a4a;
   --color-primary-dark: #071d34;
@@ -12,8 +16,14 @@
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-heading: "Barlow", "Inter", system-ui, sans-serif;
   --font-condensed: "Barlow Condensed", "Barlow", "Inter", system-ui, sans-serif;
-  /* Breakpoints del proyecto (línea Google/DevTools): xs = Mobile L 425 */
-  --breakpoint-xs: 425px;
+  /* Breakpoints del proyecto (línea DevTools solicitada):
+     Cel S 320 · Cel M 375 · Cel L 425 · Tablet 768 · Laptop 1024 · Laptop L 1440+ */
+  --breakpoint-xs: 320px;
+  --breakpoint-ms: 375px;
+  --breakpoint-ml: 425px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-laptop-l: 1440px;
 }
 
 html {
@@ -21,12 +31,26 @@ html {
 }
 
 /* ——— Bloques por scroll (Home) ———
-   Una sección por pantalla en laptop (14-16"):
-   el snap va en html porque el scroller es el viewport.
-   `proximity` para no atrapar bloques altos (Cobertura, FAQ). */
+   En laptop (>=1024px) cada bloque es una pantalla:
+   - hero abarca todo el viewport
+   - cada ScrollBlock hace snap al inicio
+   - .fill-screen = alto de pantalla menos navbar (64px)
+   En laptop chaparra el contenido se compacta (ver modo compacto abajo)
+   en vez de romper el snap, para que no se desfase. */
+.fill-screen {
+  min-height: 0;
+}
+
 @media (min-width: 1024px) {
   html {
     scroll-snap-type: y proximity;
+  }
+  .fill-screen {
+    min-height: calc(100svh - 64px);
+  }
+  /* Hero: pantalla completa real en laptop */
+  #inicio {
+    min-height: 100svh;
   }
 }
 
@@ -172,4 +196,228 @@ body {
 
 details summary::-webkit-details-marker {
   display: none;
+}
+
+/* ————————————————————————————————
+   Sistema responsive por dispositivo solicitado.
+   Cel S 320 · Cel M 375 · Cel L 425 · Tablet 768 · Laptop 1024 · Laptop L 1440+
+   En laptop cada section = 1 pantalla (.fill-screen + snap); en laptop chaparra
+   se compacta el contenido para que siga cabiendo sin desfase.
+   ———————————————————————————————— */
+html,
+body {
+  overflow-x: clip;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+/* Tipografía fluida: evita desborde en 320px y aprovecha 1440px+ */
+.font-heading {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+/* Cel S — 320px a 374px: 1 columna, gutters y títulos compactos */
+@media (max-width: 374px) {
+  #home-blocks .mx-auto[class*="max-w-"],
+  main .mx-auto[class*="max-w-"] {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .font-heading {
+    line-height: 1.08;
+  }
+  /* Grids de 2 cols que a 320px quedan apretados -> 1 col */
+  #flota .grid.grid-cols-2,
+  #inicio .grid.grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  #inicio .font-condensed {
+    font-size: 1.5rem;
+  }
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Cel M — 375px a 424px */
+@media (min-width: 375px) and (max-width: 424px) {
+  #home-blocks .mx-auto[class*="max-w-"],
+  main .mx-auto[class*="max-w-"] {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  #flota .grid.grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cel L — 425px a 767px: ya caben 2 columnas chicas */
+@media (min-width: 425px) and (max-width: 767px) {
+  section {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+/* Tablet — 768px a 1023px: 2 columnas estables, sin pantalla completa */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .fill-screen {
+    min-height: 0;
+  }
+  #home-blocks {
+    scroll-snap-type: none;
+  }
+  section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+}
+
+/* Laptop — 1024px a 1439px: cada sección = 1 pantalla con scroll-snap */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .mx-auto.max-w-7xl {
+    max-width: 80rem;
+  }
+  section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* Laptop chaparra (ej. 1366x768 con chrome = ~640px útiles):
+   Flota en grande y alineada arriba (sin forzar centrado): el bloque hace
+   snap al inicio y el resto fluye; así las cards pueden ser más altas
+   sin desfase. */
+@media (min-width: 1024px) and (max-height: 800px) {
+  #home-blocks section[class*="py-"] {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  /* Flota chaparra: arriba, no centrada; cards grandes */
+  #bloque-flota-proceso > div.fill-screen {
+    justify-content: flex-start;
+    padding-top: 0;
+    background-color: #e8edf3;
+  }
+  #flota {
+    justify-content: flex-start;
+    color: #0f1e2e;
+    background-color: #e8edf3;
+  }
+  #flota h2.font-heading {
+    color: #0b2a4a;
+    font-size: 1.65rem;
+    margin-top: 0.5rem;
+  }
+  /* Descripción y medidas: gris oscuro garantizado sobre fondo claro */
+  #flota p {
+    color: #334155;
+  }
+  #home-blocks .mt-6 {
+    margin-top: 1rem;
+  }
+  #home-blocks .mt-4 {
+    margin-top: 0.75rem;
+  }
+  #flota img.h-36 {
+    height: 11rem;
+  }
+  /* El contenedor estira y el disclaimer se pega al fondo (junto a Proceso) */
+  #bloque-flota-proceso #flota > div {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  #flota .flota-disclaimer {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+  #flota .p-4 {
+    padding: 1rem;
+  }
+  #flota .mt-4 {
+    margin-top: 0.5rem;
+  }
+  /* Hero: reduce espacios verticales pero mantiene full-screen */
+  #inicio .mt-7 {
+    margin-top: 1.1rem;
+  }
+  #inicio .pt-6 {
+    padding-top: 1rem;
+  }
+  /* TrustStrip + PainSelector juntos en 1 pantalla (compactación vía variante `short:`) */
+  #bloque-soluciones > div.fill-screen {
+    justify-content: flex-start;
+  }
+  #bloque-soluciones .mt-4 {
+    margin-top: 0.5rem;
+  }
+  /* Cobertura: mapa llena la tarjeta local */
+  #cobertura .cobertura-map {
+    min-height: 10rem;
+  }
+  #cobertura .p-6 {
+    padding: 1.1rem;
+  }
+  /* Proceso compact y PorQue compact: menos aire */
+  #proceso.py-6,
+  #nosotros.py-8 {
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+  }
+  /* Aduana + Nosotros: alineado arriba para que nunca se empalme */
+  #bloque-aduana-nosotros > div.fill-screen {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 700px) {
+  #home-blocks h2.font-heading {
+    font-size: 1.45rem;
+  }
+  #home-blocks .eyebrow {
+    font-size: 0.72rem;
+  }
+  #flota img.h-36 {
+    height: 10rem;
+  }
+  #cobertura .cobertura-map {
+    min-height: 8rem;
+  }
+  #cobertura .grid.gap-5 {
+    gap: 0.9rem;
+  }
+}
+
+/* Laptop L y superiores — 1440px+: contenedor más ancho y centrado,
+   evita que en monitor grande se vea estirado/vacío y en chico se desfase */
+@media (min-width: 1440px) {
+  .mx-auto.max-w-7xl {
+    max-width: 88rem;
+  }
+  .mx-auto.max-w-6xl {
+    max-width: 76rem;
+  }
+  .mx-auto.max-w-5xl {
+    max-width: 68rem;
+  }
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .font-heading {
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Ultra-wide 1920px+: no estirar de más, solo centrar */
+@media (min-width: 1920px) {
+  .mx-auto.max-w-7xl {
+    max-width: 92rem;
+  }
 }

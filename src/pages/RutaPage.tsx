@@ -1,3 +1,4 @@
+import ScrollBlock from "../components/ScrollBlock";
 import VideoHero from "../components/VideoHero";
 import { BUSINESS } from "../config";
 import { buildCotizarHref, usePageMeta } from "../lib/router";
@@ -41,6 +42,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
         ctaSecondary={{ label: "Ver todas las rutas", to: "/cobertura" }}
       />
 
+      <ScrollBlock id="bloque-ruta-ficha">
       <section className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
@@ -91,7 +93,9 @@ export default function RutaPage({ slug }: { slug?: string }) {
           </div>
         </div>
       </section>
+      </ScrollBlock>
 
+      <ScrollBlock id="bloque-ruta-faq">
       <section className="bg-[#f2f5f9] py-14">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 sm:px-8 lg:grid-cols-2">
           <div>
@@ -127,22 +131,20 @@ export default function RutaPage({ slug }: { slug?: string }) {
             <p className="eyebrow text-[#0077c8]">Dudas de ruta</p>
             <h2 className="font-heading mt-2 text-2xl font-bold text-[#0b2a4a] sm:text-3xl">Preguntas de esta ruta</h2>
             <div className="mt-6 space-y-3">
-              {ruta.faqs.map(([q, a], i) => (
-                <details key={q} className="group rounded-2xl border border-[#dce4ed] bg-white px-5 py-4">
+              {ruta.faqs.map(([q, a]) => (
+                <details key={q} className="group rounded-2xl border border-[#dce4ed] bg-white px-5 py-4 transition hover:border-[#0077c8]/50 hover:shadow-[0_8px_24px_rgba(11,42,74,0.08)]">
                   <summary className="flex cursor-pointer list-none items-center gap-3">
-                    <span className="font-heading shrink-0 text-sm font-bold text-[#0077c8]/40">
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
                     <span className="flex-1 text-[15px] font-semibold text-[#0b2a4a]">{q}</span>
                     <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f2f5f9] text-lg font-medium text-[#0077c8] transition group-open:rotate-45 group-open:bg-[#0077c8] group-open:text-white">+</span>
                   </summary>
-                  <p className="mt-2 border-t border-slate-100 pl-9 pt-3 text-sm leading-relaxed text-slate-600">{a}</p>
+                  <p className="mt-2 border-t border-slate-100 pt-3 text-sm leading-relaxed text-slate-600">{a}</p>
                 </details>
               ))}
             </div>
           </div>
         </div>
       </section>
+      </ScrollBlock>
     </>
   );
 }

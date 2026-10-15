@@ -18,10 +18,11 @@ export function TrustStrip() {
     ["Rutas foráneas", "7 corredores"],
     ["Caja seca", "Toda la flota"],
     ["Seguro de mercancia", "Cobertura opcional"],
+    ["Aduana y recinto fiscal", "Operadores autorizados"],
   ];
   return (
     <div className="border-y border-[#dce4ed] bg-white">
-      <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-6 py-6 sm:px-8 lg:grid-cols-4 lg:gap-4 lg:py-4">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 short:gap-3 px-6 py-6 short:py-2 sm:px-8 ms:grid-cols-2 lg:grid-cols-5 lg:gap-4 lg:py-4">
         {items.map(([v, l]) => (
           <div key={l} className="flex items-center gap-3">
             <span className="h-2 w-2 shrink-0 rounded-full bg-[#0077c8]" />
@@ -42,17 +43,17 @@ export function Flota({ fill = true }: { fill?: boolean }) {
       id="flota"
       className={
         fill
-          ? "flex flex-col justify-center bg-[#e8edf3] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10"
-          : "bg-[#e8edf3] py-16 sm:py-20 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:py-10"
+          ? "fill-screen flex flex-col justify-center bg-[#e8edf3] py-16 sm:py-20 lg:py-8"
+          : "bg-[#e8edf3] py-16 sm:py-20 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:py-6"
       }
     >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <p className="eyebrow text-[#0077c8]">Flota</p>
-            <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">4 unidades para cada tipo de carga</h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
-              Toca una unidad para ver su ficha técnica completa. {NOTA_FLOTA}
+            <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl lg:text-[2.75rem]">4 unidades para cada tipo de carga</h2>
+            <p className="mt-3 text-[15px] leading-relaxed text-slate-700 lg:text-base">
+              Caja seca cerrada en todas las unidades.
             </p>
           </div>
           <a href={href("/flota")} className="text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
@@ -60,17 +61,19 @@ export function Flota({ fill = true }: { fill?: boolean }) {
           </a>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:gap-5 xl:grid-cols-4">
+        <div className="mt-6 grid grid-cols-1 gap-4 sm:gap-5 ms:grid-cols-2 lg:mt-8 lg:gap-6 xl:grid-cols-4">
           {FLEET_UNITS.map((u) => (
-            <a
+            <div
               key={u.id}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-white p-4 transition hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,74,0.16)] sm:p-5"
+              className="group flex flex-col overflow-hidden rounded-2xl bg-white p-4 transition hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(11,42,74,0.16)] sm:p-5 lg:p-6"
             >
-              <div className="overflow-hidden rounded-xl bg-[#f2f5f9]">
+              <div className="overflow-hidden rounded-xl bg-white">
                 <img
                   src={u.image}
                   alt={u.name}
-                  className="h-36 w-full object-cover transition group-hover:scale-105 sm:h-44"
+                  className={`h-36 w-full transition group-hover:scale-105 sm:h-44 lg:h-52 laptop-l:h-60 ${
+                    u.imgFit === "contain" ? "object-contain object-center" : "object-cover"
+                  }`}
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.style.display = "none";
@@ -78,17 +81,21 @@ export function Flota({ fill = true }: { fill?: boolean }) {
                 />
               </div>
               <p
-                className="mt-4 text-center text-[15px] font-semibold sm:text-base"
+                className="mt-4 text-center text-[15px] font-semibold sm:text-base lg:mt-5 lg:text-lg"
                 style={{ color: "#0b2a4a" }}
               >
                 {u.name}
               </p>
-              <p className="mt-1 text-center text-[13px] text-slate-500">
+              <p className="mt-1 text-center text-[13px] font-medium text-slate-600">
                 {u.dimensions.largo} × {u.dimensions.ancho} × {u.dimensions.alto}
               </p>
-            </a>
+              <p className="mt-1 text-center text-[11px] text-slate-400">Imagen ilustrativa</p>
+            </div>
           ))}
         </div>
+        <p className="flota-disclaimer mt-4 text-xs leading-relaxed text-slate-500">
+          * Dimensiones aproximadas, pueden variar según la unidad asignada. Imágenes ilustrativas.
+        </p>
       </div>
     </section>
   );
@@ -117,11 +124,11 @@ export function FlotaDetalle() {
                 id={`unidad-${u.id}`}
                 className="grid scroll-mt-20 overflow-hidden rounded-2xl border border-[#dce4ed] bg-white shadow-[0_8px_30px_rgba(11,42,74,0.08)] lg:grid-cols-2"
               >
-                <div className={`relative min-h-[260px] bg-[#0b2a4a] lg:min-h-[360px] ${flip ? "lg:order-2" : ""}`}>
+                <div className={`relative min-h-[260px] bg-white lg:min-h-[360px] ${flip ? "lg:order-2" : ""}`}>
                   <img
                     src={u.image}
                     alt={u.name}
-                    className="absolute inset-0 h-full w-full object-cover"
+                    className={`absolute inset-0 h-full w-full ${u.imgFit === "contain" ? "object-contain object-center p-4" : "object-cover"}`}
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.style.display = "none";
@@ -167,6 +174,7 @@ export function FlotaDetalle() {
             );
           })}
         </div>
+        <p className="mt-6 text-xs text-slate-500">*Imágenes ilustrativas.</p>
       </div>
     </section>
   );
@@ -174,7 +182,7 @@ export function FlotaDetalle() {
 
 export function Cobertura() {
   return (
-    <section id="cobertura" className="flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+    <section id="cobertura" className="fill-screen flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:py-10">
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
@@ -189,24 +197,22 @@ export function Cobertura() {
         <div className="mt-6 grid gap-5 lg:grid-cols-[1fr_1.4fr]">
           <div className="flex flex-col rounded-2xl bg-[#0b2a4a] p-6 text-white sm:p-7">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Local · ZMG </p>
-            <div className="mt-4 grid grid-cols-3 gap-2">
+            <ul className="mt-2 grid gap-x-5 sm:grid-cols-2">
               {COBERTURA_LOCAL.map((c) => (
-                <span
+                <li
                   key={c}
-                  className="flex min-h-[44px] items-center justify-center rounded-xl bg-white/10 px-2 py-2 text-center text-[13px] font-medium leading-tight text-white"
+                  className="flex items-center gap-2.5 border-b border-white/10 py-2.5 text-left text-sm text-white/85"
                 >
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" aria-hidden="true" />
                   {c}
-                </span>
+                </li>
               ))}
-            </div>
-            <p className="mt-5 border-t border-white/15 pt-4 text-sm leading-relaxed text-white/70">
-              Recolección y entrega con unidad dedicada.
-            </p>
-            <div className="relative mt-5 overflow-hidden rounded-xl">
+            </ul>
+            <div className="cobertura-map relative mt-4 min-h-52 flex-1 overflow-hidden rounded-xl">
               <img
                 src="/cobertura-zmg.webp"
                 alt="Mapa de cobertura local LS NEXOR en la Zona Metropolitana de Guadalajara"
-                className="h-44 w-full rounded-xl object-cover"
+                className="absolute inset-0 h-full w-full object-cover object-center"
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
@@ -229,7 +235,12 @@ export function Cobertura() {
               ))}
             </div>
             <div className="mt-auto pt-4">
-              <p className="rounded-lg bg-[#f2f5f9] p-4 text-sm text-slate-600">{COBERTURA_NACIONAL_MSG}</p>
+              <div className="flex flex-wrap items-center justify-between gap-2 border-t border-slate-200 pt-4">
+                <p className="text-sm leading-relaxed text-slate-600">{COBERTURA_NACIONAL_MSG}</p>
+                <a href={href("/cotizar")} className="shrink-0 text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
+                  Cotizar otra ruta →
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -244,20 +255,20 @@ export function Servicios({ fill = true }: { fill?: boolean }) {
       id="servicios"
       className={
         fill
-          ? "flex flex-col justify-center bg-white py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10"
-          : "bg-white py-16 sm:py-20 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:py-10"
+          ? "fill-screen flex flex-col justify-center bg-white py-16 sm:py-20 lg:py-10"
+          : "fill-screen bg-white py-16 sm:py-20 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:py-10"
       }
     >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <Heading eyebrow="Servicios" title="Lo que contratás, lo que recibís" desc="Tres servicios claros, precio cerrado por escrito." />
+          <Heading eyebrow="Servicios" title="Lo que contratas, lo que recibes" desc="Elige tu servicio y cotiza en minutos. Precio cerrado por escrito." />
           <a href={href("/nosotros")} className="text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
             Ver detalle de servicios →
           </a>
         </div>
-        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        <div className="mt-5 grid gap-4 lg:grid-cols-2">
           <div
-            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0b2a4a] p-7 text-white sm:p-8"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-2xl bg-[#0b2a4a] p-5 text-white sm:p-6"
           >
             <img
               src="/hero/unidad-principal.jpg"
@@ -269,19 +280,26 @@ export function Servicios({ fill = true }: { fill?: boolean }) {
                 e.currentTarget.style.display = "none";
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a] via-[#0b2a4a]/65 to-[#0b2a4a]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a] via-[#0b2a4a]/50 to-[#0b2a4a]/10" />
             <div className="relative">
               <div className="flex items-center justify-between">
                 <span className="rounded-full bg-[#0077c8] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">
                   Principal
                 </span>
-                <span className="font-heading text-4xl font-bold text-white/15">01</span>
+                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-white" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" className="h-6 w-6">
+                    <path d="M2 7h12v9H2z" />
+                    <path d="M14 10h4l4 4v2h-8" />
+                    <circle cx="6.5" cy="17.5" r="1.7" />
+                    <circle cx="17.5" cy="17.5" r="1.7" />
+                  </svg>
+                </span>
               </div>
-              <h3 className="font-heading mt-4 text-2xl font-bold sm:text-3xl">Flete dedicado</h3>
-              <p className="mt-2 max-w-md text-[15px] leading-relaxed text-white/70">
+              <h3 className="font-heading mt-3 text-xl font-bold sm:text-2xl">Flete dedicado</h3>
+              <p className="mt-1.5 max-w-md text-sm leading-relaxed text-white/70">
                 Unidad exclusiva para tu mercancía. Sin consolidar, puerta a puerta.
               </p>
-              <ul className="mt-5 space-y-2.5">
+              <ul className="mt-4 space-y-2">
                 {["Unidad exclusiva, sin compartir", "Puerta a puerta local y foráneo", "Precio cerrado por escrito"].map((f) => (
                   <li key={f} className="flex items-center gap-2.5 text-sm text-white/85">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-400">✓</span>
@@ -291,39 +309,115 @@ export function Servicios({ fill = true }: { fill?: boolean }) {
               </ul>
             </div>
           </div>
-          <div className="grid gap-5">
+          <div className="grid gap-4 lg:grid-rows-2">
             {[
               {
-                n: "02",
                 tag: "Opcional",
                 tagCls: "bg-emerald-100 text-emerald-700",
+                iconCls: "bg-[#0b2a4a] text-white",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" strokeLinecap="round" className="h-5 w-5" aria-hidden="true">
+                    <path d="M7 3h7l4 4v14H7z" />
+                    <path d="M14 3v4h4" />
+                    <path d="M10 14.5l1.8 1.8L15.5 12" />
+                  </svg>
+                ),
                 t: "Seguro de carga",
                 d: "Cobertura por evento cotizada junto al flete para proteger el valor de tu mercancía.",
               },
               {
-                n: "03",
                 tag: "Adicional",
                 tagCls: "bg-amber-100 text-amber-700",
+                iconCls: "bg-[#0b2a4a] text-white",
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" strokeLinecap="round" className="h-5 w-5" aria-hidden="true">
+                    <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+                    <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" />
+                  </svg>
+                ),
                 t: "Maniobras",
                 d: "Carga y descarga en origen y destino con personal de apoyo. Solicítalo en tu cotización.",
               },
             ].map((s) => (
               <div
                 key={s.t}
-                className="flex items-start justify-between gap-4 rounded-2xl border border-[#dce4ed] bg-[#f2f5f9] p-6 sm:p-7"
+                className="flex flex-col justify-center rounded-2xl border border-[#dce4ed] bg-[#f2f5f9] p-5 sm:p-6"
               >
-                <div>
+                <div className="flex items-center justify-between">
                   <span className={`rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${s.tagCls}`}>
                     {s.tag}
                   </span>
-                  <h3 className="font-heading mt-3 text-xl font-bold text-[#0b2a4a] sm:text-2xl">{s.t}</h3>
-                  <p className="mt-2 max-w-md text-sm leading-relaxed text-slate-600">{s.d}</p>
+                  <span className={`flex h-10 w-10 items-center justify-center rounded-xl ${s.iconCls}`} aria-hidden="true">
+                    {s.icon}
+                  </span>
                 </div>
-                <span className="font-heading shrink-0 text-4xl font-bold text-[#dce4ed]">
-                  {s.n}
-                </span>
+                <h3 className="font-heading mt-2.5 text-lg font-bold text-[#0b2a4a]">{s.t}</h3>
+                <p className="mt-1.5 max-w-md text-sm leading-relaxed text-slate-600">{s.d}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Aduana() {
+  return (
+    <section id="aduana" className="bg-white py-10 sm:py-12 lg:flex lg:flex-1 lg:flex-col lg:justify-center lg:py-6">
+      <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
+        <p className="eyebrow text-[#0077c8]">Comercio exterior</p>
+        <h2 className="font-heading mt-2.5 text-2xl font-bold text-[#0b2a4a] sm:text-3xl">Ingresamos a aduana y recinto fiscal</h2>
+        <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-[15px]">
+          Unidades especializadas para el despacho de mercancías, con permisos vigentes
+          y operadores autorizados. No cualquiera entra: nosotros sí.
+        </p>
+        <div className="relative mt-5 overflow-hidden rounded-2xl bg-[#0b2a4a] text-white">
+          <img
+            src="/aduana/aduana-carga-nocturna.webp"
+            alt="Aviones de carga operando de noche en aeropuerto"
+            className="absolute inset-0 h-full w-full object-cover"
+            loading="lazy"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b2a4a] via-[#0b2a4a]/75 via-65% to-transparent" aria-hidden="true" />
+          <div className="relative grid lg:grid-cols-[1.1fr_1fr]">
+            <div className="flex flex-col p-5 sm:p-6">
+              <div className="flex flex-1 flex-col justify-center">
+              <ul className="space-y-2.5">
+                {[
+                  "Permisos vigentes en unidades y operadores",
+                  "Aduana, aeropuerto y recintos fiscales",
+                  "Despacho de importación y exportación",
+                  "Monitoreo en ruta + foto de entrega",
+                ].map((f) => (
+                  <li key={f} className="flex items-center gap-2.5 text-sm text-white/85">
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-400/20 text-xs font-bold text-sky-300">✓</span>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              </div>
+              <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-4 lg:mt-auto">
+                <p className="text-sm text-white/70">¿Mercancía detenida? La sacamos nosotros.</p>
+                <a
+                  href={href("/nosotros")}
+                  className="text-sm font-semibold text-sky-300 transition hover:text-white"
+                >
+                  Ver servicios →
+                </a>
+              </div>
+            </div>
+            <div className="relative min-h-[200px] lg:min-h-[280px]">
+              <span className="absolute bottom-5 right-5 flex items-center gap-2 rounded-full bg-white/95 px-4 py-1.5 text-xs font-bold text-[#0b2a4a]">
+                <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                  <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z" />
+                </svg>
+                Aeropuerto de Guadalajara · GDL
+              </span>
+            </div>
           </div>
         </div>
       </div>
@@ -344,7 +438,7 @@ export function Proceso({ compact = false }: { compact?: boolean }) {
       className={
         compact
           ? "bg-[#0b2a4a] py-6 text-white lg:py-6"
-          : "flex flex-col justify-center bg-[#0b2a4a] py-16 text-white sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10"
+          : "fill-screen flex flex-col justify-center bg-[#0b2a4a] py-16 text-white sm:py-20 lg:py-10"
       }
     >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
@@ -451,6 +545,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
               "Precios acorde a los servicios contratados",
               "Facturación inmediata",
               "Foto de entrega + ubicación en ruta",
+              "Ingreso a aduana y recinto fiscal",
               `Base ${BUSINESS.base}`,
             ].map((c) => (
               <li key={c} className="flex items-start gap-2.5">
@@ -464,7 +559,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
     );
   }
   return (
-    <section id="nosotros" className="flex flex-col justify-center bg-white py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+    <section id="nosotros" className="fill-screen flex flex-col justify-center bg-white py-16 sm:py-20 lg:py-10">
       <div className="mx-auto grid w-full max-w-7xl items-stretch gap-6 px-6 sm:px-8 lg:grid-cols-2">
         <div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-[#0b2a4a]">
           <img
@@ -530,15 +625,14 @@ export function Faq() {
     ["¿Mi carga viaja sola o consolidada?", "Sola. La unidad va 100% dedicada a tu mercancía, sin compartir ni trasbordos."],
     ["¿Puedo seguir mi flete en ruta?", "Sí. Te compartimos ubicación durante el viaje y foto de entrega al finalizar."],
     ["¿Hacen mudanzas?", "Sí. Las cotizamos como flete dedicado y puedes agregar maniobras de carga y descarga."],
-    ["¿Cobran tiempo de espera?", "El precio se acuerda por escrito antes de cargar; si algo cambia en ruta, se pide tu autorización."],
-    ["¿Qué formas de pago aceptan?", "Escríbenos por WhatsApp y te confirmamos formas de pago disponibles y facturación."],
-    ["¿Con cuánta anticipación reservo?", "Entre más antes mejor, pero si tienes urgencia escríbenos: operamos local y foráneo todos los días hábiles."],
+    ["¿Entran a aduana y recinto fiscal?", "Sí. Operamos con unidades especializadas, permisos vigentes y operadores autorizados para el despacho de mercancías en aduana, aeropuerto y recintos fiscales."],
+    ["¿Manejan importación y exportación?", "Sí. Movemos mercancía de comercio exterior con unidad dedicada. Escríbenos por WhatsApp y cotizamos tu despacho."],
+    ["¿Qué necesito para despachar mi mercancía?", "Cuéntanos origen, destino y tipo de mercancía en el cotizador o por WhatsApp y te confirmamos tiempos y requisitos. Precio cerrado por escrito."],
   ];
   return (
-    <section id="faq" className="flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:min-h-[calc(100vh-64px)] lg:py-10">
+    <section id="faq" className="fill-screen flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:py-10">
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">
-        <p className="eyebrow text-center text-[#0077c8]">FAQ</p>
-        <h2 className="font-heading mt-3 text-center text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Preguntas frecuentes</h2>
+        <h2 className="font-heading text-center text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Preguntas frecuentes</h2>
         <div className="mt-6 grid items-start gap-4 md:grid-cols-2">
           {faqs.map(([q, a]) => (
             <details key={q} className="group rounded-2xl border border-[#dce4ed] bg-white px-5 py-4 transition hover:border-[#0077c8]/50 hover:shadow-[0_8px_24px_rgba(11,42,74,0.08)]">

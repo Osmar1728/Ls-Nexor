@@ -36,6 +36,8 @@ export interface FleetUnit {
   volume: string;
   usage: string;
   image: string;
+  /** Fotos verticales (pickup, 3.5t) se muestran completas sin recorte */
+  imgFit?: "contain" | "cover";
 }
 
 export const FLEET_UNITS: FleetUnit[] = [
@@ -48,6 +50,7 @@ export const FLEET_UNITS: FleetUnit[] = [
     volume: "7.5 m³",
     usage: "Paquetería, fletes locales en ZMG y repartos express",
     image: "/flota/pickup-1t.webp",
+    imgFit: "contain",
   },
   {
     id: "3.5t",
@@ -58,6 +61,7 @@ export const FLEET_UNITS: FleetUnit[] = [
     volume: "21 m³",
     usage: "Mudanzas de 2-3 habitaciones y carga comercial",
     image: "/flota/camion-3t.webp",
+    imgFit: "contain",
   },
   {
     id: "rabon",

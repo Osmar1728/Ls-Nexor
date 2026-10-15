@@ -46,6 +46,7 @@ export function Footer() {
           <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-white/50">{BUSINESS.fullName}</p>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-white/70">
             {BUSINESS.tagline}. Flota 1T · 3.5T · Rabón 8T · Trailer 15+T. Factura con carta porte.
+            Despacho en aduana y recinto fiscal.
           </p>
           <p className="mt-4 text-sm text-white/70">
             <span className="font-semibold text-white">{BUSINESS.base}</span>
