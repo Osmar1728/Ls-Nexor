@@ -161,6 +161,8 @@ export interface QuoteForm {
   fecha: string;
   pesoAprox: string;
   factura: boolean;
+  seguro: boolean;
+  aduana: boolean;
   mensaje: string;
 }
 
@@ -174,6 +176,8 @@ export const initialQuote: QuoteForm = {
   destino: "",
   fecha: "",
   pesoAprox: "",
-  factura: false,
+  factura: true,
+  seguro: false,
+  aduana: false,
   mensaje: "",
 };

@@ -1,4 +1,5 @@
 import { href } from "../lib/router";
+import { useAutoplayVideo } from "../lib/video";
 
 interface Props {
   video: string;
@@ -10,14 +11,18 @@ interface Props {
   ctaPrimary?: { label: string; to: string };
   ctaSecondary?: { label: string; to: string };
   stats?: [string, string][];
+  /** Versión compacta (fichas de ruta): misma info en la mitad de alto. */
+  compact?: boolean;
 }
 
 /** Hero a video completo, mismo diseño claro del home en todas las páginas internas. */
-export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs, ctaPrimary, ctaSecondary, stats }: Props) {
+export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs, ctaPrimary, ctaSecondary, stats, compact = false }: Props) {
+  const videoRef = useAutoplayVideo<HTMLVideoElement>();
   return (
-    <section className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-12 pt-[96px] text-[#0b2a4a] sm:pt-[104px]">
+    <section className={compact ? 'relative flex flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-10 pt-[96px] text-[#0b2a4a] sm:pt-[104px]' : 'relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-12 pt-[96px] text-[#0b2a4a] sm:pt-[104px]'}>
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <video
+          ref={videoRef}
           aria-hidden="true"
           className="absolute inset-0 h-full w-full object-cover object-center"
           src={video}
@@ -28,7 +33,7 @@ export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs,
           playsInline
           preload="metadata"
         />
-        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/90 via-45% to-[#f2f5f9]/20" />
+        <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/55 to-transparent" />
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f2f5f9] to-transparent" />
       </div>
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8">
@@ -45,10 +50,10 @@ export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs,
           </nav>
         )}
         {eyebrow && <p className="eyebrow text-[#0077c8]">{eyebrow}</p>}
-        <h1 className="font-heading mt-3 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-[52px]">{title}</h1>
-        {desc && <p className="mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-600">{desc}</p>}
+        <h1 className={compact ? 'font-heading mt-3 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl' : 'font-heading mt-3 max-w-3xl text-3xl font-extrabold leading-tight sm:text-4xl lg:text-[52px]'}>{title}</h1>
+        {desc && <p className={compact ? 'mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600' : 'mt-4 max-w-2xl text-[16px] leading-relaxed text-slate-600'}>{desc}</p>}
         {(ctaPrimary || ctaSecondary) && (
-          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+          <div className={compact ? 'mt-6 flex flex-col gap-3 sm:flex-row' : 'mt-7 flex flex-col gap-3 sm:flex-row'}>
             {ctaPrimary && (
               <a
                 href={href(ctaPrimary.to)}
@@ -67,7 +72,7 @@ export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs,
             )}
           </div>
         )}
-        {stats && stats.length > 0 && (
+        {!compact && stats && stats.length > 0 && (
           <div className="mt-7 grid max-w-lg grid-cols-3 gap-6 border-t border-[#dce4ed] pt-6">
             {stats.map(([v, l]) => (
               <div key={l}>

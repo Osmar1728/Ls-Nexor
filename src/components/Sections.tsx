@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BUSINESS, COBERTURA_LOCAL, COBERTURA_NACIONAL_MSG, FLEET_UNITS, NOTA_FLOTA } from "../config";
 import { buildCotizarHref, href } from "../lib/router";
 import { RUTAS } from "../lib/rutas";
@@ -382,7 +383,7 @@ export function Aduana() {
               e.currentTarget.style.display = "none";
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0b2a4a] via-[#0b2a4a]/75 via-65% to-transparent" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0b2a4a] via-[#0b2a4a]/75 to-transparent" aria-hidden="true" />
           <div className="relative grid lg:grid-cols-[1.1fr_1fr]">
             <div className="flex flex-col p-5 sm:p-6">
               <div className="flex flex-1 flex-col justify-center">
@@ -615,12 +616,14 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
 }
 
 export function Faq() {
+  // En móvil se muestran 4 + "ver más"; en laptop se ven todas (sin cambios).
+  const [expandido, setExpandido] = useState(false);
   const faqs = [
     ["¿Cuánto cuesta un flete?", "Depende de origen, destino, unidad y carga. Envíanos el cotizador y respondemos en menos de 3 horas."],
     ["¿Qué unidades tienen?", "Camioneta 1T, 3.5T caja seca, Rabón 8T y Trailer 15+T. Todas caja cerrada; medidas aproximadas."],
     ["¿Qué incluye el servicio?", "Flete dedicado puerta a puerta. Seguro de carga y maniobras se cotizan como adicionales."],
     ["¿A dónde llegan?", "ZMG + San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Otras rutas bajo cotización."],
-    ["¿Emiten factura?", "Sí. Indícalo en el formulario y emitimos factura con carta porte."],
+    ["¿Emiten factura?", "Sí, siempre. Todas las cotizaciones incluyen factura con carta porte."],
     ["¿Cómo reservo?", "Por WhatsApp o correo. Confirmamos unidad, horario y precio cerrado."],
     ["¿Mi carga viaja sola o consolidada?", "Sola. La unidad va 100% dedicada a tu mercancía, sin compartir ni trasbordos."],
     ["¿Puedo seguir mi flete en ruta?", "Sí. Te compartimos ubicación durante el viaje y foto de entrega al finalizar."],
@@ -634,8 +637,8 @@ export function Faq() {
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">
         <h2 className="font-heading text-center text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Preguntas frecuentes</h2>
         <div className="mt-6 grid items-start gap-4 md:grid-cols-2">
-          {faqs.map(([q, a]) => (
-            <details key={q} className="group rounded-2xl border border-[#dce4ed] bg-white px-5 py-4 transition hover:border-[#0077c8]/50 hover:shadow-[0_8px_24px_rgba(11,42,74,0.08)]">
+          {faqs.map(([q, a], i) => (
+            <details key={q} className={`group rounded-2xl border border-[#dce4ed] bg-white px-5 py-4 transition hover:border-[#0077c8]/50 hover:shadow-[0_8px_24px_rgba(11,42,74,0.08)]${i >= 4 && !expandido ? " hidden md:block" : ""}`}>
               <summary className="flex cursor-pointer list-none items-center gap-3">
                 <span className="flex-1 text-[15px] font-semibold text-[#0b2a4a]">{q}</span>
                 <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f2f5f9] text-lg font-medium text-[#0077c8] transition group-open:rotate-45 group-open:bg-[#0077c8] group-open:text-white">+</span>
@@ -644,6 +647,15 @@ export function Faq() {
             </details>
           ))}
         </div>
+        {!expandido && (
+          <button
+            type="button"
+            onClick={() => setExpandido(true)}
+            className="mx-auto mt-6 block rounded-lg border border-[#0b2a4a]/20 bg-white px-6 py-3 text-sm font-semibold text-[#0b2a4a] transition hover:border-[#0b2a4a] md:hidden"
+          >
+            Ver {faqs.length - 4} preguntas más ↓
+          </button>
+        )}
         <p className="mt-8 text-center text-sm text-slate-600">
           ¿Otra duda?{" "}
           <a

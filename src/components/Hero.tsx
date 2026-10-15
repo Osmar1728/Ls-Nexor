@@ -1,11 +1,14 @@
 import { href } from "../lib/router";
+import { useAutoplayVideo } from "../lib/video";
 
 export default function Hero() {
+  const videoRef = useAutoplayVideo<HTMLVideoElement>();
+
   return (
     <section id="inicio" className="fill-screen relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-10 pt-[96px] sm:pt-[104px]">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="absolute inset-0 hidden sm:block">
           <video
+            ref={videoRef}
             src="/hero/video/hero-main.webm"
             poster="/hero-rutas-bajio.webp"
             className="h-full w-full object-cover object-center"
@@ -16,24 +19,8 @@ export default function Hero() {
             preload="metadata"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/90 via-45% to-[#f2f5f9]/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/55 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#f2f5f9] to-transparent" />
-        </div>
-        {/* Móvil: video a ancho completo debajo del texto */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 sm:hidden" aria-hidden="true">
-          <video
-            src="/hero/video/hero-main.webm"
-            poster="/hero-rutas-bajio.webp"
-            className="h-full w-full object-cover object-center opacity-30"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            aria-hidden="true"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#f2f5f9] via-[#f2f5f9]/60 to-transparent" />
-        </div>
       </div>
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex max-w-2xl flex-col justify-center">

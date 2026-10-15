@@ -1,16 +1,19 @@
 import { FlotaDetalle } from "../components/Sections";
 import ScrollBlock from "../components/ScrollBlock";
+import { useAutoplayVideo } from "../lib/video";
 import { FLEET_UNITS } from "../config";
 import { href, usePageMeta } from "../lib/router";
 
 export default function FlotaPage() {
   usePageMeta("flota");
+  const videoRef = useAutoplayVideo<HTMLVideoElement>();
 
   return (
     <>
       <section className="relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-12 pt-[96px] text-[#0b2a4a] sm:pt-[104px]">
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
           <video
+            ref={videoRef}
             aria-hidden="true"
             className="absolute inset-0 h-full w-full object-cover object-center"
             src="/hero/video/trailer-24s.webm"
@@ -21,7 +24,7 @@ export default function FlotaPage() {
             playsInline
             preload="metadata"
           />
-          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/90 via-45% to-[#f2f5f9]/20" />
+          <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/55 to-transparent" />
           <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f2f5f9] to-transparent" />
         </div>
         <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8">

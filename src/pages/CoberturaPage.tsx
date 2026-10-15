@@ -24,83 +24,143 @@ export default function CoberturaPage() {
       <ScrollBlock id="bloque-cobertura-local">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <div className="relative overflow-hidden rounded-2xl bg-[#0b2a4a] text-white">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <p className="eyebrow text-[#0077c8]">Local · ZMG</p>
+              <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
+                Zona Metropolitana de Guadalajara
+              </h2>
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600">
+                Recolección y entrega con unidad dedicada y maniobras opcionales.
+              </p>
+            </div>
+            <a
+              href={buildCotizarHref({ origen: "Guadalajara", tipo: "Local" })}
+              className="rounded-lg bg-[#0077c8] px-6 py-3 text-center text-sm font-semibold text-white transition hover:bg-[#005a97]"
+            >
+              Cotizar local →
+            </a>
+          </div>
+
+          <figure className="relative mt-8 overflow-hidden rounded-2xl bg-[#0b2a4a] shadow-[0_16px_40px_rgba(11,42,74,0.18)]">
             <img
               src="/cobertura-zmg.webp"
               alt="Mapa de cobertura local en la Zona Metropolitana de Guadalajara"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="h-72 w-full object-cover sm:h-96"
               loading="lazy"
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-white via-[#0b2a4a] via-50% to-white" aria-hidden="true" />
-            <div className="relative grid lg:grid-cols-2">
-              <div className="flex flex-col justify-center p-7 text-center sm:p-9 lg:col-span-2 lg:mx-auto lg:max-w-2xl">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Local</p>
-                <h2 className="font-heading mt-2 text-2xl font-bold text-white sm:text-3xl">Zona Metropolitana de Guadalajara</h2>
-                <ul className="mx-auto mt-2 grid w-full max-w-md gap-x-5 sm:grid-cols-2">
-                  {COBERTURA_LOCAL.map((c) => (
-                    <li
-                      key={c}
-                      className="flex items-center justify-center gap-2.5 border-b border-white/10 py-2.5 text-sm text-white/85"
-                    >
-                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" aria-hidden="true" />
-                      {c}
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-4 text-sm leading-relaxed text-white/70">
-                  Recolección y entrega con maniobras opcionales.
-                </p>
-                <a href={buildCotizarHref({ origen: "Guadalajara", tipo: "Local" })} className="mt-4 text-sm font-semibold text-sky-300 hover:text-white">
-                  Cotizar local →
-                </a>
-              </div>
-              <div className="relative hidden min-h-[240px] lg:block lg:min-h-[320px]" />
-            </div>
-          </div>
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a] via-[#0b2a4a]/35 to-transparent"
+            />
+            <span className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-1.5 text-xs font-bold text-[#0b2a4a]">
+              9 municipios
+            </span>
+            <figcaption className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
+              <ul className="grid grid-cols-2 gap-x-6 sm:grid-cols-3">
+                {COBERTURA_LOCAL.map((c) => (
+                  <li
+                    key={c}
+                    className="flex items-center gap-2.5 border-b border-white/15 py-2 text-sm font-medium text-white"
+                  >
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-sky-300" aria-hidden="true" />
+                    {c}
+                  </li>
+                ))}
+              </ul>
+            </figcaption>
+          </figure>
         </div>
       </section>
       </ScrollBlock>
 
       <ScrollBlock id="bloque-cobertura-foraneo">
-      <section className="bg-[#f2f5f9] py-16">
-        <div className="mx-auto max-w-7xl px-6 sm:px-8">
-          <p className="eyebrow text-[#0077c8]">Foráneo</p>
-          <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a]">Elige tu destino</h2>
-          <p className="mt-2 text-[15px] text-slate-600">Cada ruta tiene ficha con distancias, unidad ideal y preguntas. Toca para ver detalle.</p>
+      <section className="relative overflow-hidden bg-[#0b2a4a] py-16 text-white">
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            backgroundImage: "radial-gradient(rgba(255,255,255,0.14) 1px, transparent 1px)",
+            backgroundSize: "26px 26px",
+            maskImage: "linear-gradient(to bottom, black, transparent 75%)",
+            WebkitMaskImage: "linear-gradient(to bottom, black, transparent 75%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-7xl px-6 sm:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <p className="eyebrow text-sky-300">Foráneo · Salidas desde GDL</p>
+              <h2 className="font-heading mt-3 text-3xl font-bold sm:text-4xl">Elige tu destino</h2>
+              <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/70">
+                7 corredores directos con unidad dedicada. Cada boleto trae distancia,
+                unidad ideal y ficha completa.
+              </p>
+            </div>
+            <p className="flex items-center gap-2 text-sm text-white/60">
+              <span className="relative flex h-2.5 w-2.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
+              </span>
+              Salidas todos los días hábiles
+            </p>
+          </div>
+
           <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {RUTAS.map((r) => (
+            {RUTAS.map((r, i) => (
               <a
                 key={r.slug}
                 href={href(`/ruta/${r.slug}`)}
-                className="group flex flex-col rounded-2xl border border-[#dce4ed] bg-white p-5 transition hover:-translate-y-0.5 hover:border-[#0077c8] hover:shadow-[0_12px_28px_rgba(11,42,74,0.12)] sm:p-6"
+                className="group flex items-stretch overflow-hidden rounded-2xl bg-white text-[#0b2a4a] shadow-[0_16px_40px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:shadow-[0_22px_50px_rgba(0,0,0,0.4)]"
               >
-                <div className="flex items-center justify-between gap-3">
-                  <span className="font-heading flex h-10 w-10 items-center justify-center rounded-xl bg-[#0b2a4a] text-white" aria-hidden="true">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className="h-5 w-5">
-                      <path d="M12 21.5s-7.5-6-7.5-11.5a7.5 7.5 0 1 1 15 0C19.5 15.5 12 21.5 12 21.5z" strokeLinejoin="round" />
-                      <circle cx="12" cy="10" r="2.5" />
-                    </svg>
+                <div className="relative hidden w-28 shrink-0 sm:block">
+                  <img
+                    src={r.imagen}
+                    alt=""
+                    aria-hidden="true"
+                    className="absolute inset-0 h-full w-full object-cover"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+                  <span className="font-condensed absolute left-2 top-2 rounded-md bg-[#0b2a4a]/85 px-2 py-0.5 text-sm font-semibold tracking-wider text-white backdrop-blur-sm">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
-                <h3 className="mt-4 text-lg font-bold text-[#0b2a4a] group-hover:text-[#0077c8]">
-                  GDL → {r.destino}
-                </h3>
-                <p className="mt-1 text-sm text-slate-500">{r.distancia} · {r.ideal}</p>
-                <p className="mt-3 pt-1 text-sm font-semibold text-[#0077c8]">
-                  Ver ficha <span className="inline-block transition group-hover:translate-x-1">→</span>
-                </p>
+                <div className="min-w-0 flex-1 px-5 py-4 sm:py-5">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#0077c8]">
+                    GDL → {r.destino}
+                  </p>
+                  <p className="mt-1 truncate text-sm font-semibold">{r.distancia}</p>
+                  <p className="mt-0.5 line-clamp-1 text-[13px] text-slate-500">{r.ideal}</p>
+                </div>
+                <div className="relative flex items-center border-l border-dashed border-[#dce4ed] px-4 sm:px-5">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f2f5f9] text-lg font-bold text-[#0077c8] transition group-hover:translate-x-1 group-hover:bg-[#0077c8] group-hover:text-white">
+                    →
+                  </span>
+                </div>
               </a>
             ))}
-          </div>
 
-          <div className="mt-8 rounded-2xl border border-[#dce4ed] bg-white p-6 text-center sm:p-8">
-            <h3 className="font-heading text-xl font-bold text-[#0b2a4a]">¿No está tu destino?</h3>
-            <p className="mx-auto mt-2 max-w-xl text-sm text-slate-600">{COBERTURA_NACIONAL_MSG}</p>
-            <a href={buildCotizarHref({ origen: "Guadalajara", tipo: "Foráneo" })} className="mt-4 inline-block rounded-lg bg-[#0077c8] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#005a97]">
-              Cotizar ruta nacional
+            <a
+              href={buildCotizarHref({ origen: "Guadalajara", tipo: "Foráneo" })}
+              className="group flex items-stretch overflow-hidden rounded-2xl bg-[#0077c8] text-white shadow-[0_16px_40px_rgba(0,119,200,0.35)] transition hover:-translate-y-1 hover:bg-[#005a97]"
+            >
+              <div className="min-w-0 flex-1 px-5 py-4 sm:py-5">
+                <p className="text-[11px] font-bold uppercase tracking-[0.16em] text-sky-200">
+                  Comodín nacional
+                </p>
+                <p className="font-heading mt-1 text-lg font-bold">¿No está tu destino?</p>
+                <p className="mt-0.5 line-clamp-2 text-sm text-white/75">{COBERTURA_NACIONAL_MSG}</p>
+              </div>
+              <div className="relative flex items-center border-l border-dashed border-white/30 px-4 sm:px-5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-lg font-bold text-[#0077c8] transition group-hover:translate-x-1 group-hover:bg-[#0b2a4a] group-hover:text-white">
+                  →
+                </span>
+              </div>
             </a>
           </div>
         </div>

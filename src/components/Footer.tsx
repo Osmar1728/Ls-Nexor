@@ -38,7 +38,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[#0b2a4a] text-white">
+    <footer className="relative z-10 border-t border-white/15 bg-[#0b2a4a] text-white">
       {/* Columnas */}
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
         <div>
@@ -80,12 +80,23 @@ export function Footer() {
         <div className="rounded-2xl bg-white/5 p-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Contacto directo</p>
           <ul className="mt-4 space-y-3 text-sm">
-            <li>
-              <a href={`https://wa.me/${BUSINESS.whatsappNumber}`} target="_blank" rel="noreferrer" className="font-semibold text-white hover:underline">
-                WhatsApp {BUSINESS.whatsappDisplay}
+            <li className="flex items-center gap-3">
+              <span aria-hidden="true" className="flex shrink-0 items-center text-white/60">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .4-.2 1z" />
+                </svg>
+              </span>
+              <a href={`https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent('Hola LS NEXOR, quiero cotizar un flete.')}`} target="_blank" rel="noreferrer" className="font-semibold text-white hover:underline">
+                {BUSINESS.whatsappDisplay}
               </a>
             </li>
-            <li>
+            <li className="flex items-center gap-3">
+              <span aria-hidden="true" className="flex shrink-0 items-center text-white/60">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                  <path d="m3 7 9 6 9-6" />
+                </svg>
+              </span>
               <a href={`mailto:${BUSINESS.email}`} className="break-all text-white/75 transition hover:text-white">
                 {BUSINESS.email}
               </a>

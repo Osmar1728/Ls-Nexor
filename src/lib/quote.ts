@@ -13,6 +13,8 @@ export function buildQuoteText(q: QuoteForm): string {
     q.fecha ? `Fecha: ${q.fecha}` : null,
     q.pesoAprox ? `Peso aprox: ${q.pesoAprox}` : null,
     `Factura: ${q.factura ? "Sí" : "No"}`,
+    q.seguro ? "Seguro de carga: Sí, lo requiero (cotizar cobertura por evento)" : null,
+    q.aduana ? "Comercio exterior: Sí, mercancía de aduana/recinto fiscal" : null,
     q.mensaje ? `Detalle: ${q.mensaje}` : null,
     ``,
     `Flotilla referencia: 1T / 3.5T / Rabón / Tráiler. ${NOTA_FLOTA}`,

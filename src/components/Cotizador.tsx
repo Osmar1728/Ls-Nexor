@@ -114,7 +114,7 @@ export default function Cotizador() {
   const unidadActiva = FLOTA.find((u) => u.nombre === form.unidad) ?? FLOTA[0];
 
   return (
-    <section id="cotizar" className="scroll-mt-20 bg-white py-12 lg:py-16">
+    <section id="cotizar" className="scroll-mt-20 bg-[#f2f5f9] py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
@@ -141,11 +141,23 @@ export default function Cotizador() {
               <p className="mt-1 text-white/70">
                 {form.tipo} · {unidadActiva.nombre} · {unidadActiva.capacidad}
               </p>
+              {(form.seguro || form.aduana) && (
+                <p className="mt-2 flex flex-wrap gap-1.5">
+                  {form.seguro && (
+                    <span className="rounded-full bg-sky-400/20 px-3 py-1 text-xs font-semibold text-sky-300">+ Seguro de carga</span>
+                  )}
+                  {form.aduana && (
+                    <span className="rounded-full bg-sky-400/20 px-3 py-1 text-xs font-semibold text-sky-300">+ Aduana / recinto</span>
+                  )}
+                </p>
+              )}
             </div>
-            <div className="mt-4 space-y-2 rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-5 text-sm">
-              <p className="flex items-center gap-3">
-                <img src={BUSINESS.logoIcon} alt="LS NEXOR" className="h-9 w-9 rounded-lg bg-white object-contain" loading="lazy" />
-                <span><span className="font-semibold text-[#0b2a4a]">WhatsApp:</span> {BUSINESS.whatsappDisplay}</span>
+            <div className="mt-4 space-y-2 rounded-xl border border-[#dce4ed] bg-white p-5 text-sm">
+              <p className="flex items-center gap-2.5 text-[#0b2a4a]">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="shrink-0 text-slate-400" aria-hidden="true">
+                  <path d="M12 2a10 10 0 00-8.6 15.1L2 22l5-1.3A10 10 0 1012 2zm5.4 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.4-.7-2.9-1.2-4.7-4.1-4.9-4.3-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5s.8 1.9.8 2c.1.1.1.3 0 .5l-.4.5c-.2.2-.3.4-.1.7.2.3.9 1.5 2 2.4 1.4 1.2 2.5 1.6 2.9 1.8.3.2.5.1.7-.1l.8-1c.2-.3.4-.2.7-.1l1.9.9c.3.1.5.2.5.4 0 .1 0 .4-.2 1z" />
+                </svg>
+                <span className="font-semibold">{BUSINESS.whatsappDisplay}</span>
               </p>
               <p><span className="font-semibold text-[#0b2a4a]">Correo:</span> {BUSINESS.email}</p>
               <p><span className="font-semibold text-[#0b2a4a]">Base:</span> {BUSINESS.base}</p>
@@ -341,8 +353,12 @@ export default function Cotizador() {
                     </div>
                   </div>
                   <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-[#dce4ed] bg-[#f2f5f9] px-4 py-3 text-sm text-slate-600">
-                    <input type="checkbox" checked={form.factura} onChange={(e) => set("factura", e.target.checked)} className="h-5 w-5 accent-[#0077c8]" />
-                    <span className="font-semibold text-[#0b2a4a]">Requiero factura</span>
+                    <input type="checkbox" checked={form.seguro} onChange={(e) => set("seguro", e.target.checked)} className="h-5 w-5 shrink-0 accent-[#0077c8]" />
+                    <span><span className="font-semibold text-[#0b2a4a]">Necesito seguro de carga</span><span className="mt-0.5 block text-xs text-slate-500">Cobertura por evento, se cotiza junto al flete</span></span>
+                  </label>
+                  <label className="flex cursor-pointer items-center gap-3 rounded-lg border border-[#dce4ed] bg-[#f2f5f9] px-4 py-3 text-sm text-slate-600">
+                    <input type="checkbox" checked={form.aduana} onChange={(e) => set("aduana", e.target.checked)} className="h-5 w-5 shrink-0 accent-[#0077c8]" />
+                    <span><span className="font-semibold text-[#0b2a4a]">Es mercancía de aduana</span><span className="mt-0.5 block text-xs text-slate-500">Recinto fiscal, aeropuerto o comercio exterior</span></span>
                   </label>
                 </div>
               )}
@@ -357,12 +373,12 @@ export default function Cotizador() {
                     </label>
                     <label className="block">
                       <span className={labelCls}>Teléfono / WhatsApp *</span>
-                      <input className={inputCls} value={form.telefono} onChange={(e) => set("telefono", e.target.value)} placeholder="33 ..." inputMode="tel" autoComplete="tel" />
+                      <input className={inputCls} value={form.telefono} onChange={(e) => set("telefono", e.target.value)} inputMode="tel" autoComplete="tel" />
                     </label>
                   </div>
                   <label className="block">
                     <span className={labelCls}>Email (opcional)</span>
-                    <input className={inputCls} value={form.email} onChange={(e) => set("email", e.target.value)} placeholder="tucorreo@..." inputMode="email" autoComplete="email" />
+                    <input className={inputCls} value={form.email} onChange={(e) => set("email", e.target.value)} inputMode="email" autoComplete="email" />
                   </label>
                   <div className="rounded-lg bg-[#f2f5f9] p-4 text-sm text-slate-600">
                     Revisa tu resumen a la izquierda. Al enviar se abre WhatsApp o tu correo con todo pre-llenado.
