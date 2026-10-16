@@ -31,12 +31,12 @@ html {
 }
 
 /* ——— Bloques por scroll (Home) ———
-   En laptop (>=1024px) cada bloque es una pantalla:
+   Solo laptop (>=1024px) lleva snap al inicio de cada bloque; en móvil/tablet
+   el scroll es libre (sin efecto de frenado):
    - hero abarca todo el viewport
-   - cada ScrollBlock hace snap al inicio
-   - .fill-screen = alto de pantalla menos navbar (64px)
-   En laptop chaparra el contenido se compacta (ver modo compacto abajo)
-   en vez de romper el snap, para que no se desfase. */
+   - .fill-screen = alto de pantalla menos navbar (64px, solo laptop)
+   `proximity` (no mandatory) para no atrapar bloques más altos que la pantalla.
+   En laptop chaparra el contenido se compacta (ver modo compacto abajo). */
 .fill-screen {
   min-height: 0;
 }
@@ -144,6 +144,7 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html,
   #home-blocks {
     scroll-snap-type: none;
   }
@@ -204,6 +205,8 @@ details summary::-webkit-details-marker {
    En laptop cada section = 1 pantalla (.fill-screen + snap); en laptop chaparra
    se compacta el contenido para que siga cabiendo sin desfase.
    ———————————————————————————————— */
+/* Contención lateral: SOLO `clip` (hidden/auto/scroll crean scroll containers
+   anidados que secuestran la rueda). Nada de overflow-x en wrappers de página. */
 html,
 body {
   overflow-x: clip;
@@ -238,10 +241,6 @@ video {
   #inicio .font-condensed {
     font-size: 1.5rem;
   }
-  section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
 }
 
 /* Cel M — 375px a 424px */
@@ -258,10 +257,6 @@ video {
 
 /* Cel L — 425px a 767px: ya caben 2 columnas chicas */
 @media (min-width: 425px) and (max-width: 767px) {
-  section {
-    padding-top: 3.5rem;
-    padding-bottom: 3.5rem;
-  }
 }
 
 /* Tablet — 768px a 1023px: 2 columnas estables, sin pantalla completa */
@@ -272,20 +267,12 @@ video {
   #home-blocks {
     scroll-snap-type: none;
   }
-  section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
 }
 
 /* Laptop — 1024px a 1439px: cada sección = 1 pantalla con scroll-snap */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .mx-auto.max-w-7xl {
     max-width: 80rem;
-  }
-  section {
-    padding-top: 2.5rem;
-    padding-bottom: 2.5rem;
   }
 }
 
@@ -405,10 +392,6 @@ video {
   }
   .mx-auto.max-w-5xl {
     max-width: 68rem;
-  }
-  section {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
   }
   .font-heading {
     letter-spacing: -0.02em;

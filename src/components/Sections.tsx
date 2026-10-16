@@ -140,7 +140,7 @@ export function FlotaDetalle() {
                   </span>
                 </div>
                 <div className={`p-6 sm:p-9 ${flip ? "lg:order-1" : ""}`}>
-                  <h3 className="font-heading mt-2 text-2xl font-bold text-[#005a97]">{u.name}</h3>
+                  <h3 className="font-heading text-2xl font-bold text-[#005a97] sm:text-3xl">{u.name}</h3>
                   <dl className="mt-5 divide-y divide-slate-100 border-y border-slate-100">
                     {[
                       ["Capacidad máxima", u.maxWeight],
@@ -590,7 +590,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
           <Heading
             eyebrow="Nosotros"
             title="Operador PyME, comunicación total"
-            desc="Logística y Servicio NEXOR. Unidad dedicada, precio cerrado por escrito y comunicación directa durante todo el viaje. Factura con carta porte el mismo día."
+            desc="Logística y Servicio NEXOR. Unidad dedicada, precio cerrado por escrito y comunicación directa durante todo el viaje. Factura con carta porte."
           />
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-6">

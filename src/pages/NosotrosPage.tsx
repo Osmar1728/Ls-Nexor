@@ -63,7 +63,7 @@ export default function NosotrosPage() {
       />
 
       {/* Manifiesto */}
-      <section className="snap-block fill-screen flex flex-col justify-center bg-white py-16 sm:py-20 lg:py-10">
+      <section className="fill-screen flex flex-col justify-center bg-white py-16 sm:py-20 lg:py-10">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <p className="eyebrow text-[#0077c8]">Quiénes somos</p>
           <h2 className="font-heading mt-3 max-w-4xl text-3xl font-bold leading-tight text-[#0b2a4a] sm:text-4xl lg:text-[44px]">
@@ -72,7 +72,7 @@ export default function NosotrosPage() {
           <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-700 sm:text-lg">
             Sabemos que la logística no para. Por eso nos comprometemos con un servicio que cumple
             todos tus requerimientos: unidad dedicada, precio cerrado por escrito y factura con
-            carta porte el mismo día.
+            carta porte.
           </p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600">
             Somos un operador PyME de Guadalajara: pocas unidades, bien mantenidas y comunicación
@@ -110,7 +110,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Historia: foto + misión/visión */}
-      <section className="snap-block fill-screen flex flex-col justify-center bg-[#0b2a4a] py-16 text-white sm:py-20 lg:py-10">
+      <section className="fill-screen flex flex-col justify-center bg-[#0b2a4a] py-16 text-white sm:py-20 lg:py-10">
         <div className="mx-auto grid max-w-7xl items-stretch gap-6 px-6 sm:px-8 lg:grid-cols-2">
           <div className="relative min-h-[320px] overflow-hidden rounded-3xl border border-white/10 bg-[#071d34] shadow-[0_16px_40px_rgba(0,0,0,0.35)] lg:min-h-[420px]">
             <img
@@ -136,7 +136,7 @@ export default function NosotrosPage() {
             <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/75">
               Sabemos que la logística no para. Por eso nos comprometemos con un servicio que cumple
               todos tus requerimientos: unidad dedicada, precio cerrado por escrito y factura con
-              carta porte el mismo día.
+              carta porte.
             </p>
             <div className="rounded-2xl border border-white/15 bg-white/5 p-6 sm:p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Misión</p>
@@ -168,7 +168,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Servicios en formato editorial */}
-      <section className="snap-block flex flex-col justify-center bg-white py-16 sm:py-20 lg:py-10">
+      <section className="flex flex-col justify-center bg-white py-16 sm:py-20 lg:py-10">
         <div className="mx-auto max-w-5xl px-6 sm:px-8">
           <p className="eyebrow text-[#0077c8]">Servicios · Precio cerrado</p>
           <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Lo que contratas, lo que recibes</h2>
@@ -237,7 +237,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Aduana: banda fotográfica */}
-      <section className="snap-block fill-screen relative flex flex-col justify-center overflow-hidden bg-[#0b2a4a] py-16 text-white sm:py-20 lg:py-10">
+      <section className="fill-screen relative flex flex-col justify-center overflow-hidden bg-[#0b2a4a] py-16 text-white sm:py-20 lg:py-10">
         <img
           src="/aduana/aduana-torre.webp"
           alt="Torre de control del aeropuerto de Guadalajara"
@@ -288,7 +288,7 @@ export default function NosotrosPage() {
       </section>
 
       {/* Comparativa */}
-      <section className="snap-block fill-screen flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:py-10">
+      <section className="fill-screen flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:py-10">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="max-w-2xl">
             <p className="eyebrow text-[#0077c8]">Por qué quedarse</p>
@@ -298,10 +298,10 @@ export default function NosotrosPage() {
             </p>
           </div>
           <div className="relative mt-8 grid gap-4 md:grid-cols-2 md:gap-6">
-            <span aria-hidden="true" className="font-heading absolute left-1/2 top-1/2 z-10 hidden h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#0077c8] text-lg font-bold text-white shadow-[0_10px_30px_rgba(0,119,200,0.45)] ring-4 ring-[#f2f5f9] md:flex">
+            <span aria-hidden="true" className="font-heading absolute left-1/2 top-1/2 z-10 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#0077c8] text-lg font-bold text-white shadow-[0_10px_30px_rgba(0,119,200,0.45)] ring-4 ring-[#f2f5f9] hidden md:flex">
               VS
             </span>
-            <div className="rounded-2xl bg-[#0b2a4a] p-7 text-white shadow-[0_16px_40px_rgba(11,42,74,0.25)] sm:p-8">
+            <div className="relative rounded-2xl bg-[#0b2a4a] p-7 text-white shadow-[0_16px_40px_rgba(11,42,74,0.25)] sm:p-8">
               <p className="w-fit rounded-full bg-[#0077c8] px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white">LS Nexor</p>
               <ul className="mt-5 grid gap-3.5 text-[15px] text-white/85 sm:grid-cols-2">
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Cotización en menos de 3 horas por WhatsApp</li>
@@ -309,10 +309,13 @@ export default function NosotrosPage() {
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Avisos durante todo el viaje</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Foto de entrega + ubicación en ruta</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> ZMG, foráneo y aduana con unidad dedicada</li>
-                <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Factura con carta porte el mismo día</li>
+                <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Factura con carta porte</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Ingreso a aduana y recinto fiscal</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Ideal 1T a 15T para PyME</li>
               </ul>
+              <span aria-hidden="true" className="font-heading absolute -bottom-7 left-1/2 z-10 flex h-14 w-14 -translate-x-1/2 items-center justify-center rounded-full bg-[#0077c8] text-lg font-bold text-white shadow-[0_10px_30px_rgba(0,119,200,0.45)] ring-4 ring-[#f2f5f9] md:hidden">
+                VS
+              </span>
             </div>
             <div className="rounded-2xl border border-[#dce4ed] bg-white p-7 sm:p-8">
               <p className="w-fit rounded-full bg-slate-200 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-500">Corporativo típico</p>

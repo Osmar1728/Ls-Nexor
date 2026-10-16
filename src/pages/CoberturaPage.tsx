@@ -1,4 +1,3 @@
-import ScrollBlock from "../components/ScrollBlock";
 import VideoHero from "../components/VideoHero";
 import { COBERTURA_LOCAL, COBERTURA_NACIONAL_MSG } from "../config";
 import { buildCotizarHref, href, usePageMeta } from "../lib/router";
@@ -21,7 +20,6 @@ export default function CoberturaPage() {
         stats={[["7 + 1", "ZMG + rutas"], ["Aduana", "Recinto fiscal"], ["100%", "Dedicado"]]}
       />
 
-      <ScrollBlock id="bloque-cobertura-local">
       <section className="bg-white py-16">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="flex flex-wrap items-end justify-between gap-4">
@@ -56,6 +54,7 @@ export default function CoberturaPage() {
               aria-hidden="true"
               className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a] via-[#0b2a4a]/35 to-transparent"
             />
+            <div aria-hidden="true" className="absolute inset-0 bg-[#0b2a4a]/60 backdrop-blur-[2px] sm:hidden" />
             <span className="absolute left-5 top-5 rounded-full bg-white/95 px-4 py-1.5 text-xs font-bold text-[#0b2a4a]">
               9 municipios
             </span>
@@ -75,9 +74,7 @@ export default function CoberturaPage() {
           </figure>
         </div>
       </section>
-      </ScrollBlock>
 
-      <ScrollBlock id="bloque-cobertura-foraneo">
       <section className="relative overflow-hidden bg-[#0b2a4a] py-16 text-white">
         <div
           aria-hidden="true"
@@ -126,7 +123,7 @@ export default function CoberturaPage() {
                       e.currentTarget.style.display = "none";
                     }}
                   />
-                  <span className="font-condensed absolute left-2 top-2 rounded-md bg-[#0b2a4a]/85 px-2 py-0.5 text-sm font-semibold tracking-wider text-white backdrop-blur-sm">
+                  <span className="font-condensed absolute left-2 top-2 rounded-md bg-[#0b2a4a] px-2 py-0.5 text-sm font-semibold tracking-wider text-white">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                 </div>
@@ -165,7 +162,6 @@ export default function CoberturaPage() {
           </div>
         </div>
       </section>
-      </ScrollBlock>
     </>
   );
 }

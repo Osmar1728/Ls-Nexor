@@ -5,6 +5,8 @@ type Props = {
   children: ReactNode;
   /** Bloques cortos (TrustStrip) no fuerzan pantalla completa */
   fill?: boolean;
+  /** Bloques más altos que la pantalla no hacen snap (evita que atrape al subir) */
+  snap?: boolean;
 };
 
 /**
@@ -13,7 +15,7 @@ type Props = {
  * - min-h-svh para que ocupe al menos una pantalla
  * - reveal fade-up al entrar en viewport
  */
-export default function ScrollBlock({ id, children, fill = true }: Props) {
+export default function ScrollBlock({ id, children, fill = true, snap = true }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,13 +31,17 @@ export default function ScrollBlock({ id, children, fill = true }: Props) {
       if (r.top < window.innerHeight * 0.9) el.classList.add("is-visible");
     }, 1500);
     if (!("IntersectionObserver" in window)) return () => window.clearTimeout(fallback);
+    // En móvil la animación se repite al subir y bajar (no se fija una sola vez).
+    const repetir = window.matchMedia("(max-width: 1023.5px)").matches;
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
             e.target.classList.add("is-visible");
             window.clearTimeout(fallback);
-            io.unobserve(e.target);
+            if (!repetir) io.unobserve(e.target);
+          } else if (repetir) {
+            e.target.classList.remove("is-visible");
           }
         }
       },
@@ -52,7 +58,7 @@ export default function ScrollBlock({ id, children, fill = true }: Props) {
     <div
       id={id}
       ref={ref}
-      className={`snap-block snap-reveal ${fill ? "snap-block--fill" : "snap-block--auto"}`}
+      className={`${snap ? "snap-block" : ""} snap-reveal ${fill ? "snap-block--fill" : "snap-block--auto"}`}
     >
       {children}
     </div>

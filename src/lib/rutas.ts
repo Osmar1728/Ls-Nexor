@@ -32,7 +32,7 @@ export const RUTAS: RutaInfo[] = [
     casos: ["Proveeduría industrial y autopartes", "Componentes aeroespaciales y de precisión", "Abasto a CEDIS y tiendas de retail", "Muebles y mercancía voluminosa", "Carga 8T a 15T+"],
     faqs: [
       ["¿Hacen entregas en parques industriales?", "Sí, coordinamos ventana de entrega y maniobras si las requieres."],
-      ["¿Emiten factura con carta porte?", "Sí, indícalo en el cotizador y la emitimos el mismo día de la entrega."],
+      ["¿Emiten factura con carta porte?", "Sí, indícalo en el cotizador y la emitimos con carta porte."],
       ["¿Mueven carga delicada o de precisión?", "Sí, en caja seca cerrada con acomodo y sujeción. Para alto valor te recomendamos el seguro de carga por evento."],
       ["¿Respetan ventanas de entrega en parques industriales?", "Sí, programamos la salida para llegar a tu ventana y te avisamos ubicación en ruta."]
     ],
@@ -47,7 +47,7 @@ export const RUTAS: RutaInfo[] = [
     faqs: [
       ["¿Bajan con caja seca a Vallarta?", "Sí, toda la flota es caja cerrada, ideal para costa por lluvia y seguridad."],
       ["¿Pueden recolectar y entregar el mismo servicio?", "Sí, servicio puerta a puerta con maniobras opcionales en origen y destino."],
-      ["¿Cuánto tarda GDL → Vallarta?", "Servicio directo, normalmente el mismo día según horario de carga. Te confirmamos horario al cotizar."],
+      ["¿Cuánto tarda GDL → Vallarta?", "Servicio directo. Te confirmamos horario al cotizar."],
       ["¿La caja cerrada protege de la lluvia en costa?", "Sí, toda la flota es caja seca cerrada: tu mercancía viaja seca y segura."]
     ],
   },

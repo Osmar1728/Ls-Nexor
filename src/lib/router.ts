@@ -8,6 +8,8 @@ export type RouteName =
   | "servicios"
   | "nosotros"
   | "cotizar"
+  | "terminos"
+  | "privacidad"
   | "notfound";
 
 export interface ParsedRoute {
@@ -25,6 +27,8 @@ export function parseHash(hash: string): ParsedRoute {
   if (path === "/servicios") return { name: "nosotros" };
   if (path === "/nosotros") return { name: "nosotros" };
   if (path === "/cotizar") return { name: "cotizar" };
+  if (path === "/terminos") return { name: "terminos" };
+  if (path === "/privacidad") return { name: "privacidad" };
   if (path.startsWith("/ruta/")) {
     const slug = path.replace("/ruta/", "").trim();
     if (slug) return { name: "ruta", param: slug };
@@ -44,7 +48,11 @@ export function useHashRoute(): ParsedRoute & { queryString: string } {
     const onChange = () => {
       setRoute(parseHash(window.location.hash));
       setQueryString(window.location.hash.split("?")[1] ?? "");
-      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+      try {
+        window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+      } catch {
+        window.scrollTo(0, 0);
+      }
     };
     window.addEventListener("hashchange", onChange);
     return () => window.removeEventListener("hashchange", onChange);
@@ -125,11 +133,26 @@ export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
     title: "Cotiza tu flete en 1 minuto | LS NEXOR",
     desc: "Cotizador de fletes locales y foráneos. Completa origen, destino y unidad y envíalo por WhatsApp o correo. Respuesta en menos de 3 horas.",
   },
+  terminos: {
+    title: "Términos y condiciones | LS NEXOR",
+    desc: "Términos del servicio de fletes dedicados LS NEXOR: cotizaciones, precio cerrado, seguro, maniobras, factura con carta porte y aduana.",
+  },
+  privacidad: {
+    title: "Aviso de privacidad | LS NEXOR",
+    desc: "Cómo trata LS NEXOR tus datos personales conforme a la LFPDPPP: datos recabados, finalidades, transferencias y derechos ARCO.",
+  },
   notfound: {
     title: "Página no encontrada | LS NEXOR",
     desc: "La página que buscas no existe. Vuelve al inicio o cotiza tu flete directamente.",
   },
 };
+
+// Sin restauración del navegador: cada ruta siempre empieza en el hero.
+// (Con hash routing el documento es el mismo y el navegador intentaba
+// devolver al punto anterior, cayendo a media página.)
+if (typeof history !== "undefined" && "scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
 
 export function usePageMeta(name: RouteName, extra?: string) {
   useEffect(() => {
@@ -138,6 +161,13 @@ export function usePageMeta(name: RouteName, extra?: string) {
     document.title = title;
     const meta = document.querySelector('meta[name="description"]');
     if (meta) meta.setAttribute("content", extra ? `${base.desc} ${extra}` : base.desc);
-    window.scrollTo(0, 0);
+    // Instantáneo a propósito: el `scroll-behavior: smooth` global volvía
+    // esta subida una animación lenta que dejaba la página a medias.
+    // Con try/catch por si el navegador no acepta `instant`.
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+    } catch {
+      window.scrollTo(0, 0);
+    }
   }, [name, extra]);
 }

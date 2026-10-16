@@ -1,4 +1,3 @@
-import ScrollBlock from "../components/ScrollBlock";
 import VideoHero from "../components/VideoHero";
 import { BUSINESS } from "../config";
 import { buildCotizarHref, usePageMeta } from "../lib/router";
@@ -43,21 +42,20 @@ export default function RutaPage({ slug }: { slug?: string }) {
         compact
       />
 
-      <ScrollBlock id="bloque-ruta-ficha">
       <section className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="relative min-h-[320px] overflow-hidden rounded-2xl sm:min-h-[420px]">
+            <div className="relative h-80 overflow-hidden rounded-2xl bg-[#0b2a4a] sm:h-auto sm:min-h-[420px]">
               <img src={ruta.imagen} alt={`Mapa de ruta GDL → ${ruta.destino}`} className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a]/90 via-transparent to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-end justify-between gap-3 p-6">
+              <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-2 p-4 sm:gap-3 sm:p-6">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-sky-300">Distancia</p>
-                  <p className="font-heading text-3xl font-bold text-white">{ruta.distancia}</p>
+                  <p className="font-heading text-3xl font-bold text-white max-sm:text-2xl">{ruta.distancia}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-sky-300">Unidad</p>
-                  <p className="font-heading text-3xl font-bold text-white">Dedicada</p>
+                  <p className="font-heading text-3xl font-bold text-white max-sm:text-2xl">Dedicada</p>
                 </div>
               </div>
             </div>
@@ -71,7 +69,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
                   ["Origen", "Guadalajara + ZMG"],
                   ["Modalidad", "100% dedicado, puerta a puerta"],
                   ["Precio", "Cerrado por escrito antes de cargar"],
-                  ["Factura", "CFDI + carta porte el mismo día"],
+                  ["Factura", "CFDI + carta porte"],
                 ].map(([t, d]) => (
                   <li key={t} className="flex items-start justify-between gap-4 border-b border-white/10 pb-3 last:border-0 last:pb-0">
                     <span className="text-white/55">{t}</span>
@@ -91,9 +89,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
           </div>
         </div>
       </section>
-      </ScrollBlock>
 
-      <ScrollBlock id="bloque-ruta-faq">
       <section className="fill-screen flex flex-col justify-center bg-[#0b2a4a] py-14 text-white lg:py-10">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 sm:px-8 lg:grid-cols-2">
           <div className="flex h-full flex-col">
@@ -141,7 +137,6 @@ export default function RutaPage({ slug }: { slug?: string }) {
           </div>
         </div>
       </section>
-      </ScrollBlock>
     </>
   );
 }

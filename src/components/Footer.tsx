@@ -28,6 +28,8 @@ export function Footer() {
     ["Flota y medidas", "/flota"],
     ["Rutas y cobertura", "/cobertura"],
     ["Nosotros", "/nosotros"],
+    ["Términos", "/terminos"],
+    ["Privacidad", "/privacidad"],
   ];
   const rutasTop: [string, string][] = [
     ["GDL → San Luis Potosí", "/ruta/san-luis-potosi"],
@@ -40,7 +42,7 @@ export function Footer() {
   return (
     <footer className="relative z-10 border-t border-white/15 bg-[#0b2a4a] text-white">
       {/* Columnas */}
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:px-8 md:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
+      <div className="mx-auto grid max-w-7xl gap-8 px-6 py-8 sm:px-8 sm:py-12 md:grid-cols-2 lg:gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
         <div>
           <p className="font-heading text-lg font-bold tracking-wide">LS NEXOR</p>
           <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-white/50">{BUSINESS.fullName}</p>
@@ -77,7 +79,7 @@ export function Footer() {
             ))}
           </ul>
         </nav>
-        <div className="rounded-2xl bg-white/5 p-6">
+        <div className="rounded-2xl bg-white/5 p-5 sm:p-6">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50">Contacto directo</p>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-3">

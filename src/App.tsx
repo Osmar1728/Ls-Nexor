@@ -6,6 +6,7 @@ import CoberturaPage from "./pages/CoberturaPage";
 import CotizarPage from "./pages/CotizarPage";
 import FlotaPage from "./pages/FlotaPage";
 import Home from "./pages/Home";
+import { PrivacidadPage, TerminosPage } from "./pages/LegalPage";
 import NosotrosPage from "./pages/NosotrosPage";
 import RutaPage from "./pages/RutaPage";
 
@@ -23,6 +24,8 @@ export default function App() {
         {route.name === "servicios" && <NosotrosPage />}
         {route.name === "nosotros" && <NosotrosPage />}
         {route.name === "cotizar" && <CotizarPage />}
+        {route.name === "terminos" && <TerminosPage />}
+        {route.name === "privacidad" && <PrivacidadPage />}
         {route.name === "notfound" && (
           <PageHero
             eyebrow="Error 404"
@@ -43,6 +46,8 @@ export default function App() {
         <a href={href("/cobertura")}>Cobertura</a>
         <a href={href("/nosotros")}>Nosotros</a>
         <a href={href("/cotizar")}>Cotizar</a>
+        <a href={href("/terminos")}>Términos</a>
+        <a href={href("/privacidad")}>Privacidad</a>
       </nav>
     </div>
   );

@@ -1,6 +1,6 @@
 # LS NEXOR — Logística y Servicio
 
-> Fletes dedicados locales y foráneos desde Guadalajara, Jalisco. Unidad exclusiva de 1 a 15+ toneladas, precio cerrado por escrito, respuesta en menos de 3 horas (Lun–Vie 8–18). Base: Guadalajara, Jalisco, México.
+> Fletes dedicados locales y foráneos desde Guadalajara, Jalisco. Unidad exclusiva de 1 a 15+ toneladas, precio cerrado por escrito, respuesta en menos de 3 horas. Base: Guadalajara, Jalisco, México.
 
 <!-- Dominio provisional: reemplazar https://www.lsnexor.mx por el dominio final al publicar -->
 
@@ -16,9 +16,10 @@
 - Flete dedicado puerta a puerta (principal): unidad exclusiva, sin consolidar. Local en ZMG y foráneo en 7 corredores.
 - Seguro de carga por evento (opcional): se cotiza junto al flete.
 - Maniobras de carga y descarga (adicional): personal de apoyo en origen y/o destino.
+- Ingreso a aduana y recinto fiscal (comercio exterior): unidades y operadores autorizados, aeropuerto GDL.
 - Detalle: https://www.lsnexor.mx/#/nosotros
 
-## Flota (caja seca cerrada, medidas aproximadas)
+## Flota (caja seca cerrada, medidas aproximadas, imágenes ilustrativas)
 
 - Camioneta 1 Tonelada — hasta 1 ton, 2.45 x 1.80 x 1.70 m, 7.5 m³. Fletes locales y repartos express.
 - Camión 3.5 Toneladas (Caja Seca) — hasta 3.5 ton, 4.50 x 2.20 x 2.20 m, 21 m³. Mudanzas y carga comercial.
@@ -28,12 +29,12 @@
 
 ## Cobertura
 
-- Local (ZMG): Guadalajara, Zapopan, Tlaquepaque, Tonalá, Tlajomulco, El Salto, Zapotlanejo, Ixtlahuacán de los Membrillos, Chapala.
+- Local (ZMG, 9 municipios): Guadalajara, Zapopan, Tlaquepaque, Tonalá, Tlajomulco, El Salto, Zapotlanejo, Ixtlahuacán de los Membrillos, Chapala.
 - Foráneo (7 rutas base): San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao, Manzanillo.
 - Otras rutas nacionales bajo cotización.
 - Mapa de rutas: https://www.lsnexor.mx/#/cobertura
 
-## Rutas foráneas (fichas con distancia y unidad ideal)
+## Rutas foráneas (fichas con 5 casos típicos y 4 preguntas cada una)
 
 - GDL → San Luis Potosí (~330 km): https://www.lsnexor.mx/#/ruta/san-luis-potosi
 - GDL → Querétaro (~400 km): https://www.lsnexor.mx/#/ruta/queretaro
@@ -43,15 +44,37 @@
 - GDL → Silao (~230 km): https://www.lsnexor.mx/#/ruta/silao
 - GDL → Manzanillo (~290 km): https://www.lsnexor.mx/#/ruta/manzanillo
 
+## Cotizador (3 pasos: ruta, carga, contacto)
+
+- Pide: nombre, teléfono de 10 dígitos, email opcional, origen, destino, tipo Local/Foráneo y unidad.
+- Factura con carta porte siempre incluida. Seguro de carga y aduana como opcionales.
+- Responde en menos de 3 horas. Prefill por URL: `?origen=&destino=&tipo=&unidad=&mensaje=`.
+
+## Compromisos comerciales
+
+- Unidad 100% dedicada, sin compartir ni trasbordos.
+- Precio cerrado por escrito; cargos extra solo con autorización previa.
+- Factura con carta porte incluida. Seguro opcional por evento.
+- Foto de entrega + ubicación en ruta. Fletes en falso y cancelaciones tardías generan cargo.
+
 ## Proceso
 
 1. Cotiza por WhatsApp o formulario (origen, destino, unidad).
-2. Confirmamos precio cerrado en menos de 3 horas.
+2. Confirmamos precio acordado por escrito; si hay cambios se pide autorización.
 3. Recolectamos con unidad puntual (+ maniobras si aplica).
-4. Entregamos puerta a puerta con factura y carta porte.
+4. Entregamos puerta a puerta con entrega garantizada y monitoreo.
+
+## Preguntas frecuentes (12 en el home)
+
+Costo, unidades, incluidos, cobertura, factura siempre incluida, reserva, carga dedicada, rastreo en ruta, mudanzas, aduana/recinto, importación/exportación y requisitos de despacho.
 
 ## Nosotros
 
 - Operador PyME de Guadalajara: comunicación directa durante todo tu flete, sin conmutador.
 - Compromiso honesto: si tu carga no necesita una unidad grande, lo decimos; precio cerrado sin sorpresas.
 - Más: https://www.lsnexor.mx/#/nosotros
+
+## Legal
+
+- Términos y condiciones: https://www.lsnexor.mx/#/terminos
+- Aviso de privacidad (LFPDPPP): https://www.lsnexor.mx/#/privacidad

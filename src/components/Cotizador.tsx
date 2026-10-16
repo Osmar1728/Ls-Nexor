@@ -5,7 +5,7 @@ import { getCotizarPrefill } from "../lib/router";
 
 const labelCls = "mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-500";
 const inputCls =
-  "w-full rounded-lg border border-[#dce4ed] bg-white px-3.5 py-2.5 text-[15px] text-[#0f1e2e] placeholder:text-slate-400 focus:border-[#0077c8] focus:outline-none focus:ring-2 focus:ring-[#0077c8]/15 transition";
+  "w-full min-w-0 rounded-lg border border-[#dce4ed] bg-white px-3.5 py-2.5 text-[15px] max-sm:py-3 max-sm:text-base text-[#0f1e2e] placeholder:text-slate-400 focus:border-[#0077c8] focus:outline-none focus:ring-2 focus:ring-[#0077c8]/15 transition";
 
 const DESTINOS_SUGERIDOS = [...COBERTURA_FORANEA];
 const ORIGENES_SUGERIDOS = [...COBERTURA_LOCAL, ...COBERTURA_FORANEA];
@@ -100,11 +100,20 @@ export default function Cotizador() {
     }));
   };
 
-  const valid = form.nombre.trim() && form.telefono.trim() && form.origen.trim() && form.destino.trim();
+  const telefonoValido = /^\d{10}$/.test(form.telefono.trim());
+  const emailValido = form.email.trim() === "" || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim());
 
   const handle = (via: "wa" | "mail") => {
-    if (!valid) {
-      setError("Completa nombre, teléfono, origen y destino para continuar.");
+    if (!form.nombre.trim() || !form.origen.trim() || !form.destino.trim()) {
+      setError("Completa nombre, origen y destino para continuar.");
+      return;
+    }
+    if (!telefonoValido) {
+      setError("Escribe un teléfono de 10 dígitos (solo números).");
+      return;
+    }
+    if (!emailValido) {
+      setError("Revisa el correo: parece incompleto (ej. nombre@dominio.com).");
       return;
     }
     setError("");
@@ -117,7 +126,7 @@ export default function Cotizador() {
     <section id="cotizar" className="scroll-mt-20 bg-[#f2f5f9] py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
+          <div className="min-w-0">
             <p className="eyebrow text-[#0077c8]">Cotizador</p>
             <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
               Cotiza en 1 minuto
@@ -135,7 +144,7 @@ export default function Cotizador() {
             {/* Resumen en vivo */}
             <div className="mt-6 rounded-xl border border-[#dce4ed] bg-[#0b2a4a] p-5 text-sm text-white">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-300">Tu cotización</p>
-              <p className="font-heading mt-2 text-lg font-bold">
+              <p className="font-heading mt-2 break-words text-lg font-bold">
                 {form.origen.trim() || "¿Origen?"} <span className="text-sky-300">→</span> {form.destino.trim() || "¿Destino?"}
               </p>
               <p className="mt-1 text-white/70">
@@ -164,7 +173,7 @@ export default function Cotizador() {
             </div>
           </div>
 
-          <div className="rounded-xl border border-[#dce4ed] bg-white p-6 shadow-[0_8px_30px_rgba(11,42,74,0.08)] sm:p-8">
+          <div className="min-w-0 rounded-xl border border-[#dce4ed] bg-white p-6 shadow-[0_8px_30px_rgba(11,42,74,0.08)] sm:p-8">
             {/* Pasos */}
             <ol className="flex items-center gap-2" aria-label="Pasos del cotizador">
               {PASOS.map((p, i) => {
@@ -187,7 +196,7 @@ export default function Cotizador() {
                     >
                       {done ? "✓" : i + 1}
                     </button>
-                    <span className={`text-[13px] font-semibold ${active ? "text-[#0b2a4a]" : "text-slate-400"}`}>{p}</span>
+                    <span className={`text-[13px] font-semibold max-[380px]:hidden ${active ? "text-[#0b2a4a]" : "text-slate-400"}`}>{p}</span>
                     {i < PASOS.length - 1 && <span className="mx-1 h-px flex-1 bg-[#dce4ed]" />}
                   </li>
                 );
@@ -313,7 +322,7 @@ export default function Cotizador() {
 
                   <label className="block">
                     <span className={labelCls}>Fecha tentativa</span>
-                    <input type="date" className={inputCls} value={form.fecha} onChange={(e) => set("fecha", e.target.value)} />
+                    <input type="date" className={`${inputCls} block !bg-[#eef2f7] font-semibold !text-[#0b2a4a] [color-scheme:light]`} value={form.fecha} onChange={(e) => set("fecha", e.target.value)} />
                   </label>
                 </div>
               )}
@@ -373,7 +382,8 @@ export default function Cotizador() {
                     </label>
                     <label className="block">
                       <span className={labelCls}>Teléfono / WhatsApp *</span>
-                      <input className={inputCls} value={form.telefono} onChange={(e) => set("telefono", e.target.value)} inputMode="tel" autoComplete="tel" />
+                      <input className={inputCls} value={form.telefono} onChange={(e) => set("telefono", e.target.value.replace(/\D/g, "").slice(0, 10))} inputMode="tel" autoComplete="tel" maxLength={10} />
+                      <span className="mt-1 block text-xs text-slate-400">10 dígitos, solo números</span>
                     </label>
                   </div>
                   <label className="block">

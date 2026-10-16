@@ -1,5 +1,5 @@
 import { href } from "../lib/router";
-import { useAutoplayVideo } from "../lib/video";
+import { useAutoplayVideo, useScrolled } from "../lib/video";
 
 interface Props {
   video: string;
@@ -18,6 +18,7 @@ interface Props {
 /** Hero a video completo, mismo diseño claro del home en todas las páginas internas. */
 export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs, ctaPrimary, ctaSecondary, stats, compact = false }: Props) {
   const videoRef = useAutoplayVideo<HTMLVideoElement>();
+  const scrolleado = useScrolled();
   return (
     <section className={compact ? 'relative flex flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-10 pt-[96px] text-[#0b2a4a] sm:pt-[104px]' : 'relative flex min-h-svh flex-col justify-center overflow-hidden bg-[#f2f5f9] pb-12 pt-[96px] text-[#0b2a4a] sm:pt-[104px]'}>
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -34,7 +35,7 @@ export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs,
           preload="metadata"
         />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/55 to-transparent" />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f2f5f9] to-transparent" />
+        <div aria-hidden="true" className={`absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f2f5f9] to-transparent transition-opacity duration-500 ${scrolleado ? "opacity-100" : "opacity-0"}`} />
       </div>
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8">
         {crumbs && crumbs.length > 0 && (

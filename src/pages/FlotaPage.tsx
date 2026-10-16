@@ -1,12 +1,13 @@
 import { FlotaDetalle } from "../components/Sections";
 import ScrollBlock from "../components/ScrollBlock";
-import { useAutoplayVideo } from "../lib/video";
+import { useAutoplayVideo, useScrolled } from "../lib/video";
 import { FLEET_UNITS } from "../config";
 import { href, usePageMeta } from "../lib/router";
 
 export default function FlotaPage() {
   usePageMeta("flota");
   const videoRef = useAutoplayVideo<HTMLVideoElement>();
+  const scrolleado = useScrolled();
 
   return (
     <>
@@ -25,7 +26,7 @@ export default function FlotaPage() {
             preload="metadata"
           />
           <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/55 to-transparent" />
-          <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f2f5f9] to-transparent" />
+          <div aria-hidden="true" className={`absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f2f5f9] to-transparent transition-opacity duration-500 ${scrolleado ? "opacity-100" : "opacity-0"}`} />
         </div>
         <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8">
           <nav aria-label="Breadcrumb" className="mb-3 flex flex-wrap items-center gap-2 text-xs text-slate-500">
@@ -75,7 +76,7 @@ export default function FlotaPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8">
           <p className="eyebrow text-[#0077c8]">Comparativa rápida</p>
           <h2 className="font-heading mt-2 text-2xl font-bold text-[#0b2a4a] sm:text-3xl">¿Cuál te conviene?</h2>
-          <div className="mt-5 overflow-x-auto rounded-2xl border border-[#0b2a4a] bg-white shadow-[0_8px_30px_rgba(11,42,74,0.10)]">
+          <div className="mt-5 hidden overflow-x-auto rounded-2xl border border-[#0b2a4a] bg-white shadow-[0_8px_30px_rgba(11,42,74,0.10)] sm:block">
             <table className="w-full min-w-[560px] text-center text-sm">
               <thead>
                 <tr className="bg-[#0b2a4a] text-xs uppercase tracking-wider text-white">
@@ -88,7 +89,7 @@ export default function FlotaPage() {
               <tbody className="divide-y divide-slate-100">
                 {FLEET_UNITS.map((u) => (
                   <tr key={u.id}>
-                    <td className="px-4 py-2.5 font-semibold text-[#0b2a4a]">{u.name}</td>
+                    <td className="px-4 py-2.5 font-heading text-[15px] font-bold text-[#0b2a4a]">{u.name}</td>
                     <td className="px-4 py-2.5 text-slate-600">{u.maxWeight}</td>
                     <td className="px-4 py-2.5 text-slate-600">{u.volume}</td>
                     <td className="px-4 py-2.5 text-slate-600">{u.usage}</td>
@@ -96,6 +97,25 @@ export default function FlotaPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+          <div className="mt-5 grid gap-3 sm:hidden">
+            {FLEET_UNITS.map((u) => (
+              <div key={u.id} className="rounded-2xl border border-[#0b2a4a] bg-white p-5 shadow-[0_8px_30px_rgba(11,42,74,0.10)]">
+                <p className="font-heading text-lg font-bold text-[#0b2a4a]">{u.name}</p>
+                <dl className="mt-3 space-y-2 border-t border-slate-100 pt-3 text-sm">
+                  {[
+                    ["Capacidad", u.maxWeight],
+                    ["Volumen", u.volume],
+                    ["Ideal para", u.usage],
+                  ].map(([t, d]) => (
+                    <div key={t} className="flex items-start justify-between gap-3">
+                      <dt className="shrink-0 text-xs font-semibold uppercase tracking-wide text-slate-400">{t}</dt>
+                      <dd className="text-right font-medium text-slate-600">{d}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+            ))}
           </div>
           <div className="mt-10">
             <p className="eyebrow text-[#0077c8]">Compromiso honesto</p>
