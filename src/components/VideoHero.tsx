@@ -32,7 +32,7 @@ export default function VideoHero({ video, poster, eyebrow, title, desc, crumbs,
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         />
         <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/55 to-transparent" />
         <div aria-hidden="true" className={`absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#f2f5f9] to-transparent transition-opacity duration-500 ${scrolleado ? "opacity-100" : "opacity-0"}`} />

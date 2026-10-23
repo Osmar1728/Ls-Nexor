@@ -36,6 +36,17 @@ export function useAutoplayVideo<T extends HTMLVideoElement>() {
     if (!v) return;
     v.muted = true;
     v.defaultMuted = true;
+    // Precarga agresiva para que el video aparezca de inmediato.
+    try { v.load(); } catch {}
+    // Hint al navegador para priorizar la descarga del video.
+    if (v.src && !document.head.querySelector(`link[rel="preload"][href="${v.src}"]`)) {
+      const link = document.createElement("link");
+      link.rel = "preload";
+      link.as = "video";
+      link.href = v.src;
+      link.setAttribute("fetchpriority", "high");
+      document.head.appendChild(link);
+    }
     const intentar = () => {
       // Solo reproducir si está en pantalla: fuera de vista se pausa
       // (un VP9 de 20MB decodificando en software arrastra el scroll en Safari).

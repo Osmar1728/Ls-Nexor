@@ -17,7 +17,7 @@ export default function Hero() {
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             aria-hidden="true"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#f2f5f9] via-[#f2f5f9]/55 to-transparent" />
