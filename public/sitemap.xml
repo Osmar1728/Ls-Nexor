@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Reemplazar https://www.lsnexor.mx por el dominio final al publicar -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.lsnexor.mx/</loc><lastmod>2026-10-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/cotizar</loc><lastmod>2026-10-16</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/flota</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/cobertura</loc><lastmod>2026-10-16</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/ruta/san-luis-potosi</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/ruta/queretaro</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/ruta/puerto-vallarta</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/ruta/morelia</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/ruta/tequila</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/ruta/silao</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/ruta/manzanillo</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/terminos</loc><lastmod>2026-10-15</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/privacidad</loc><lastmod>2026-10-15</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.lsnexor.mx/#/nosotros</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.lsnexor.mx/</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.lsnexor.mx/cotizar</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.lsnexor.mx/flota</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.lsnexor.mx/cobertura</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.lsnexor.mx/ruta/san-luis-potosi</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.lsnexor.mx/ruta/queretaro</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.lsnexor.mx/ruta/puerto-vallarta</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.lsnexor.mx/ruta/morelia</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.lsnexor.mx/ruta/tequila</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.lsnexor.mx/ruta/silao</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.lsnexor.mx/ruta/manzanillo</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.lsnexor.mx/nosotros</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.lsnexor.mx/terminos</loc><lastmod>2026-10-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.lsnexor.mx/privacidad</loc><lastmod>2026-10-23</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>

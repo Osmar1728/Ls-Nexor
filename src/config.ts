@@ -49,7 +49,7 @@ export const FLEET_UNITS: FleetUnit[] = [
     dimensions: { largo: "2.45 m", ancho: "1.80 m", alto: "1.70 m" },
     volume: "7.5 m³",
     usage: "Paquetería, fletes locales en ZMG y repartos express",
-    image: "/flota/pickup-1t.webp",
+    image: "/img/flota/pickup-1t.webp",
     imgFit: "contain",
   },
   {
@@ -59,8 +59,8 @@ export const FLEET_UNITS: FleetUnit[] = [
     maxWeight: "3,500 kg / 3.5 Ton",
     dimensions: { largo: "4.50 m", ancho: "2.20 m", alto: "2.20 m" },
     volume: "21 m³",
-    usage: "Mudanzas de 2-3 habitaciones y carga comercial",
-    image: "/flota/camion-3t.webp",
+    usage: "Carga comercial y mercancía voluminosa",
+    image: "/img/flota/camion-3t.webp",
     imgFit: "contain",
   },
   {
@@ -71,17 +71,17 @@ export const FLEET_UNITS: FleetUnit[] = [
     dimensions: { largo: "7.00 m", ancho: "2.50 m", alto: "2.60 m" },
     volume: "45 m³",
     usage: "Carga industrial media y rutas regionales",
-    image: "/flota/torton-5t.webp",
+    image: "/img/flota/torton-5t.webp",
   },
   {
     id: "trailer",
-    name: "Trailer / Flete Pesado",
+    name: "Tráiler / Flete Pesado",
     short: "15+ Ton",
     maxWeight: "15,000+ kg / 15+ Ton",
     dimensions: { largo: "16.00 m", ancho: "2.60 m", alto: "2.70 m" },
     volume: "100 m³",
     usage: "Carga industrial pesada y larga distancia",
-    image: "/flota/trailer-15t.webp",
+    image: "/img/flota/trailer-15t.webp",
   },
 ];
 
@@ -92,15 +92,15 @@ export const FLOTA: FlotaUnit[] = [
     capacidad: "Hasta 1 ton",
     medidas: "2.45 x 1.80 x 1.70 m",
     volumen: "7.5 m³",
-    desc: "Camioneta de 1 tonelada / estaquitas con caja cerrada. Ideal para fletes locales y repartos.",
+    desc: "Camioneta de 1 tonelada / estaquitas con caja cerrada adaptable a tu mercancía. Ideal para fletes locales y repartos.",
   },
   {
     id: "3.5t",
-    nombre: "Camión 3.5 Toneladas (Caja Seca)",
+    nombre: "Camión 3.5 Toneladas (Caja adaptable)",
     capacidad: "Hasta 3.5 ton",
     medidas: "4.50 x 2.20 x 2.20 m",
     volumen: "21 m³",
-    desc: "Camión caja seca. Para mudanzas, mercancía voluminosa y foráneos medios.",
+    desc: "Camión con caja adaptable a tu mercancía. Para mercancía voluminosa, carga comercial y foráneos medios.",
   },
   {
     id: "rabon",
@@ -112,7 +112,7 @@ export const FLOTA: FlotaUnit[] = [
   },
   {
     id: "trailer",
-    nombre: "Trailer / Flete Pesado (15+ Ton)",
+    nombre: "Tráiler / Flete Pesado (15+ Ton)",
     capacidad: "15+ ton",
     medidas: "16.00 x 2.60 x 2.70 m",
     volumen: "100 m³",

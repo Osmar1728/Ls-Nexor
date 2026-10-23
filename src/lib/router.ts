@@ -17,9 +17,13 @@ export interface ParsedRoute {
   param?: string;
 }
 
-export function parseHash(hash: string): ParsedRoute {
-  const clean = hash.replace(/^#/, "") || "/";
-  const path = clean.split("?")[0];
+function normalizarPath(pathname: string): string {
+  const clean = pathname.replace(/\/+$/, "");
+  return clean || "/";
+}
+
+export function parsePath(pathname: string): ParsedRoute {
+  const path = normalizarPath(pathname).split("?")[0];
 
   if (path === "/" || path === "") return { name: "home" };
   if (path === "/flota") return { name: "flota" };
@@ -36,33 +40,66 @@ export function parseHash(hash: string): ParsedRoute {
   return { name: "notfound" };
 }
 
-export function useHashRoute(): ParsedRoute & { queryString: string } {
+/** Compatibilidad con enlaces antiguos del tipo /#/flota */
+function pathActual(): string {
+  if (typeof window === "undefined") return "/";
+  const hash = window.location.hash;
+  if (hash.startsWith("#/")) return hash.slice(1).split("?")[0];
+  return window.location.pathname;
+}
+
+function queryActual(): string {
+  if (typeof window === "undefined") return "";
+  const hash = window.location.hash;
+  if (hash.startsWith("#/")) return hash.split("?")[1] ?? "";
+  return window.location.search.replace(/^\?/, "");
+}
+
+export function useRoute(): ParsedRoute & { queryString: string } {
   const [route, setRoute] = useState<ParsedRoute>(() =>
-    typeof window === "undefined" ? { name: "home" } : parseHash(window.location.hash),
+    typeof window === "undefined" ? { name: "home" } : parsePath(pathActual()),
   );
   const [queryString, setQueryString] = useState(() =>
-    typeof window === "undefined" ? "" : window.location.hash.split("?")[1] ?? "",
+    typeof window === "undefined" ? "" : queryActual(),
   );
 
   useEffect(() => {
+    // Convierte un enlace viejo (#/flota) a URL limpia (/flota) sin recargar.
+    const migrarHash = () => {
+      const hash = window.location.hash;
+      if (!hash.startsWith("#/")) return;
+      const legacy = hash.slice(1);
+      const [path, qs] = legacy.split("?");
+      history.replaceState(null, "", path + (qs ? `?${qs}` : ""));
+    };
+
     const onChange = () => {
-      setRoute(parseHash(window.location.hash));
-      setQueryString(window.location.hash.split("?")[1] ?? "");
+      migrarHash();
+      setRoute(parsePath(window.location.pathname));
+      setQueryString(window.location.search.replace(/^\?/, ""));
       try {
         window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
       } catch {
         window.scrollTo(0, 0);
       }
     };
+
+    migrarHash();
+    onChange();
+    window.addEventListener("popstate", onChange);
     window.addEventListener("hashchange", onChange);
-    return () => window.removeEventListener("hashchange", onChange);
+    return () => {
+      window.removeEventListener("popstate", onChange);
+      window.removeEventListener("hashchange", onChange);
+    };
   }, []);
 
   return { ...route, queryString };
 }
 
+/** Genera URLs limpias (/flota) en lugar de hash (#/flota) */
 export function href(path: string): string {
-  return `#${path}`;
+  return path.startsWith("/") ? path : `/${path}`;
 }
 
 export interface CotizarPrefill {
@@ -74,7 +111,7 @@ export interface CotizarPrefill {
 }
 
 export function getQueryParams(queryString?: string): URLSearchParams {
-  const qs = queryString ?? (typeof window === "undefined" ? "" : window.location.hash.split("?")[1] ?? "");
+  const qs = queryString ?? (typeof window === "undefined" ? "" : window.location.search.replace(/^\?/, ""));
   return new URLSearchParams(qs);
 }
 
@@ -106,36 +143,36 @@ export function buildCotizarHref(prefill: CotizarPrefill = {}, base: string = "/
 
 export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   home: {
-    title: "LS NEXOR | Fletes locales y foráneos desde Guadalajara",
-    desc: "Fletes dedicados de 1 a 15+ toneladas desde Guadalajara: ZMG y foráneos a SLP, Querétaro, Vallarta, Morelia, Tequila, Silao y Manzanillo. Cotiza por WhatsApp en menos de 3 horas.",
+    title: "Fletes y transporte de carga en Guadalajara | LS NEXOR",
+    desc: "Fletes dedicados en ZMG y foráneos desde Guadalajara a SLP, Querétaro, Vallarta, Morelia, Tequila, Silao y Manzanillo. Cotiza en menos de 3 horas.",
   },
   flota: {
-    title: "Flota y medidas | LS NEXOR Guadalajara",
-    desc: "Camioneta 1T, camión 3.5T caja seca, Rabón 8T y Tráiler 15+T. Medidas, volumen y uso recomendado. Cotiza con la unidad exacta.",
+    title: "Flota y capacidades de carga | LS NEXOR Guadalajara",
+    desc: "Camioneta, camión 3.5T, Rabón y Tráiler con caja adaptable a tu mercancía. Consulta medidas, volumen y uso recomendado para tu carga.",
   },
   cobertura: {
-    title: "Cobertura y rutas | LS NEXOR",
-    desc: "Base en Guadalajara. Servicio local en ZMG y 7 rutas foráneas directas + cobertura nacional bajo cotización.",
+    title: "Cobertura de fletes en Jalisco y Bajío | LS NEXOR",
+    desc: "Servicio local en ZMG y 7 rutas foráneas desde Guadalajara: SLP, Querétaro, Vallarta, Morelia, Tequila, Silao y Manzanillo. Cobertura nacional bajo cotización.",
   },
   ruta: {
     title: "Flete foráneo desde Guadalajara | LS NEXOR",
-    desc: "Flete dedicado puerta a puerta desde Guadalajara con precio cerrado, factura y seguro opcional.",
+    desc: "Flete dedicado puerta a puerta desde Guadalajara con precio cerrado, facturación inmediata y seguro de carga opcional.",
   },
   servicios: {
-    title: "Servicios: flete dedicado, seguro y maniobras | LS NEXOR",
-    desc: "Flete dedicado puerta a puerta, seguro de carga opcional y maniobras de carga y descarga. Precio cerrado por escrito.",
+    title: "Servicios de flete dedicado | LS NEXOR",
+    desc: "Flete dedicado puerta a puerta, seguro de carga opcional y maniobras de carga y descarga. Precio cerrado y unidad exclusiva.",
   },
   nosotros: {
-    title: "Nosotros | LS NEXOR Logística y Servicio",
-    desc: "Operador PyME en Guadalajara. Unidades dedicadas, comunicación directa durante tu flete y factura con carta porte.",
+    title: "Nosotros: operador logístico PyME | LS NEXOR",
+    desc: "Operador PyME en Guadalajara. Unidades dedicadas, comunicación directa durante tu flete y facturación inmediata.",
   },
   cotizar: {
     title: "Cotiza tu flete en 1 minuto | LS NEXOR",
-    desc: "Cotizador de fletes locales y foráneos. Completa origen, destino y unidad y envíalo por WhatsApp o correo. Respuesta en menos de 3 horas.",
+    desc: "Cotiza fletes locales y foráneos desde Guadalajara. Completa origen, destino y unidad y recibe respuesta en menos de 3 horas.",
   },
   terminos: {
     title: "Términos y condiciones | LS NEXOR",
-    desc: "Términos del servicio de fletes dedicados LS NEXOR: cotizaciones, precio cerrado, seguro, maniobras, factura con carta porte y aduana.",
+    desc: "Términos del servicio de fletes dedicados LS NEXOR: cotizaciones, precio cerrado, seguro, maniobras, facturación inmediata y aduana.",
   },
   privacidad: {
     title: "Aviso de privacidad | LS NEXOR",
@@ -147,9 +184,38 @@ export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   },
 };
 
+export const SITE_URL = "https://www.lsnexor.mx";
+const OG_IMAGE = `${SITE_URL}/hero-rutas-bajio.webp`;
+
+// Rutas con alias que deben consolidar su canonical en una sola URL.
+const CANONICAL_PATHS: Partial<Record<RouteName, string>> = {
+  nosotros: "/nosotros",
+  cobertura: "/cobertura",
+};
+
+type MetaAttr = "name" | "property";
+
+function setMeta(attr: MetaAttr, key: string, content: string) {
+  let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+
+function setCanonical(url: string) {
+  let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+  if (!link) {
+    link = document.createElement("link");
+    link.setAttribute("rel", "canonical");
+    document.head.appendChild(link);
+  }
+  link.setAttribute("href", url);
+}
+
 // Sin restauración del navegador: cada ruta siempre empieza en el hero.
-// (Con hash routing el documento es el mismo y el navegador intentaba
-// devolver al punto anterior, cayendo a media página.)
 if (typeof history !== "undefined" && "scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
@@ -158,9 +224,31 @@ export function usePageMeta(name: RouteName, extra?: string) {
   useEffect(() => {
     const base = PAGE_META[name];
     const title = extra ? `${extra} | LS NEXOR` : base.title;
+    const desc = base.desc;
+    const path =
+      CANONICAL_PATHS[name] ??
+      (window.location.pathname === "/" ? "/" : window.location.pathname.replace(/\/+$/, ""));
+    const canonical = `${SITE_URL}${path}`;
+
     document.title = title;
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", extra ? `${base.desc} ${extra}` : base.desc);
+    setMeta("name", "description", desc);
+    setMeta("name", "robots", name === "notfound" ? "noindex,follow" : "index,follow,max-image-preview:large");
+
+    setMeta("property", "og:title", title);
+    setMeta("property", "og:description", desc);
+    setMeta("property", "og:url", canonical);
+    setMeta("property", "og:type", "website");
+    setMeta("property", "og:site_name", "LS NEXOR");
+    setMeta("property", "og:locale", "es_MX");
+    setMeta("property", "og:image", OG_IMAGE);
+
+    setMeta("name", "twitter:card", "summary_large_image");
+    setMeta("name", "twitter:title", title);
+    setMeta("name", "twitter:description", desc);
+    setMeta("name", "twitter:image", OG_IMAGE);
+
+    setCanonical(canonical);
+
     // Instantáneo a propósito: el `scroll-behavior: smooth` global volvía
     // esta subida una animación lenta que dejaba la página a medias.
     // Con try/catch por si el navegador no acepta `instant`.

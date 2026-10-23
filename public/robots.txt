@@ -14,5 +14,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-# Reemplazar con el dominio final cuando esté publicado
 Sitemap: https://www.lsnexor.mx/sitemap.xml

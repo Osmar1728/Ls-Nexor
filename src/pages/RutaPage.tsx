@@ -35,7 +35,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
         poster="/hero-rutas-bajio.webp"
         eyebrow={`Foráneo · ${ruta.distancia}`}
         title={`Flete Guadalajara → ${ruta.destino}`}
-        desc={`${ruta.ideal}. Unidad dedicada puerta a puerta, precio cerrado por escrito, factura con carta porte y seguro opcional.`}
+        desc={`${ruta.ideal}. Unidad dedicada puerta a puerta, precio cerrado, facturación inmediata y seguro opcional.`}
         crumbs={[["Inicio", "/"], ["Cobertura", "/cobertura"], [ruta.destino, `/ruta/${ruta.slug}`]]}
         ctaPrimary={{ label: `Cotizar GDL → ${ruta.destino}`, to: `/cotizar?origen=Guadalajara&destino=${encodeURIComponent(ruta.destino)}&tipo=${encodeURIComponent("Foráneo")}` }}
         ctaSecondary={{ label: "Ver todas las rutas", to: "/cobertura" }}
@@ -68,8 +68,8 @@ export default function RutaPage({ slug }: { slug?: string }) {
                 {[
                   ["Origen", "Guadalajara + ZMG"],
                   ["Modalidad", "100% dedicado, puerta a puerta"],
-                  ["Precio", "Cerrado por escrito antes de cargar"],
-                  ["Factura", "CFDI + carta porte"],
+                  ["Precio", "Cerrado antes de cargar"],
+                  ["Factura", "Facturación inmediata"],
                 ].map(([t, d]) => (
                   <li key={t} className="flex items-start justify-between gap-4 border-b border-white/10 pb-3 last:border-0 last:pb-0">
                     <span className="text-white/55">{t}</span>

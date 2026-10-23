@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BUSINESS } from "../config";
-import { href, parseHash } from "../lib/router";
+import { href } from "../lib/router";
 
 const LINKS = [
   { to: "/", label: "Inicio" },
@@ -11,8 +11,10 @@ const LINKS = [
 
 function currentPath(): string {
   if (typeof window === "undefined") return "/";
-  const h = window.location.hash.replace(/^#/, "") || "/";
-  return h.split("?")[0];
+  if (window.location.hash.startsWith("#/")) {
+    return window.location.hash.slice(1).split("?")[0];
+  }
+  return window.location.pathname.split("?")[0];
 }
 
 export default function Navbar() {
@@ -22,17 +24,18 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
-    const onHash = () => {
+    const onNav = () => {
       setPath(currentPath());
       setOpen(false);
-      parseHash(window.location.hash);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("hashchange", onHash);
+    window.addEventListener("popstate", onNav);
+    window.addEventListener("hashchange", onNav);
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("hashchange", onHash);
+      window.removeEventListener("popstate", onNav);
+      window.removeEventListener("hashchange", onNav);
     };
   }, []);
 

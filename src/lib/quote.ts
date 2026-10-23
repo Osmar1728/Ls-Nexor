@@ -17,7 +17,7 @@ export function buildQuoteText(q: QuoteForm): string {
     q.aduana ? "Comercio exterior: Sí, mercancía de aduana/recinto fiscal" : null,
     q.mensaje ? `Detalle: ${q.mensaje}` : null,
     ``,
-    `Flotilla referencia: 1T / 3.5T / Rabón / Tráiler. ${NOTA_FLOTA}`,
+    `Flota de referencia: 1T / 3.5T / Rabón / Tráiler. ${NOTA_FLOTA}`,
   ].filter((l): l is string => l !== null);
   return lines.join("\n");
 }

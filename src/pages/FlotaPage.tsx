@@ -36,12 +36,12 @@ export default function FlotaPage() {
           </nav>
           <div className="flex max-w-2xl flex-col justify-center">
             <h1 className="font-heading text-3xl font-extrabold leading-tight sm:text-4xl lg:text-[44px]">
-              Flota: 4 unidades, caja seca cerrada
+              Flota: 4 configuraciones para todo tipo de carga
             </h1>
             <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600">
-              Elige por peso y volumen y cotiza con la unidad exacta: Camioneta 1T, Camión 3.5T caja seca,
-              Rabón 8T y Tráiler 15+T. Todas con caja cerrada, unidad dedicada sin compartir
-              y precio cerrado por escrito. Medidas aproximadas.
+              Elige por peso y volumen y cotiza con la configuración exacta: Camioneta, Camión 3.5T,
+              Rabón y Tráiler. Todas con caja adaptable a tu mercancía, unidad dedicada sin compartir
+              y precio cerrado. Medidas aproximadas.
             </p>
             <div className="mt-7">
               <a
@@ -53,8 +53,8 @@ export default function FlotaPage() {
             </div>
             <div className="mt-7 grid max-w-lg grid-cols-3 gap-6 border-t border-[#dce4ed] pt-6">
               {[
-                ["4", "Unidades"],
-                ["100%", "Caja seca"],
+                ["4", "Configuraciones"],
+                ["100%", "Caja adaptable"],
                 ["✓", "Precio cerrado"],
               ].map(([v, l]) => (
                 <div key={l}>
@@ -120,15 +120,16 @@ export default function FlotaPage() {
           <div className="mt-10">
             <p className="eyebrow text-[#0077c8]">Compromiso honesto</p>
             <h2 className="font-heading mt-2 text-xl font-bold text-[#0b2a4a] sm:text-2xl">
-              La unidad correcta, ni más ni menos
+              La unidad que tu carga necesita
             </h2>
             <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600">
-              Te recomendamos la unidad que tu carga realmente necesita: sin camión sobrado ni cobros de más.
-              Y si ninguna de nuestras unidades es adecuada para tu flete, te lo decimos de frente.
+              Cotizamos con la unidad que se adapte a las dimensiones y peso de tu mercancía, para que
+              no pagues capacidad que no necesitas. Nuestro equipo te acompaña para elegir la mejor opción
+              y te comparte toda la información antes de cargar.
             </p>
             <ul className="mt-5 grid gap-5 md:grid-cols-3">
               {[
-                ["Unidad a tu medida", "Calculamos el cubicaje según las dimensiones de tu carga para asignar la unidad correcta."],
+                ["Unidad a tu medida", "Calculamos el cubicaje según las dimensiones y peso de tu carga para cotizar con la unidad que mejor se adapte."],
                 ["Notificación anticipada", "Nos anticipamos con toda la información correspondiente para evitar fletes en falso."],
                 ["Precios correctos", "Precios acordes a los servicios prestados; en caso de cargos extras, notificamos para la autorización del cliente."],
               ].map(([t, d]) => (

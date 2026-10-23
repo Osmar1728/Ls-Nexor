@@ -101,7 +101,7 @@ export default function CoberturaPage() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
                 <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-400" />
               </span>
-              Salidas todos los días hábiles
+              Salidas programadas
             </p>
           </div>
 

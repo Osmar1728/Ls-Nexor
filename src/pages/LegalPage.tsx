@@ -59,12 +59,12 @@ export function TerminosPage() {
     <LegalShell
       eyebrow="Legal · Términos del servicio"
       title="Términos y condiciones del servicio"
-      desc="Reglas claras para cotizar y mover tu carga con LS NEXOR: precio cerrado, unidad dedicada y factura con carta porte."
+      desc="Reglas claras para cotizar y mover tu carga con LS NEXOR: precio cerrado, unidad dedicada y facturación inmediata."
     >
       <Punto n="01" t="Quiénes somos">
         <p>
           {BUSINESS.fullName} ({BUSINESS.name}), con base operativa en {BUSINESS.base}, presta
-          servicios de flete dedicado local y foráneo con unidades propias de 1 a 15+ toneladas,
+          servicios de flete dedicado local y foráneo con unidades propias para todo tipo de carga,
           maniobras opcionales, seguro de carga opcional por evento y despacho con ingreso a
           aduana y recintos fiscales.
         </p>
@@ -122,11 +122,10 @@ export function TerminosPage() {
           movilización, informado de forma previa.
         </p>
       </Punto>
-      <Punto n="09" t="Factura y carta porte">
+      <Punto n="09" t="Facturación">
         <p>
-          Todas las cotizaciones incluyen factura con complemento carta porte conforme al artículo
-          74 del Reglamento de Autotransporte Federal y las disposiciones fiscales vigentes.
-          Proporciónanos tus datos fiscales correctos antes de la entrega.
+          Todos los servicios incluyen facturación inmediata. Proporciónanos tus datos fiscales
+          correctos antes de la entrega.
         </p>
       </Punto>
       <Punto n="10" t="Aduana y recintos fiscales">
@@ -177,7 +176,7 @@ export function PrivacidadPage() {
       <Punto n="03" t="Para qué los usamos (finalidades primarias)">
         <p>
           Elaborar y dar seguimiento a tu cotización; coordinar recolección, tránsito y entrega;
-          emitir factura con carta porte; y atender dudas, cambios o reclamaciones de tu servicio.
+          emitir tu factura; y atender dudas, cambios o reclamaciones de tu servicio.
         </p>
       </Punto>
       <Punto n="04" t="Finalidades secundarias">

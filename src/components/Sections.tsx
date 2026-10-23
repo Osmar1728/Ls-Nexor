@@ -17,8 +17,8 @@ export function TrustStrip() {
   const items = [
     ["Servicio local", "ZMG y Jalisco"],
     ["Rutas foráneas", "7 corredores"],
-    ["Caja seca", "Toda la flota"],
-    ["Seguro de mercancia", "Cobertura opcional"],
+    ["Caja adaptable", "A tu mercancía"],
+    ["Seguro de mercancía", "Cobertura opcional"],
     ["Aduana y recinto fiscal", "Operadores autorizados"],
   ];
   return (
@@ -52,9 +52,9 @@ export function Flota({ fill = true }: { fill?: boolean }) {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-2xl">
             <p className="eyebrow text-[#0077c8]">Flota</p>
-            <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl lg:text-[2.75rem]">4 unidades para cada tipo de carga</h2>
+            <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl lg:text-[2.75rem]">4 configuraciones para todo tipo de carga</h2>
             <p className="mt-3 text-[15px] leading-relaxed text-slate-700 lg:text-base">
-              Caja seca cerrada en todas las unidades.
+              Caja adaptable a tu mercancía en todas las configuraciones.
             </p>
           </div>
           <a href={href("/flota")} className="text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
@@ -110,7 +110,7 @@ export function FlotaDetalle() {
         <p className="eyebrow text-[#0077c8]">Flota · Fichas técnicas</p>
         <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Cada unidad, a detalle</h2>
         <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600">
-          Toda la flota es caja seca cerrada. {NOTA_FLOTA}
+          Toda la flota cuenta con caja adaptable a tu mercancía. {NOTA_FLOTA}
         </p>
 
         <div className="mt-10 space-y-8">
@@ -262,7 +262,7 @@ export function Servicios({ fill = true }: { fill?: boolean }) {
     >
       <div className="mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <Heading eyebrow="Servicios" title="Lo que contratas, lo que recibes" desc="Elige tu servicio y cotiza en minutos. Precio cerrado por escrito." />
+          <Heading eyebrow="Servicios" title="Lo que contratas, lo que recibes" desc="Elige tu servicio y cotiza en minutos. Precio cerrado." />
           <a href={href("/nosotros")} className="text-sm font-semibold text-[#0077c8] hover:text-[#005a97]">
             Ver detalle de servicios →
           </a>
@@ -301,7 +301,7 @@ export function Servicios({ fill = true }: { fill?: boolean }) {
                 Unidad exclusiva para tu mercancía. Sin consolidar, puerta a puerta.
               </p>
               <ul className="mt-4 space-y-2">
-                {["Unidad exclusiva, sin compartir", "Puerta a puerta local y foráneo", "Precio cerrado por escrito"].map((f) => (
+                {["Unidad exclusiva, sin compartir", "Puerta a puerta local y foráneo", "Precio cerrado"].map((f) => (
                   <li key={f} className="flex items-center gap-2.5 text-sm text-white/85">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-400">✓</span>
                     {f}
@@ -402,7 +402,7 @@ export function Aduana() {
               </ul>
               </div>
               <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pt-4 lg:mt-auto">
-                <p className="text-sm text-white/70">¿Mercancía detenida? La sacamos nosotros.</p>
+                <p className="text-sm text-white/70">¿Tu carga requiere despacho en aduana? Cotízalo con nosotros.</p>
                 <a
                   href={href("/nosotros")}
                   className="text-sm font-semibold text-sky-300 transition hover:text-white"
@@ -543,7 +543,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
           </div>
           <ul className="grid gap-x-6 gap-y-1.5 text-sm text-[#0b2a4a] sm:grid-cols-2 lg:flex-1">
             {[
-              "Precios acorde a los servicios contratados",
+              "Precios acordes a los servicios contratados",
               "Facturación inmediata",
               "Foto de entrega + ubicación en ruta",
               "Ingreso a aduana y recinto fiscal",
@@ -590,7 +590,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
           <Heading
             eyebrow="Nosotros"
             title="Operador PyME, comunicación total"
-            desc="Logística y Servicio NEXOR. Unidad dedicada, precio cerrado por escrito y comunicación directa durante todo el viaje. Factura con carta porte."
+            desc="Logística y Servicio NEXOR. Unidad dedicada, precio cerrado y comunicación directa durante todo el viaje. Facturación inmediata."
           />
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-6">
@@ -620,17 +620,16 @@ export function Faq() {
   const [expandido, setExpandido] = useState(false);
   const faqs = [
     ["¿Cuánto cuesta un flete?", "Depende de origen, destino, unidad y carga. Envíanos el cotizador y respondemos en menos de 3 horas."],
-    ["¿Qué unidades tienen?", "Camioneta 1T, 3.5T caja seca, Rabón 8T y Trailer 15+T. Todas caja cerrada; medidas aproximadas."],
+    ["¿Qué tipos de unidad tienen?", "Camioneta, Camión 3.5T, Rabón y Tráiler. Nuestra flotilla se adapta a tu mercancía: te cotizamos con la unidad que se adapte a las dimensiones y peso de tu carga."],
     ["¿Qué incluye el servicio?", "Flete dedicado puerta a puerta. Seguro de carga y maniobras se cotizan como adicionales."],
     ["¿A dónde llegan?", "ZMG + San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Otras rutas bajo cotización."],
-    ["¿Emiten factura?", "Sí, siempre. Todas las cotizaciones incluyen factura con carta porte."],
+    ["¿Emiten factura?", "Sí, facturación inmediata."],
     ["¿Cómo reservo?", "Por WhatsApp o correo. Confirmamos unidad, horario y precio cerrado."],
     ["¿Mi carga viaja sola o consolidada?", "Sola. La unidad va 100% dedicada a tu mercancía, sin compartir ni trasbordos."],
     ["¿Puedo seguir mi flete en ruta?", "Sí. Te compartimos ubicación durante el viaje y foto de entrega al finalizar."],
-    ["¿Hacen mudanzas?", "Sí. Las cotizamos como flete dedicado y puedes agregar maniobras de carga y descarga."],
     ["¿Entran a aduana y recinto fiscal?", "Sí. Operamos con unidades especializadas, permisos vigentes y operadores autorizados para el despacho de mercancías en aduana, aeropuerto y recintos fiscales."],
     ["¿Manejan importación y exportación?", "Sí. Movemos mercancía de comercio exterior con unidad dedicada. Escríbenos por WhatsApp y cotizamos tu despacho."],
-    ["¿Qué necesito para despachar mi mercancía?", "Cuéntanos origen, destino y tipo de mercancía en el cotizador o por WhatsApp y te confirmamos tiempos y requisitos. Precio cerrado por escrito."],
+    ["¿Qué necesito para despachar mi mercancía?", "Cuéntanos origen, destino, dimensiones y peso de tu mercancía en el cotizador o por WhatsApp. Te cotizamos con la unidad que se adapte a tu carga y te confirmamos tiempos y requisitos. Precio cerrado."],
   ];
   return (
     <section id="faq" className="fill-screen flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:py-10">

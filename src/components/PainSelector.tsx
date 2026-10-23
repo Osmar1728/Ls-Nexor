@@ -68,7 +68,7 @@ const DOLORES = [
   {
     Icon: TruckIcon,
     q: "«Pago camión completo por media carga»",
-    a: "Elige 1T, 3.5T, Rabón o Tráiler a tu medida",
+    a: "Elige la unidad a la medida de tu carga",
     cta: "Ver flota",
     to: href("/flota"),
   },
@@ -82,7 +82,7 @@ const DOLORES = [
   {
     Icon: DocCheckIcon,
     q: "«Necesito factura»",
-    a: "CFDI + Carta Porte",
+    a: "Facturación inmediata",
     cta: "Cotizar foráneo",
     to: buildCotizarHref({ origen: "Guadalajara", tipo: "Foráneo" }),
   },

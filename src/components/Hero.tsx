@@ -29,8 +29,8 @@ export default function Hero() {
             Flete dedicado desde Guadalajara
           </h1>
           <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600 max-sm:mt-3">
-            Unidades de carga a partir de 1 hasta 15 toneladas con servicio local ZMG, entregas foráneas
-            y despacho en aduana. Cotiza con nosotros, facturación de inmediato, evidencia fotográfica, cuenta espejo.
+            Unidades de carga para todo tipo de mercancía, con servicio local ZMG, entregas foráneas
+            y despacho en aduana. Cotiza con nosotros, facturación inmediata, evidencia fotográfica, cuenta espejo.
           </p>
           <div className="mt-7 flex flex-col gap-3 max-sm:mt-5 sm:flex-row">
             <a

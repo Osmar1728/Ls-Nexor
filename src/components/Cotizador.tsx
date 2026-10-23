@@ -57,8 +57,8 @@ export default function Cotizador() {
       });
     };
     applyUrl();
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
+    window.addEventListener("popstate", onHash);
+    return () => window.removeEventListener("popstate", onHash);
   }, []);
 
   const prefilled = useMemo(() => {
@@ -125,15 +125,15 @@ export default function Cotizador() {
   return (
     <section id="cotizar" className="scroll-mt-20 bg-[#f2f5f9] py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="min-w-0">
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div className="order-1 min-w-0 lg:col-start-1 lg:row-start-1">
             <p className="eyebrow text-[#0077c8]">Cotizador</p>
             <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
               Cotiza en 1 minuto
             </h2>
             <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
               Tres pasos y se abre tu WhatsApp o correo con todo pre-llenado hacia {BUSINESS.email}.
-              Respuesta en menos de 3 horas (Lun–Vie 8–18).
+              Respuesta en menos de 3 horas.
             </p>
             {prefilled && (form.origen || form.destino || form.unidad) && (
               <div className="mt-4 rounded-lg border border-[#0077c8]/30 bg-[#e6f3fa] px-4 py-3 text-sm text-[#0b2a4a]">
@@ -141,8 +141,12 @@ export default function Cotizador() {
                 {[form.origen && `Origen ${form.origen}`, form.destino && `Destino ${form.destino}`, form.unidad].filter(Boolean).join(" · ")}
               </div>
             )}
+          </div>
+
+          {/* Resumen y contacto: debajo del formulario en móvil/iPad, columna izquierda en desktop */}
+          <div className="order-3 min-w-0 lg:col-start-1 lg:row-start-2">
             {/* Resumen en vivo */}
-            <div className="mt-6 rounded-xl border border-[#dce4ed] bg-[#0b2a4a] p-5 text-sm text-white">
+            <div className="rounded-xl border border-[#dce4ed] bg-[#0b2a4a] p-5 text-sm text-white">
               <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-300">Tu cotización</p>
               <p className="font-heading mt-2 break-words text-lg font-bold">
                 {form.origen.trim() || "¿Origen?"} <span className="text-sky-300">→</span> {form.destino.trim() || "¿Destino?"}
@@ -173,7 +177,7 @@ export default function Cotizador() {
             </div>
           </div>
 
-          <div className="min-w-0 rounded-xl border border-[#dce4ed] bg-white p-6 shadow-[0_8px_30px_rgba(11,42,74,0.08)] sm:p-8">
+          <div className="order-2 min-w-0 rounded-xl border border-[#dce4ed] bg-white p-6 shadow-[0_8px_30px_rgba(11,42,74,0.08)] sm:p-8 lg:col-start-2 lg:row-span-2 lg:row-start-1">
             {/* Pasos */}
             <ol className="flex items-center gap-2" aria-label="Pasos del cotizador">
               {PASOS.map((p, i) => {
