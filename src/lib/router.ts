@@ -215,6 +215,19 @@ function setCanonical(url: string) {
   link.setAttribute("href", url);
 }
 
+function setHreflang(url: string) {
+  ["es-MX", "x-default"].forEach((lang) => {
+    let link = document.head.querySelector<HTMLLinkElement>(`link[rel="alternate"][hreflang="${lang}"]`);
+    if (!link) {
+      link = document.createElement("link");
+      link.setAttribute("rel", "alternate");
+      link.setAttribute("hreflang", lang);
+      document.head.appendChild(link);
+    }
+    link.setAttribute("href", url);
+  });
+}
+
 // Sin restauración del navegador: cada ruta siempre empieza en el hero.
 if (typeof history !== "undefined" && "scrollRestoration" in history) {
   history.scrollRestoration = "manual";
@@ -255,6 +268,7 @@ export function usePageMeta(name: RouteName, extra?: string, image?: string) {
     setMeta("name", "twitter:image:alt", title);
 
     setCanonical(canonical);
+    setHreflang(canonical);
 
     // Instantáneo a propósito: el `scroll-behavior: smooth` global volvía
     // esta subida una animación lenta que dejaba la página a medias.
@@ -264,5 +278,5 @@ export function usePageMeta(name: RouteName, extra?: string, image?: string) {
     } catch {
       window.scrollTo(0, 0);
     }
-  }, [name, extra]);
+  }, [name, extra, image]);
 }

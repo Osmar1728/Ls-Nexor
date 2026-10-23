@@ -1,11 +1,47 @@
+import { useEffect } from "react";
 import VideoHero from "../components/VideoHero";
 import { BUSINESS } from "../config";
-import { buildCotizarHref, usePageMeta } from "../lib/router";
+import { SITE_URL, buildCotizarHref, usePageMeta } from "../lib/router";
 import { getRuta } from "../lib/rutas";
 
 export default function RutaPage({ slug }: { slug?: string }) {
   const ruta = getRuta(slug);
   usePageMeta("ruta", ruta ? `Flete Guadalajara a ${ruta.destino}` : undefined, ruta?.imagen);
+
+  useEffect(() => {
+    const id = "ruta-schema";
+    document.getElementById(id)?.remove();
+    if (!ruta) return;
+    const script = document.createElement("script");
+    script.id = id;
+    script.type = "application/ld+json";
+    const data = {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          itemListElement: [
+            { "@type": "ListItem", position: 1, name: "Inicio", item: `${SITE_URL}/` },
+            { "@type": "ListItem", position: 2, name: "Cobertura", item: `${SITE_URL}/cobertura` },
+            { "@type": "ListItem", position: 3, name: `Flete Guadalajara a ${ruta.destino}`, item: `${SITE_URL}/ruta/${ruta.slug}` },
+          ],
+        },
+        {
+          "@type": "FAQPage",
+          mainEntity: ruta.faqs.map(([q, a]) => ({
+            "@type": "Question",
+            name: q,
+            acceptedAnswer: { "@type": "Answer", text: a },
+          })),
+        },
+      ],
+    };
+    script.textContent = JSON.stringify(data);
+    document.head.appendChild(script);
+    return () => {
+      document.getElementById(id)?.remove();
+    };
+  }, [ruta]);
 
   if (!ruta) {
     return (

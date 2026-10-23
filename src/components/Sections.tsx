@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { BUSINESS, COBERTURA_LOCAL, COBERTURA_NACIONAL_MSG, FLEET_UNITS, NOTA_FLOTA } from "../config";
 import { buildCotizarHref, href } from "../lib/router";
 import { RUTAS } from "../lib/rutas";
@@ -618,7 +618,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
 export function Faq() {
   // En móvil se muestran 4 + "ver más"; en laptop se ven todas (sin cambios).
   const [expandido, setExpandido] = useState(false);
-  const faqs = [
+  const faqs = useMemo(() => [
     ["¿Cuánto cuesta un flete?", "Depende de origen, destino, unidad y carga. Envíanos el cotizador y respondemos en menos de 3 horas."],
     ["¿Qué tipos de unidad tienen?", "Camioneta, Camión 3.5T, Rabón y Tráiler. Nuestra flotilla se adapta a tu mercancía: te cotizamos con la unidad que se adapte a las dimensiones y peso de tu carga."],
     ["¿Qué incluye el servicio?", "Flete dedicado puerta a puerta. Seguro de carga y maniobras se cotizan como adicionales."],
@@ -630,7 +630,7 @@ export function Faq() {
     ["¿Entran a aduana y recinto fiscal?", "Sí. Operamos con unidades especializadas, permisos vigentes y operadores autorizados para el despacho de mercancías en aduana, aeropuerto y recintos fiscales."],
     ["¿Manejan importación y exportación?", "Sí. Movemos mercancía de comercio exterior con unidad dedicada. Escríbenos por WhatsApp y cotizamos tu despacho."],
     ["¿Qué necesito para despachar mi mercancía?", "Cuéntanos origen, destino, dimensiones y peso de tu mercancía en el cotizador o por WhatsApp. Te cotizamos con la unidad que se adapte a tu carga y te confirmamos tiempos y requisitos. Precio cerrado."],
-  ];
+  ], []);
   useEffect(() => {
     const id = "faq-schema";
     let script = document.getElementById(id) as HTMLScriptElement | null;
@@ -653,7 +653,7 @@ export function Faq() {
     return () => {
       document.getElementById(id)?.remove();
     };
-  }, []);
+  }, [faqs]);
 
   return (
     <section id="faq" className="fill-screen flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:py-10">
