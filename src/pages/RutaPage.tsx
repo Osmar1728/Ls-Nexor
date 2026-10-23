@@ -5,7 +5,7 @@ import { getRuta } from "../lib/rutas";
 
 export default function RutaPage({ slug }: { slug?: string }) {
   const ruta = getRuta(slug);
-  usePageMeta("ruta", ruta ? `Flete Guadalajara a ${ruta.destino}` : undefined);
+  usePageMeta("ruta", ruta ? `Flete Guadalajara a ${ruta.destino}` : undefined, ruta?.imagen);
 
   if (!ruta) {
     return (

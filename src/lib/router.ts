@@ -220,7 +220,7 @@ if (typeof history !== "undefined" && "scrollRestoration" in history) {
   history.scrollRestoration = "manual";
 }
 
-export function usePageMeta(name: RouteName, extra?: string) {
+export function usePageMeta(name: RouteName, extra?: string, image?: string) {
   useEffect(() => {
     const base = PAGE_META[name];
     const title = extra ? `${extra} | LS NEXOR` : base.title;
@@ -229,6 +229,11 @@ export function usePageMeta(name: RouteName, extra?: string) {
       CANONICAL_PATHS[name] ??
       (window.location.pathname === "/" ? "/" : window.location.pathname.replace(/\/+$/, ""));
     const canonical = `${SITE_URL}${path}`;
+    const ogImage = image
+      ? image.startsWith("http")
+        ? image
+        : `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`
+      : OG_IMAGE;
 
     document.title = title;
     setMeta("name", "description", desc);
@@ -240,12 +245,14 @@ export function usePageMeta(name: RouteName, extra?: string) {
     setMeta("property", "og:type", "website");
     setMeta("property", "og:site_name", "LS NEXOR");
     setMeta("property", "og:locale", "es_MX");
-    setMeta("property", "og:image", OG_IMAGE);
+    setMeta("property", "og:image", ogImage);
+    setMeta("property", "og:image:alt", title);
 
     setMeta("name", "twitter:card", "summary_large_image");
     setMeta("name", "twitter:title", title);
     setMeta("name", "twitter:description", desc);
-    setMeta("name", "twitter:image", OG_IMAGE);
+    setMeta("name", "twitter:image", ogImage);
+    setMeta("name", "twitter:image:alt", title);
 
     setCanonical(canonical);
 

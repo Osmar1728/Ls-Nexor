@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BUSINESS, COBERTURA_LOCAL, COBERTURA_NACIONAL_MSG, FLEET_UNITS, NOTA_FLOTA } from "../config";
 import { buildCotizarHref, href } from "../lib/router";
 import { RUTAS } from "../lib/rutas";
@@ -631,6 +631,30 @@ export function Faq() {
     ["¿Manejan importación y exportación?", "Sí. Movemos mercancía de comercio exterior con unidad dedicada. Escríbenos por WhatsApp y cotizamos tu despacho."],
     ["¿Qué necesito para despachar mi mercancía?", "Cuéntanos origen, destino, dimensiones y peso de tu mercancía en el cotizador o por WhatsApp. Te cotizamos con la unidad que se adapte a tu carga y te confirmamos tiempos y requisitos. Precio cerrado."],
   ];
+  useEffect(() => {
+    const id = "faq-schema";
+    let script = document.getElementById(id) as HTMLScriptElement | null;
+    if (!script) {
+      script = document.createElement("script");
+      script.id = id;
+      script.type = "application/ld+json";
+      document.head.appendChild(script);
+    }
+    const data = {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map(([q, a]) => ({
+        "@type": "Question",
+        name: q,
+        acceptedAnswer: { "@type": "Answer", text: a },
+      })),
+    };
+    script.textContent = JSON.stringify(data);
+    return () => {
+      document.getElementById(id)?.remove();
+    };
+  }, []);
+
   return (
     <section id="faq" className="fill-screen flex flex-col justify-center bg-[#f2f5f9] py-16 sm:py-20 lg:py-10">
       <div className="mx-auto w-full max-w-6xl px-6 sm:px-8">
