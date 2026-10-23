@@ -29,6 +29,8 @@ RewriteRule ^ /index.html [L]
   ExpiresByType image/webp "access plus 6 months"
   ExpiresByType image/png "access plus 6 months"
   ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType video/webm "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
   ExpiresByType font/woff2 "access plus 1 year"
 </IfModule>
 
