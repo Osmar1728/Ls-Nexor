@@ -1,4 +1,6 @@
 import { useEffect } from "react";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 import { Footer, WhatsFloat } from "./components/Footer";
 import Navbar from "./components/Navbar";
 import PageHero from "./components/PageHero";
@@ -43,6 +45,20 @@ export default function App() {
 
     document.addEventListener("click", onClick);
     return () => document.removeEventListener("click", onClick);
+  }, []);
+
+  useEffect(() => {
+    const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    let raf = 0;
+    const loop = (time: number) => {
+      lenis.raf(time);
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    return () => {
+      cancelAnimationFrame(raf);
+      lenis.destroy();
+    };
   }, []);
 
   return (
