@@ -144,7 +144,7 @@ export function buildCotizarHref(prefill: CotizarPrefill = {}, base: string = "/
 export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   home: {
     title: "Fletes y transporte de carga en Guadalajara | LS NEXOR",
-    desc: "Fletes dedicados en ZMG y foráneos desde Guadalajara a SLP, Querétaro, Vallarta, Morelia, Tequila, Silao y Manzanillo. Cotiza en menos de 3 horas.",
+    desc: "Fletes dedicados en ZMG y foráneos desde Guadalajara a SLP, Querétaro, Vallarta, Morelia, Tequila, Silao y Manzanillo. Unidad exclusiva, precio cerrado. Cotiza en menos de 3 horas.",
   },
   flota: {
     title: "Flota y capacidades de carga | LS NEXOR Guadalajara",

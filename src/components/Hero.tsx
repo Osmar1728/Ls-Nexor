@@ -29,8 +29,9 @@ export default function Hero() {
             Flete dedicado desde Guadalajara
           </h1>
           <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600 max-sm:mt-3">
-            Unidades de carga para todo tipo de mercancía, con servicio local ZMG, entregas foráneas
-            y despacho en aduana. Cotiza con nosotros, facturación inmediata, evidencia fotográfica, cuenta espejo.
+            Unidades para todo tipo de mercancía: servicio local en ZMG, entregas foráneas a Bajío y
+            Occidente, y despacho en aduana. Precio cerrado, facturación inmediata, evidencia fotográfica
+            y seguimiento en ruta. Cotiza en menos de 3 horas.
           </p>
           <div className="mt-7 flex flex-col gap-3 max-sm:mt-5 sm:flex-row">
             <a

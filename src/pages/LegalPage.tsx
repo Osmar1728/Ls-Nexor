@@ -142,6 +142,35 @@ export function TerminosPage() {
           controversia se somete a los tribunales de Guadalajara, Jalisco.
         </p>
       </Punto>
+      <Punto n="12" t="Responsabilidad y seguros">
+        <p>
+          Operamos con la responsabilidad civil y permisos vigentes que exige la normatividad del
+          autotransporte federal. Sin seguro de mercancía contratado por ti, nuestra responsabilidad
+          se limita a lo previsto por dicha normatividad. Te recomendamos contratar la cobertura por
+          evento que ofrecemos para carga de alto valor o rutas foráneas.
+        </p>
+      </Punto>
+      <Punto n="13" t="Fuerza mayor">
+        <p>
+          No somos responsables por incumplimientos derivados de causas de fuerza mayor o caso
+          fortuito (clima extremo, bloqueos, retenes, disposiciones de autoridad, accidentes en
+          vía). En esos casos reprogramamos el servicio y te avisamos de inmediato.
+        </p>
+      </Punto>
+      <Punto n="14" t="Retención y reclamaciones">
+        <p>
+          Cualquier reclamación por daño o faltante debe notificarse por escrito dentro de las 24
+          horas siguientes a la entrega, con fotos y evidencia. Las reclamaciones posteriores no
+          podrán ser atendidas. Podemos retener la mercancía en caso de adeudos pendientes.
+        </p>
+      </Punto>
+      <Punto n="15" t="Modificaciones">
+        <p>
+          Podemos actualizar estos términos; la versión vigente es la publicada en esta página con
+          su fecha de actualización. El uso continuo del servicio implica la aceptación de los
+          cambios.
+        </p>
+      </Punto>
       <p className="text-sm">
         <a href={href("/privacidad")} className="font-semibold text-[#0077c8] hover:text-[#005a97]">
           Ver aviso de privacidad →
@@ -210,6 +239,33 @@ export function PrivacidadPage() {
         <p>
           Cualquier cambio a este aviso se publicará en esta misma página indicando la fecha de
           actualización. Última actualización: {ACTUALIZADO}.
+        </p>
+      </Punto>
+      <Punto n="09" t="Cookies y tecnologías similares">
+        <p>
+          Este sitio puede usar cookies técnicas necesarias para su funcionamiento y, en su caso,
+          herramientas de analítica para mejorar la experiencia. Puedes desactivar las cookies desde
+          la configuración de tu navegador; algunas funciones podrían dejar de funcionar.
+        </p>
+      </Punto>
+      <Punto n="10" t="Conservación">
+        <p>
+          Conservamos tus datos solo el tiempo necesario para prestar el servicio y cumplir
+          obligaciones fiscales y legales. Posteriormente se eliminan o anonimizan de forma segura.
+        </p>
+      </Punto>
+      <Punto n="11" t="Encargados y transferencias">
+        <p>
+          Podemos apoyarnos en proveedores (hosting, correo, aseguradoras) que tratan datos por
+          cuenta nuestra bajo contrato. Las transferencias se realizan conforme a la LFPDPPP y a los
+          casos previstos en el punto de transferencias.
+        </p>
+      </Punto>
+      <Punto n="12" t="Menores de edad">
+        <p>
+          Nuestros servicios no están dirigidos a menores de edad; no recabamos datos de menores de
+          forma intencional. Si detectamos datos de un menor, los eliminaremos a solicitud de su
+          tutor.
         </p>
       </Punto>
       <p className="text-sm">
