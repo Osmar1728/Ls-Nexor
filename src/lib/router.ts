@@ -77,11 +77,7 @@ export function useRoute(): ParsedRoute & { queryString: string } {
       migrarHash();
       setRoute(parsePath(window.location.pathname));
       setQueryString(window.location.search.replace(/^\?/, ""));
-      try {
-        window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
-      } catch {
-        window.scrollTo(0, 0);
-      }
+      window.scrollTo(0, 0);
     };
 
     migrarHash();
@@ -228,10 +224,7 @@ function setHreflang(url: string) {
   });
 }
 
-// Sin restauración del navegador: cada ruta siempre empieza en el hero.
-if (typeof history !== "undefined" && "scrollRestoration" in history) {
-  history.scrollRestoration = "manual";
-}
+// Lenis gestiona el scroll; el navegador restaura posición por defecto.
 
 export function usePageMeta(name: RouteName, extra?: string, image?: string) {
   useEffect(() => {
@@ -270,13 +263,7 @@ export function usePageMeta(name: RouteName, extra?: string, image?: string) {
     setCanonical(canonical);
     setHreflang(canonical);
 
-    // Instantáneo a propósito: el `scroll-behavior: smooth` global volvía
-    // esta subida una animación lenta que dejaba la página a medias.
-    // Con try/catch por si el navegador no acepta `instant`.
-    try {
-      window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
-    } catch {
-      window.scrollTo(0, 0);
-    }
+    // Lenis gestiona el scroll: subida suave al cambiar de ruta.
+    window.scrollTo(0, 0);
   }, [name, extra, image]);
 }
