@@ -128,9 +128,9 @@ export default function Cotizador() {
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div className="order-1 min-w-0 lg:col-start-1 lg:row-start-1">
             <p className="eyebrow text-[#0077c8]">Cotizador</p>
-            <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
+            <h1 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">
               Cotiza en 1 minuto
-            </h2>
+            </h1>
             <p className="mt-3 text-[15px] leading-relaxed text-slate-600">
               Tres pasos y se abre tu WhatsApp o correo con todo pre-llenado hacia {BUSINESS.email}.
               Respuesta en menos de 3 horas.
