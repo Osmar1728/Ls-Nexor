@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="relative mx-auto w-full max-w-7xl px-6 sm:px-8">
         <div className="flex max-w-2xl flex-col justify-center">
           <h1 className="font-heading mt-5 text-3xl font-extrabold text-[#0b2a4a] max-sm:mt-4 ms:text-4xl sm:text-5xl lg:text-[58px]">
-            Flete dedicado desde Guadalajara
+            Logística y transporte para tu empresa
           </h1>
           <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600 max-sm:mt-3">
             Unidades para todo tipo de mercancía: servicio local en ZMG, entregas foráneas a Bajío y
