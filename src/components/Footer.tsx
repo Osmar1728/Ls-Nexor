@@ -112,6 +112,9 @@ export function Footer() {
           <p>© {new Date().getFullYear()} {BUSINESS.fullName} · Todos los derechos reservados</p>
           <p>Guadalajara, Jalisco · Facturación disponible</p>
         </div>
+        <div className="mx-auto max-w-7xl px-6 pb-5 text-center text-[11px] text-white/35 sm:px-8">
+          <p>Sitio desarrollado por Osmar Casillas</p>
+        </div>
       </div>
     </footer>
   );
