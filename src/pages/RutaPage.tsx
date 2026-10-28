@@ -6,7 +6,8 @@ import { getRuta } from "../lib/rutas";
 
 export default function RutaPage({ slug }: { slug?: string }) {
   const ruta = getRuta(slug);
-  usePageMeta("ruta", ruta ? `Flete Guadalajara a ${ruta.destino}` : undefined, ruta?.hero ?? ruta?.imagen);
+  // Slug inexistente: marcar noindex como 404 para no indexar URLs basura.
+  usePageMeta(ruta ? "ruta" : "notfound", ruta ? `Flete Guadalajara a ${ruta.destino}` : undefined, ruta?.hero ?? ruta?.imagen);
 
   useEffect(() => {
     const id = "ruta-schema";
