@@ -140,47 +140,47 @@ export function buildCotizarHref(prefill: CotizarPrefill = {}, base: string = "/
 export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   home: {
     title: "Fletes y transporte de carga en Guadalajara | LS NEXOR",
-    desc: "Fletes dedicados en ZMG y foráneos desde Guadalajara a SLP, Querétaro, Vallarta, Morelia, Tequila, Silao y Manzanillo. Unidad exclusiva, precio cerrado. Cotiza en menos de 3 horas.",
+    desc: "Fletes dedicados en Guadalajara, ZMG y foráneos a San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Unidad exclusiva, precio cerrado. Cotiza en menos de 3 horas.",
   },
   flota: {
-    title: "Flota y capacidades de carga | LS NEXOR Guadalajara",
-    desc: "Camioneta, camión 3.5T, Rabón y Tráiler con caja adaptable a tu mercancía. Consulta medidas, volumen y uso recomendado para tu carga.",
+    title: "Flota de carga en Guadalajara: Camioneta, Camión, Rabón y Tráiler | LS NEXOR",
+    desc: "Flota dedicada con camioneta 1T, camión 3.5T, rabón/torton 5T y tráiler 15T. Medidas, capacidades y tipo ideal por carga. Fletes en Guadalajara y foráneos.",
   },
   cobertura: {
-    title: "Cobertura de fletes en Jalisco y Bajío | LS NEXOR",
-    desc: "Servicio local en ZMG y 7 rutas foráneas desde Guadalajara: SLP, Querétaro, Vallarta, Morelia, Tequila, Silao y Manzanillo. Cobertura nacional bajo cotización.",
+    title: "Cobertura de fletes Guadalajara, ZMG y Bajío | Rutas desde Guadalajara | LS NEXOR",
+    desc: "Cobertura local en Zona Metropolitana de Guadalajara y 7 rutas foráneas directas: San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Flete dedicado puerta a puerta.",
   },
   ruta: {
-    title: "Flete foráneo desde Guadalajara | LS NEXOR",
-    desc: "Flete dedicado puerta a puerta desde Guadalajara con precio cerrado, facturación inmediata y seguro de carga opcional.",
+    title: "Flete dedicado Guadalajara a {destino} | Precio cerrado | LS NEXOR",
+    desc: "Flete dedicado puerta a puerta desde Guadalajara a {destino}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro de carga opcional. Cotiza en menos de 3 horas.",
   },
   servicios: {
-    title: "Servicios de flete dedicado | LS NEXOR",
-    desc: "Flete dedicado puerta a puerta, seguro de carga opcional y maniobras de carga y descarga. Precio cerrado y unidad exclusiva.",
+    title: "Servicios de flete dedicado y transporte de carga | LS NEXOR Guadalajara",
+    desc: "Flete dedicado local y foráneo, despacho con ingreso a aduana y recinto fiscal, seguro de carga por evento, maniobras opcionales. Facturación inmediata.",
   },
   nosotros: {
-    title: "Nosotros: operador logístico PyME | LS NEXOR",
-    desc: "Operador PyME en Guadalajara. Unidades dedicadas, comunicación directa durante tu flete y facturación inmediata.",
+    title: "LS NEXOR | Operador logístico PyME en Guadalajara",
+    desc: "Operador logístico PyME con base en Guadalajara. Unidades dedicadas, comunicación directa, precios cerrados y servicio confiable en ZMG, Bajío y Occidente.",
   },
   cotizar: {
-    title: "Cotiza tu flete en 1 minuto | LS NEXOR",
-    desc: "Cotiza fletes locales y foráneos desde Guadalajara. Completa origen, destino y unidad y recibe respuesta en menos de 3 horas.",
+    title: "Cotiza tu flete en 1 minuto | Fletes desde Guadalajara | LS NEXOR",
+    desc: "Cotiza fletes locales en ZMG y foráneos desde Guadalajara. Origen, destino, unidad y tipo de carga. Respuesta en menos de 3 horas. Precio cerrado.",
   },
   terminos: {
     title: "Términos y condiciones | LS NEXOR",
-    desc: "Términos del servicio de fletes dedicados LS NEXOR: cotizaciones, precio cerrado, seguro, maniobras, facturación inmediata y aduana.",
+    desc: "Términos del servicio de fletes dedicados LS NEXOR: cotizaciones, precio cerrado, seguro de carga, maniobras, facturación, aduanas y responsabilidades.",
   },
   privacidad: {
     title: "Aviso de privacidad | LS NEXOR",
-    desc: "Cómo trata LS NEXOR tus datos personales conforme a la LFPDPPP: datos recabados, finalidades, transferencias y derechos ARCO.",
+    desc: "Aviso de privacidad de LS NEXOR conforme a la LFPDPPP. Datos personales recabados, finalidades, transferencias, derechos ARCO y medidas de seguridad.",
   },
   notfound: {
     title: "Página no encontrada | LS NEXOR",
-    desc: "La página que buscas no existe. Vuelve al inicio o cotiza tu flete directamente.",
+    desc: "La página que buscas no existe. Vuelve al inicio o cotiza tu flete desde Guadalajara directamente por WhatsApp.",
   },
 };
 
-export const SITE_URL = "https://www.lsnexor.mx";
+export const SITE_URL = "https://lsnexor.com";
 const OG_IMAGE = `${SITE_URL}/hero-rutas-bajio.webp`;
 
 // Rutas con alias que deben consolidar su canonical en una sola URL.
@@ -200,6 +200,8 @@ function setMeta(attr: MetaAttr, key: string, content: string) {
   }
   el.setAttribute("content", content);
 }
+
+// function setTwitterMeta() {}
 
 function setCanonical(url: string) {
   let link = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
@@ -229,8 +231,8 @@ function setHreflang(url: string) {
 export function usePageMeta(name: RouteName, extra?: string, image?: string) {
   useEffect(() => {
     const base = PAGE_META[name];
-    const title = extra ? `${extra} | LS NEXOR` : base.title;
-    const desc = base.desc;
+    let title = extra ? `${extra} | LS NEXOR` : base.title;
+    let desc = base.desc;
     const path =
       CANONICAL_PATHS[name] ??
       (window.location.pathname === "/" ? "/" : window.location.pathname.replace(/\/+$/, ""));
@@ -241,18 +243,46 @@ export function usePageMeta(name: RouteName, extra?: string, image?: string) {
         : `${SITE_URL}${image.startsWith("/") ? image : `/${image}`}`
       : OG_IMAGE;
 
+    // Ajustar meta para rutas dinámicas con destino
+    if (name === "ruta" && extra) {
+      const dest = extra.replace(/^Flete Guadalajara a /, "");
+      title = `Flete dedicado Guadalajara → ${dest} | Precio cerrado | LS NEXOR`;
+      desc = `Flete dedicado puerta a puerta desde Guadalajara a ${dest}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro opcional. Cotiza en menos de 3 horas.`;
+    }
+
     document.title = title;
     setMeta("name", "description", desc);
-    setMeta("name", "robots", name === "notfound" ? "noindex,follow" : "index,follow,max-image-preview:large");
+    setMeta("name", "robots", name === "notfound" ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1");
+    setMeta("name", "keywords", name === "home" 
+      ? "fletes guadalajara, transporte de carga guadalajara, flete dedicado zmg, fletes bajio, transporte carga jalisco"
+      : name === "ruta" 
+      ? `flete guadalajara ${extra?.replace(/.*a /, "") || ""}, flete dedicado, transporte de carga`
+      : "fletes guadalajara, flete dedicado, transporte de carga");
 
     setMeta("property", "og:title", title);
     setMeta("property", "og:description", desc);
     setMeta("property", "og:url", canonical);
-    setMeta("property", "og:type", "website");
+    setMeta("property", "og:type", name === "ruta" ? "article" : "website");
     setMeta("property", "og:site_name", "LS NEXOR");
     setMeta("property", "og:locale", "es_MX");
     setMeta("property", "og:image", ogImage);
     setMeta("property", "og:image:alt", title);
+    setMeta("property", "og:image:width", "1920");
+    setMeta("property", "og:image:height", "1072");
+    setMeta("property", "og:image:type", "image/webp");
+
+    // Añadir metadatos adicionales para SEO
+    setMeta("name", "author", "LS NEXOR - Logística y Servicio NEXOR");
+    setMeta("name", "publisher", "LS NEXOR");
+    setMeta("property", "business:contact_data:phone_number", "+523313196892");
+    setMeta("property", "business:contact_data:locality", "Guadalajara");
+    setMeta("property", "business:contact_data:region", "Jalisco");
+    setMeta("property", "business:contact_data:country_name", "Mexico");
+    setMeta("name", "geo.region", "MX-JAL");
+    setMeta("name", "geo.placename", "Guadalajara, Jalisco");
+    setMeta("name", "geo.position", "20.6597;-103.3496");
+    setMeta("name", "ICBM", "20.6597, -103.3496");
+    setMeta("name", "theme-color", "#0b2a4a");
 
     setMeta("name", "twitter:card", "summary_large_image");
     setMeta("name", "twitter:title", title);

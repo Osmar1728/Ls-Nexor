@@ -1,13 +1,13 @@
 # LS NEXOR — Hostinger / Apache
-# Fuerza HTTPS + www y sirve las URLs limpias con index.html (SPA).
+# Fuerza HTTPS + apex (lsnexor.com) y sirve las URLs limpias con index.html (SPA).
 
 Options -MultiViews
 RewriteEngine On
 
-# 1) Forzar HTTPS y www en un solo salto
+# 1) Forzar HTTPS y dominio apex en un solo salto
 RewriteCond %{HTTPS} !=on [OR]
-RewriteCond %{HTTP_HOST} !^www\. [NC]
-RewriteRule ^ https://www.lsnexor.mx%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} !^lsnexor\.com$ [NC]
+RewriteRule ^ https://lsnexor.com%{REQUEST_URI} [L,R=301]
 
 # 2) SPA fallback: rutas limpias -> index.html (los assets existen tal cual)
 RewriteCond %{REQUEST_FILENAME} !-f

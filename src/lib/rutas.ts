@@ -3,6 +3,7 @@ export interface RutaInfo {
   destino: string;
   distancia: string;
   imagen: string;
+  hero: string;
   ideal: string;
   casos: string[];
   faqs: [string, string][];
@@ -12,6 +13,7 @@ export const RUTAS: RutaInfo[] = [
   {
     slug: "san-luis-potosi",
     imagen: "/img/rutas/san-luis-potosi.webp",
+    hero: "/img/rutas/san-luis-potosi-hero.webp",
     destino: "San Luis Potosí",
     distancia: "~ 330 km desde GDL",
     ideal: "3.5T y Rabón para carga comercial e industrial al Bajío",
@@ -26,6 +28,7 @@ export const RUTAS: RutaInfo[] = [
   {
     slug: "queretaro",
     imagen: "/img/rutas/queretaro.webp",
+    hero: "/img/rutas/queretaro-hero.webp",
     destino: "Querétaro",
     distancia: "~ 400 km desde GDL",
     ideal: "Corredor industrial Bajío: Rabón y Tráiler para alto volumen",
@@ -40,6 +43,7 @@ export const RUTAS: RutaInfo[] = [
   {
     slug: "puerto-vallarta",
     imagen: "/img/rutas/puerto-vallarta.webp",
+    hero: "/img/rutas/puerto-vallarta-hero.webp",
     destino: "Puerto Vallarta",
     distancia: "~ 300 km desde GDL",
     ideal: "Camioneta 1T y 3.5T para hotelería, retail y carga comercial a costa",
@@ -54,6 +58,7 @@ export const RUTAS: RutaInfo[] = [
   {
     slug: "morelia",
     imagen: "/img/rutas/morelia.webp",
+    hero: "/img/rutas/morelia-hero.webp",
     destino: "Morelia",
     distancia: "~ 290 km desde GDL",
     ideal: "3.5T para carga comercial Michoacán–Jalisco",
@@ -68,6 +73,7 @@ export const RUTAS: RutaInfo[] = [
   {
     slug: "tequila",
     imagen: "/img/rutas/tequila.webp",
+    hero: "/img/rutas/tequila-hero.webp",
     destino: "Tequila",
     distancia: "~ 60 km desde GDL",
     ideal: "Camioneta 1T y 3.5T para industria tequilera y proveeduría local",
@@ -82,6 +88,7 @@ export const RUTAS: RutaInfo[] = [
   {
     slug: "silao",
     imagen: "/img/rutas/silao.webp",
+    hero: "/img/rutas/silao-hero.webp",
     destino: "Silao",
     distancia: "~ 230 km desde GDL",
     ideal: "Rabón y Tráiler para corredor automotriz del Bajío",
@@ -98,6 +105,7 @@ export const RUTAS: RutaInfo[] = [
     destino: "Manzanillo",
     distancia: "~ 290 km desde GDL",
     imagen: "/img/rutas/manzanillo.webp",
+    hero: "/img/rutas/manzanillo-hero.webp",
     ideal: "Tráiler y Rabón para carga al puerto y retornos a Guadalajara",
     casos: ["Importación desconsolidada en tarimas y cajas", "Línea blanca y electrodomésticos de importación", "Carga comercial hacia el puerto", "Retorno Manzanillo → GDL", "Equipos y carga voluminosa"],
     faqs: [

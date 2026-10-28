@@ -50,13 +50,13 @@ npm run preview  # vista previa del build
 - `index.html`: title, description, robots, canonical, metadatos geográficos, Open Graph, Twitter Card y JSON-LD (`LocalBusiness` + `WebSite`, sin `MovingCompany`).
 - `src/lib/router.ts`: título, descripción, canonical, Open Graph y Twitter se actualizan por ruta; `/404` se marca `noindex`.
 - `public/sitemap.xml`, `public/robots.txt`, `public/llms.txt`: mantener actualizados con cada cambio de rutas o servicios.
-- `public/.htaccess`: fuerza HTTPS + `www` y sirve las URLs limpias con `index.html` (requerido en Hostinger/Apache).
+- `public/.htaccess`: fuerza HTTPS + `lsnexor.com` (apex) y sirve las URLs limpias con `index.html` (requerido en Hostinger/Apache).
 - Las URLs antiguas `#/flota` siguen funcionando y se convierten a `/flota` sin recargar.
-- Dominio de producción pendiente: reemplazar `https://www.lsnexor.mx` donde aparezca.
+- Dominio de producción: https://lsnexor.com (configurado en index.html, router.ts, sitemap, robots, llms, .htaccess).
 
 ### Google Search Console (al publicar)
 
 1. Verifica la propiedad con el registro DNS o pega la etiqueta en `index.html` (hay un placeholder comentado).
-2. Envía `https://www.lsnexor.mx/sitemap.xml`.
+2. Envía `https://lsnexor.com/sitemap.xml`.
 3. Solicita indexación de `/`, `/flota`, `/cobertura` y las 7 rutas.
-4. Confirma que `https://www.lsnexor.mx/robots.txt` responda 200 y no bloquee el sitio.
+4. Confirma que `https://lsnexor.com/robots.txt` responda 200 y no bloquee el sitio.

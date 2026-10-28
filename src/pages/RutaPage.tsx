@@ -6,7 +6,7 @@ import { getRuta } from "../lib/rutas";
 
 export default function RutaPage({ slug }: { slug?: string }) {
   const ruta = getRuta(slug);
-  usePageMeta("ruta", ruta ? `Flete Guadalajara a ${ruta.destino}` : undefined, ruta?.imagen);
+  usePageMeta("ruta", ruta ? `Flete Guadalajara a ${ruta.destino}` : undefined, ruta?.hero ?? ruta?.imagen);
 
   useEffect(() => {
     const id = "ruta-schema";
@@ -67,8 +67,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
   return (
     <>
       <VideoHero
-        video="/hero/video/hero-ruta.webm"
-        poster="/hero-rutas-bajio.webp"
+        image={ruta.hero}
         eyebrow={`Foráneo · ${ruta.distancia}`}
         title={`Flete Guadalajara → ${ruta.destino}`}
         desc={`${ruta.ideal}. Unidad dedicada puerta a puerta, precio cerrado, facturación inmediata y seguro opcional.`}

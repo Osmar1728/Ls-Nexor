@@ -6,7 +6,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const rutasPath = join(root, "src", "lib", "rutas.ts");
 const outPath = join(root, "public", "sitemap.xml");
 
-const SITE = "https://www.lsnexor.mx";
+const SITE = "https://lsnexor.com";
 const today = new Date().toISOString().slice(0, 10);
 
 // Lee los slugs directamente de rutas.ts para mantener una sola fuente de verdad.

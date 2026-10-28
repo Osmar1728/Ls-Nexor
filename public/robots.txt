@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+# Permitir indexación completa
+Disallow:
+
 # Bots de IA bienvenidos (alimentan respuestas con datos oficiales)
 User-agent: GPTBot
 Allow: /
@@ -14,4 +17,10 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://www.lsnexor.mx/sitemap.xml
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://lsnexor.com/sitemap.xml
