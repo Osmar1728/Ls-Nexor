@@ -32,8 +32,7 @@ function LegalShell({
           <div className="mt-6 grid items-start gap-4 md:grid-cols-2">{children}</div>
           <p className="mt-8 rounded-xl bg-[#f2f5f9] p-5 text-[13px] leading-relaxed text-slate-500">
             Documento informativo de {BUSINESS.fullName}. Para casos particulares escríbenos por
-            WhatsApp al {BUSINESS.whatsappDisplay} o al correo {BUSINESS.email}. Se recomienda su
-            validación con un abogado antes de usarlo como contrato.
+            WhatsApp al {BUSINESS.whatsappDisplay} o al correo {BUSINESS.email}.
           </p>
         </div>
       </section>
