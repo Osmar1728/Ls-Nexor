@@ -37,7 +37,7 @@ export default function VideoHero({ video, poster, image, imagePosition, eyebrow
             muted
             loop
             playsInline
-            preload="auto"
+            preload="metadata"
           />
         ) : imgSrc ? (
           <img
