@@ -4,7 +4,7 @@ import "lenis/dist/lenis.css";
 import { Footer, WhatsFloat } from "./components/Footer";
 import Navbar from "./components/Navbar";
 import PageHero from "./components/PageHero";
-import { href, setLenis, useRoute } from "./lib/router";
+import { href, setLenis, usePageMeta, useRoute } from "./lib/router";
 import CoberturaPage from "./pages/CoberturaPage";
 import CotizarPage from "./pages/CotizarPage";
 import FlotaPage from "./pages/FlotaPage";
@@ -12,6 +12,21 @@ import Home from "./pages/Home";
 import { PrivacidadPage, TerminosPage } from "./pages/LegalPage";
 import NosotrosPage from "./pages/NosotrosPage";
 import RutaPage from "./pages/RutaPage";
+
+// Vista 404: misma presentación, pero fija título y noindex para no indexar URLs inexistentes.
+function NotFoundView() {
+  usePageMeta("notfound");
+  return (
+    <PageHero
+      eyebrow="Error 404"
+      title="Esa página no existe, pero tu flete sí lo movemos"
+      desc="Vuelve al inicio o cotiza directo por WhatsApp."
+      crumbs={[["Inicio", "/"]]}
+      ctaPrimary={{ label: "Ir al inicio", to: "/" }}
+      ctaSecondary={{ label: "Cotizar", to: "/cotizar" }}
+    />
+  );
+}
 
 export default function App() {
   const route = useRoute();
@@ -76,16 +91,7 @@ export default function App() {
         {route.name === "cotizar" && <CotizarPage />}
         {route.name === "terminos" && <TerminosPage />}
         {route.name === "privacidad" && <PrivacidadPage />}
-        {route.name === "notfound" && (
-          <PageHero
-            eyebrow="Error 404"
-            title="Esa página no existe, pero tu flete sí lo movemos"
-            desc="Vuelve al inicio o cotiza directo por WhatsApp."
-            crumbs={[["Inicio", "/"]]}
-            ctaPrimary={{ label: "Ir al inicio", to: "/" }}
-            ctaSecondary={{ label: "Cotizar", to: "/cotizar" }}
-          />
-        )}
+        {route.name === "notfound" && <NotFoundView />}
       </main>
       <Footer />
       <WhatsFloat />
