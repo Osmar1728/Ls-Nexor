@@ -58,12 +58,12 @@ export function TerminosPage() {
     <LegalShell
       eyebrow="Legal · Términos del servicio"
       title="Términos y condiciones del servicio"
-      desc="Reglas claras para cotizar y mover tu carga con LS NEXOR: precio cerrado, unidad dedicada y facturación inmediata."
+      desc="Reglas claras para cotizar y mover tu carga con LS NEXOR: precio cerrado, unidad directa y facturación inmediata."
     >
       <Punto n="01" t="Quiénes somos">
         <p>
           {BUSINESS.fullName} ({BUSINESS.name}), con base operativa en {BUSINESS.base}, presta
-          servicios de flete dedicado local y foráneo con unidades propias para todo tipo de carga,
+          servicios de flete directo local y foráneo con unidades propias para todo tipo de carga,
           maniobras opcionales, seguro de carga opcional por evento y despacho con ingreso a
           aduana y recintos fiscales.
         </p>
@@ -86,7 +86,7 @@ export function TerminosPage() {
       <Punto n="04" t="Unidad y carga">
         <p>
           Asignamos la unidad según peso, volumen y fotos que nos compartas. La unidad viaja 100%
-          dedicada a tu mercancía, sin consolidar ni trasbordos. Las dimensiones publicadas son
+          directa a tu mercancía, sin consolidar ni trasbordos. Las dimensiones publicadas son
           aproximadas y pueden variar según la unidad asignada.
         </p>
       </Punto>

@@ -61,7 +61,7 @@ const DOLORES = [
   {
     Icon: BoltIcon,
     q: "«Lo necesito en Guadalajara»",
-    a: "ZMG con unidad dedicada",
+    a: "ZMG con unidad directa",
     cta: "Cotizar local",
     to: buildCotizarHref({ origen: "Guadalajara", tipo: "Local" }),
   },

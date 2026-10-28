@@ -1,6 +1,6 @@
 # LS NEXOR — Logística y Servicio
 
-Sitio multipágina (SPA con URLs limpias) de **Logística y Servicio NEXOR**: fletes dedicados locales en ZMG
+Sitio multipágina (SPA con URLs limpias) de **Logística y Servicio NEXOR**: fletes directos locales en ZMG
 y foráneos desde Guadalajara, con cotizador por WhatsApp/correo. React 19 + TypeScript + Vite + Tailwind CSS v4.
 
 ## Rutas (URLs limpias)
@@ -18,9 +18,9 @@ y foráneos desde Guadalajara, con cotizador por WhatsApp/correo. React 19 + Typ
 ## Negocio (fuente: `src/config.ts`, `src/lib/rutas.ts`)
 
 - **Flota para todo tipo de carga**: Camioneta, Camión 3.5T, Rabón y Tráiler, con caja adaptable a tu mercancía. Medidas aproximadas, imágenes ilustrativas.
-- **Servicios**: flete dedicado (principal), seguro de carga por evento (opcional), maniobras (adicional), ingreso a aduana y recinto fiscal (comercio exterior).
+- **Servicios**: flete directo (principal), seguro de carga por evento (opcional), maniobras (adicional), ingreso a aduana y recinto fiscal (comercio exterior).
 - **Cobertura**: ZMG (9 municipios) + 7 corredores foráneos + nacional bajo cotización.
-- **Compromisos**: unidad 100% dedicada, precio cerrado (extras solo con autorización), facturación inmediata, respuesta en menos de 3 horas.
+- **Compromisos**: unidad 100% directa, precio cerrado (extras solo con autorización), facturación inmediata, respuesta en menos de 3 horas.
 
 ## Cotizador (`src/components/Cotizador.tsx`, `src/lib/quote.ts`)
 

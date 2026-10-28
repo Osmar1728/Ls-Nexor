@@ -62,7 +62,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
   }
 
   const wa = `https://wa.me/${BUSINESS.whatsappNumber}?text=${encodeURIComponent(
-    `Hola LS NEXOR, quiero cotizar flete GDL → ${ruta.destino}. ¿Precio con unidad dedicada?`
+    `Hola LS NEXOR, quiero cotizar flete GDL → ${ruta.destino}. ¿Precio con unidad directa?`
   )}`;
 
   return (
@@ -72,7 +72,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
         imagePosition={ruta.heroPos}
         eyebrow={`Foráneo · ${ruta.distancia}`}
         title={`Flete Guadalajara → ${ruta.destino}`}
-        desc={`${ruta.ideal}. Unidad dedicada puerta a puerta, precio cerrado, facturación inmediata y seguro opcional.`}
+        desc={`${ruta.ideal}. Unidad directa puerta a puerta, precio cerrado, facturación inmediata y seguro opcional.`}
         crumbs={[["Inicio", "/"], ["Cobertura", "/cobertura"], [ruta.destino, `/ruta/${ruta.slug}`]]}
         ctaPrimary={{ label: `Cotizar GDL → ${ruta.destino}`, to: `/cotizar?origen=Guadalajara&destino=${encodeURIComponent(ruta.destino)}&tipo=${encodeURIComponent("Foráneo")}` }}
         ctaSecondary={{ label: "Ver todas las rutas", to: "/cobertura" }}
@@ -92,7 +92,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
                 </div>
                 <div className="text-right">
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-sky-300">Unidad</p>
-                  <p className="font-heading text-3xl font-bold text-white max-sm:text-2xl">Dedicada</p>
+                  <p className="font-heading text-3xl font-bold text-white max-sm:text-2xl">Directa</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
               <ul className="mt-5 space-y-3 text-sm">
                 {[
                   ["Origen", "Guadalajara + ZMG"],
-                  ["Modalidad", "100% dedicado, puerta a puerta"],
+                  ["Modalidad", "100% directo, puerta a puerta"],
                   ["Precio", "Cerrado antes de cargar"],
                   ["Factura", "Facturación inmediata"],
                 ].map(([t, d]) => (

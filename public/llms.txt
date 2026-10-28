@@ -1,6 +1,6 @@
 # LS NEXOR — Logística y Servicio
 
-> Fletes dedicados locales y foráneos desde Guadalajara, Jalisco. Unidad exclusiva para todo tipo de carga, precio cerrado, respuesta en menos de 3 horas. Base: Guadalajara, Jalisco, México.
+> Fletes directos locales y foráneos desde Guadalajara, Jalisco. Unidad exclusiva para todo tipo de carga, precio cerrado, respuesta en menos de 3 horas. Base: Guadalajara, Jalisco, México.
 
 
 ## Contacto y cotización
@@ -12,7 +12,7 @@
 
 ## Servicios
 
-- Flete dedicado puerta a puerta (principal): unidad exclusiva, sin consolidar. Local en ZMG y foráneo en 7 corredores.
+- Flete directo puerta a puerta (principal): unidad exclusiva, sin consolidar. Local en ZMG y foráneo en 7 corredores.
 - Seguro de carga por evento (opcional): se cotiza junto al flete.
 - Maniobras de carga y descarga (adicional): personal de apoyo en origen y/o destino.
 - Ingreso a aduana y recinto fiscal (comercio exterior): unidades y operadores autorizados, aeropuerto GDL.
@@ -51,7 +51,7 @@
 
 ## Compromisos comerciales
 
-- Unidad 100% dedicada, sin compartir ni trasbordos.
+- Unidad 100% directa, sin compartir ni trasbordos.
 - Precio cerrado; cargos extra solo con autorización previa.
 - Facturación inmediata. Seguro opcional por evento.
 - Foto de entrega + ubicación en ruta. Fletes en falso y cancelaciones tardías generan cargo.
@@ -65,7 +65,7 @@
 
 ## Preguntas frecuentes (11 en el home)
 
-Costo, unidades, incluidos, cobertura, facturación inmediata, reserva, carga dedicada, rastreo en ruta, aduana/recinto, importación/exportación y requisitos de despacho.
+Costo, unidades, incluidos, cobertura, facturación inmediata, reserva, carga directa, rastreo en ruta, aduana/recinto, importación/exportación y requisitos de despacho.
 
 ## Nosotros
 

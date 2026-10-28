@@ -40,7 +40,7 @@ export default function FlotaPage() {
             </h1>
             <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600">
               Elige por peso y volumen y cotiza con la configuración exacta: Camioneta, Camión 3.5T,
-              Rabón y Tráiler. Todas con caja adaptable a tu mercancía, unidad dedicada sin compartir
+              Rabón y Tráiler. Todas con caja adaptable a tu mercancía, unidad directa sin compartir
               y precio cerrado. Medidas aproximadas.
             </p>
             <div className="mt-7">

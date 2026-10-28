@@ -140,27 +140,27 @@ export function buildCotizarHref(prefill: CotizarPrefill = {}, base: string = "/
 export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   home: {
     title: "Fletes y transporte de carga en Guadalajara | LS NEXOR",
-    desc: "Fletes dedicados en Guadalajara, ZMG y foráneos a San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Unidad exclusiva, precio cerrado. Cotiza en menos de 3 horas.",
+    desc: "Fletes directos en Guadalajara, ZMG y foráneos a San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Unidad exclusiva, precio cerrado. Cotiza en menos de 3 horas.",
   },
   flota: {
     title: "Flota de carga en Guadalajara: Camioneta, Camión, Rabón y Tráiler | LS NEXOR",
-    desc: "Flota dedicada con camioneta 1T, camión 3.5T, rabón/torton 5T y tráiler 15T. Medidas, capacidades y tipo ideal por carga. Fletes en Guadalajara y foráneos.",
+    desc: "Flota directa con camioneta 1T, camión 3.5T, rabón/torton 5T y tráiler 15T. Medidas, capacidades y tipo ideal por carga. Fletes en Guadalajara y foráneos.",
   },
   cobertura: {
     title: "Cobertura de fletes Guadalajara, ZMG y Bajío | Rutas desde Guadalajara | LS NEXOR",
-    desc: "Cobertura local en Zona Metropolitana de Guadalajara y 7 rutas foráneas directas: San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Flete dedicado puerta a puerta.",
+    desc: "Cobertura local en Zona Metropolitana de Guadalajara y 7 rutas foráneas directas: San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Flete directo puerta a puerta.",
   },
   ruta: {
-    title: "Flete dedicado Guadalajara a {destino} | Precio cerrado | LS NEXOR",
-    desc: "Flete dedicado puerta a puerta desde Guadalajara a {destino}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro de carga opcional. Cotiza en menos de 3 horas.",
+    title: "Flete directo Guadalajara a {destino} | Precio cerrado | LS NEXOR",
+    desc: "Flete directo puerta a puerta desde Guadalajara a {destino}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro de carga opcional. Cotiza en menos de 3 horas.",
   },
   servicios: {
-    title: "Servicios de flete dedicado y transporte de carga | LS NEXOR Guadalajara",
-    desc: "Flete dedicado local y foráneo, despacho con ingreso a aduana y recinto fiscal, seguro de carga por evento, maniobras opcionales. Facturación inmediata.",
+    title: "Servicios de flete directo y transporte de carga | LS NEXOR Guadalajara",
+    desc: "Flete directo local y foráneo, despacho con ingreso a aduana y recinto fiscal, seguro de carga por evento, maniobras opcionales. Facturación inmediata.",
   },
   nosotros: {
     title: "LS NEXOR | Operador logístico PyME en Guadalajara",
-    desc: "Operador logístico PyME con base en Guadalajara. Unidades dedicadas, comunicación directa, precios cerrados y servicio confiable en ZMG, Bajío y Occidente.",
+    desc: "Operador logístico PyME con base en Guadalajara. Unidades directas, comunicación directa, precios cerrados y servicio confiable en ZMG, Bajío y Occidente.",
   },
   cotizar: {
     title: "Cotiza tu flete en 1 minuto | Fletes desde Guadalajara | LS NEXOR",
@@ -168,7 +168,7 @@ export const PAGE_META: Record<RouteName, { title: string; desc: string }> = {
   },
   terminos: {
     title: "Términos y condiciones | LS NEXOR",
-    desc: "Términos del servicio de fletes dedicados LS NEXOR: cotizaciones, precio cerrado, seguro de carga, maniobras, facturación, aduanas y responsabilidades.",
+    desc: "Términos del servicio de fletes directos LS NEXOR: cotizaciones, precio cerrado, seguro de carga, maniobras, facturación, aduanas y responsabilidades.",
   },
   privacidad: {
     title: "Aviso de privacidad | LS NEXOR",
@@ -260,18 +260,18 @@ export function usePageMeta(name: RouteName, extra?: string, image?: string) {
     // Ajustar meta para rutas dinámicas con destino
     if (name === "ruta" && extra) {
       const dest = extra.replace(/^Flete Guadalajara a /, "");
-      title = `Flete dedicado Guadalajara → ${dest} | Precio cerrado | LS NEXOR`;
-      desc = `Flete dedicado puerta a puerta desde Guadalajara a ${dest}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro opcional. Cotiza en menos de 3 horas.`;
+      title = `Flete directo Guadalajara → ${dest} | Precio cerrado | LS NEXOR`;
+      desc = `Flete directo puerta a puerta desde Guadalajara a ${dest}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro opcional. Cotiza en menos de 3 horas.`;
     }
 
     document.title = title;
     setMeta("name", "description", desc);
     setMeta("name", "robots", name === "notfound" ? "noindex,follow" : "index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1");
     setMeta("name", "keywords", name === "home" 
-      ? "fletes guadalajara, transporte de carga guadalajara, flete dedicado zmg, fletes bajio, transporte carga jalisco"
+      ? "fletes guadalajara, transporte de carga guadalajara, flete directo zmg, fletes bajio, transporte carga jalisco"
       : name === "ruta" 
-      ? `flete guadalajara ${extra?.replace(/.*a /, "") || ""}, flete dedicado, transporte de carga`
-      : "fletes guadalajara, flete dedicado, transporte de carga");
+      ? `flete guadalajara ${extra?.replace(/.*a /, "") || ""}, flete directo, transporte de carga`
+      : "fletes guadalajara, flete directo, transporte de carga");
 
     setMeta("property", "og:title", title);
     setMeta("property", "og:description", desc);

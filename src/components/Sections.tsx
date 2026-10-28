@@ -296,7 +296,7 @@ export function Servicios({ fill = true }: { fill?: boolean }) {
                   </svg>
                 </span>
               </div>
-              <h3 className="font-heading mt-3 text-xl font-bold sm:text-2xl">Flete dedicado</h3>
+              <h3 className="font-heading mt-3 text-xl font-bold sm:text-2xl">Flete directo</h3>
               <p className="mt-1.5 max-w-md text-sm leading-relaxed text-white/70">
                 Unidad exclusiva para tu mercancía. Sin consolidar, puerta a puerta.
               </p>
@@ -565,7 +565,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
         <div className="relative min-h-[320px] overflow-hidden rounded-2xl bg-[#0b2a4a]">
           <img
             src="/hero/unidad-principal.jpg"
-            alt="Unidad dedicada LS NEXOR"
+            alt="Unidad directa LS NEXOR"
             className="absolute inset-0 h-full w-full object-cover"
             loading="lazy"
             onError={(e) => {
@@ -575,7 +575,7 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0b2a4a] via-[#0b2a4a]/25 to-transparent" />
           <div className="absolute inset-x-0 bottom-0 grid grid-cols-3 gap-3 p-5 sm:p-6">
             {[
-              ["100%", "Dedicado"],
+              ["Seguridad", "Garantizada"],
               ["7+1", "ZMG + rutas"],
               ["Nacional", "Bajo cotización"],
             ].map(([v, l]) => (
@@ -590,19 +590,19 @@ export function PorQue({ compact = false }: { compact?: boolean }) {
           <Heading
             eyebrow="Nosotros"
             title="Operador PyME, comunicación total"
-            desc="Logística y Servicio NEXOR. Unidad dedicada, precio cerrado y comunicación directa durante todo el viaje. Facturación inmediata."
+            desc="Logística y Servicio NEXOR. Unidad directa, precio cerrado y comunicación directa durante todo el viaje. Facturación inmediata."
           />
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
             <div className="rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0077c8]">Misión</p>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Mover la carga de las PyMEs con flete dedicado, precio cerrado y entrega puntual desde Guadalajara.
+                Mover la carga de las PyMEs con flete directo, precio cerrado y entrega puntual desde Guadalajara.
               </p>
             </div>
             <div className="rounded-xl border border-[#dce4ed] bg-[#f2f5f9] p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#0077c8]">Visión</p>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                Ser el operador regional más rápido y confiable para fletes dedicados, creciendo por recomendación.
+                Ser el operador regional más rápido y confiable para fletes directos, creciendo por recomendación.
               </p>
             </div>
           </div>
@@ -621,14 +621,14 @@ export function Faq() {
   const faqs = useMemo(() => [
     ["¿Cuánto cuesta un flete?", "Depende de origen, destino, unidad y carga. Envíanos el cotizador y respondemos en menos de 3 horas."],
     ["¿Qué tipos de unidad tienen?", "Camioneta, Camión 3.5T, Rabón y Tráiler. Nuestra flotilla se adapta a tu mercancía: te cotizamos con la unidad que se adapte a las dimensiones y peso de tu carga."],
-    ["¿Qué incluye el servicio?", "Flete dedicado puerta a puerta. Seguro de carga y maniobras se cotizan como adicionales."],
+    ["¿Qué incluye el servicio?", "Flete directo puerta a puerta. Seguro de carga y maniobras se cotizan como adicionales."],
     ["¿A dónde llegan?", "ZMG + San Luis Potosí, Querétaro, Puerto Vallarta, Morelia, Tequila, Silao y Manzanillo. Otras rutas bajo cotización."],
     ["¿Emiten factura?", "Sí, facturación inmediata."],
     ["¿Cómo reservo?", "Por WhatsApp o correo. Confirmamos unidad, horario y precio cerrado."],
-    ["¿Mi carga viaja sola o consolidada?", "Sola. La unidad va 100% dedicada a tu mercancía, sin compartir ni trasbordos."],
+    ["¿Mi carga viaja sola o consolidada?", "Sola. La unidad va 100% directa a tu mercancía, sin compartir ni trasbordos."],
     ["¿Puedo seguir mi flete en ruta?", "Sí. Te compartimos ubicación durante el viaje y foto de entrega al finalizar."],
     ["¿Entran a aduana y recinto fiscal?", "Sí. Operamos con unidades especializadas, permisos vigentes y operadores autorizados para el despacho de mercancías en aduana, aeropuerto y recintos fiscales."],
-    ["¿Manejan importación y exportación?", "Sí. Movemos mercancía de comercio exterior con unidad dedicada. Escríbenos por WhatsApp y cotizamos tu despacho."],
+    ["¿Manejan importación y exportación?", "Sí. Movemos mercancía de comercio exterior con unidad directa. Escríbenos por WhatsApp y cotizamos tu despacho."],
     ["¿Qué necesito para despachar mi mercancía?", "Cuéntanos origen, destino, dimensiones y peso de tu mercancía en el cotizador o por WhatsApp. Te cotizamos con la unidad que se adapte a tu carga y te confirmamos tiempos y requisitos. Precio cerrado."],
   ], []);
   useEffect(() => {

@@ -58,7 +58,7 @@ function renderPage({ path, title, desc, image, keywords, article = false }) {
 }
 
 const OG_DEFAULT = `${SITE_URL}/hero-rutas-bajio.webp`;
-const KW_DEFAULT = "fletes guadalajara, flete dedicado, transporte de carga";
+const KW_DEFAULT = "fletes guadalajara, flete directo, transporte de carga";
 const pages = [
   { path: "/flota", meta: "flota", image: OG_DEFAULT },
   { path: "/cobertura", meta: "cobertura", image: OG_DEFAULT },
@@ -78,10 +78,10 @@ for (const r of RUTAS) {
   done.push(
     renderPage({
       path: `/ruta/${r.slug}`,
-      title: `Flete dedicado Guadalajara → ${r.destino} | Precio cerrado | LS NEXOR`,
-      desc: `Flete dedicado puerta a puerta desde Guadalajara a ${r.destino}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro opcional. Cotiza en menos de 3 horas.`,
+      title: `Flete directo Guadalajara → ${r.destino} | Precio cerrado | LS NEXOR`,
+      desc: `Flete directo puerta a puerta desde Guadalajara a ${r.destino}. Precio cerrado, facturación inmediata, unidad exclusiva y seguro opcional. Cotiza en menos de 3 horas.`,
       image: `${SITE_URL}${r.hero}`,
-      keywords: `flete guadalajara ${r.destino}, flete dedicado, transporte de carga`,
+      keywords: `flete guadalajara ${r.destino}, flete directo, transporte de carga`,
       article: true,
     }),
   );

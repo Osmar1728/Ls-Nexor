@@ -7,7 +7,7 @@ const SERVICIOS = [
     n: "01",
     tag: "Principal",
     tagCls: "bg-[#0077c8] text-white",
-    t: "Flete dedicado puerta a puerta",
+    t: "Flete directo puerta a puerta",
     d: "Unidad exclusiva para tu mercancía. Sin consolidar, sin trasbordos. Local en ZMG y foráneo en 7 corredores.",
     bullets: ["Precio cerrado", "Caja adaptable a tu mercancía", "Ubicación compartida en ruta + foto de entrega"],
     cta: "Cotizar flete",
@@ -39,7 +39,7 @@ const SERVICIOS = [
     tagCls: "bg-sky-100 text-sky-700",
     t: "Ingreso a aduana y recinto fiscal",
     d: "Unidades especializadas para el despacho de mercancías en aduana, con permisos vigentes y operadores autorizados. Entramos a aduana, aeropuerto y recintos fiscales.",
-    bullets: ["Unidades especializadas para despacho en aduana", "Permisos vigentes en unidades y operadores autorizados", "Unidad dedicada + precio cerrado"],
+    bullets: ["Unidades especializadas para despacho en aduana", "Permisos vigentes en unidades y operadores autorizados", "Unidad directa + precio cerrado"],
     cta: "Cotizar despacho",
     to: buildCotizarHref({ mensaje: "Necesito despacho de mercancía con ingreso a aduana" }),
   },
@@ -59,7 +59,7 @@ export default function NosotrosPage() {
         crumbs={[["Inicio", "/"], ["Nosotros", "/nosotros"]]}
         ctaPrimary={{ label: "Cotizar directo", to: "/cotizar" }}
         ctaSecondary={{ label: "Ver flota", to: "/flota" }}
-        stats={[["100%", "Dedicado"], ["< 3 h", "Respuesta"], ["7 + ZMG", "Cobertura"]]}
+        stats={[["Seguridad", "Garantizada"], ["< 3 h", "Respuesta"], ["7 + ZMG", "Cobertura"]]}
       />
 
       {/* Manifiesto */}
@@ -71,7 +71,7 @@ export default function NosotrosPage() {
           </h2>
           <p className="mt-4 max-w-2xl text-base font-medium leading-relaxed text-slate-700 sm:text-lg">
             Sabemos que la logística no para. Por eso nos comprometemos con un servicio que cumple
-            todos tus requerimientos: unidad dedicada, precio cerrado y facturación inmediata.
+            todos tus requerimientos: unidad directa, precio cerrado y facturación inmediata.
           </p>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600">
             Somos un operador PyME de Guadalajara: veloces y con palabra. Comunicación directa contigo
@@ -92,7 +92,7 @@ export default function NosotrosPage() {
           </ul>
           <dl className="mt-10 grid grid-cols-2 gap-6 border-t border-[#dce4ed] pt-8 lg:grid-cols-4">
             {[
-              ["100%", "Unidad dedicada", "Sin consolidar ni trasbordos"],
+              ["100%", "Unidad directa", "Sin consolidar ni trasbordos"],
               ["< 3 h", "Respuesta real", "Cotización por WhatsApp en horario hábil"],
               ["7 + ZMG", "Cobertura", "Local y 7 corredores foráneos"],
               ["Aduana", "Recinto fiscal", "Operadores y permisos autorizados"],
@@ -113,7 +113,7 @@ export default function NosotrosPage() {
           <div className="relative min-h-[320px] overflow-hidden rounded-3xl border border-white/10 bg-[#071d34] shadow-[0_16px_40px_rgba(0,0,0,0.35)] lg:min-h-[420px]">
             <img
               src="/hero/unidad-principal.jpg"
-              alt="Unidad dedicada LS NEXOR en Guadalajara"
+              alt="Unidad directa LS NEXOR en Guadalajara"
               className="absolute inset-0 h-full w-full object-cover"
               loading="lazy"
               onError={(e) => {
@@ -133,18 +133,18 @@ export default function NosotrosPage() {
             </h2>
             <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/75">
               Sabemos que la logística no para. Por eso nos comprometemos con un servicio que cumple
-              todos tus requerimientos: unidad dedicada, precio cerrado y facturación inmediata.
+              todos tus requerimientos: unidad directa, precio cerrado y facturación inmediata.
             </p>
             <div className="rounded-2xl border border-white/15 bg-white/5 p-6 sm:p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Misión</p>
               <p className="mt-2 text-[15px] leading-relaxed text-white/80">
-                Mover la carga de las PyMEs con flete dedicado, precio cerrado y entrega puntual desde Guadalajara.
+                Mover la carga de las PyMEs con flete directo, precio cerrado y entrega puntual desde Guadalajara.
               </p>
             </div>
             <div className="rounded-2xl border border-white/15 bg-white/5 p-6 sm:p-7">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-sky-300">Visión</p>
               <p className="mt-2 text-[15px] leading-relaxed text-white/80">
-                Ser el operador regional más rápido y confiable para fletes dedicados, creciendo por recomendación.
+                Ser el operador regional más rápido y confiable para fletes directos, creciendo por recomendación.
               </p>
             </div>
             <ul className="grid gap-2.5 sm:grid-cols-2">
@@ -170,7 +170,7 @@ export default function NosotrosPage() {
           <p className="eyebrow text-[#0077c8]">Servicios · Precio cerrado</p>
           <h2 className="font-heading mt-3 text-3xl font-bold text-[#0b2a4a] sm:text-4xl">Lo que contratas, lo que recibes</h2>
           <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-slate-600">
-            Cuatro servicios claros. Sin letras chicas: flete dedicado, seguro opcional, maniobras e ingreso a aduana.
+            Cuatro servicios claros. Sin letras chicas: flete directo, seguro opcional, maniobras e ingreso a aduana.
           </p>
           <div className="mt-6 flex flex-col gap-3.5 rounded-2xl border border-[#0b2a4a] bg-[#f2f5f9] p-5 sm:p-6 lg:flex-row lg:items-center lg:gap-6">
             <span className={`w-fit shrink-0 rounded-full px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-wider ${SERVICIOS[0].tagCls}`}>
@@ -305,7 +305,7 @@ export default function NosotrosPage() {
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Precio cerrado, sin sorpresas</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Avisos durante todo el viaje</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Foto de entrega + ubicación en ruta</li>
-                <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> ZMG, foráneo y aduana con unidad dedicada</li>
+                <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> ZMG, foráneo y aduana con unidad directa</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Facturación inmediata</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Ingreso a aduana y recinto fiscal</li>
                 <li className="flex gap-2.5"><span className="font-bold text-emerald-400">✓</span> Carga de todo tipo para PyME</li>

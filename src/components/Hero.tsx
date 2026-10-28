@@ -49,7 +49,7 @@ export default function Hero() {
           </div>
           <div className="mt-7 grid max-w-lg grid-cols-3 gap-4 border-t border-[#dce4ed] pt-6 max-sm:mt-5 max-sm:pt-5 ms:gap-6">
             {[
-              ["100%", "Dedicado"],
+              ["Seguridad", "Garantizada"],
               ["7 + 1", "ZMG + rutas"],
               ["- 3h", "Respuesta"],
             ].map(([v, l]) => (

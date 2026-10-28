@@ -21,7 +21,7 @@ export const RUTAS: RutaInfo[] = [
     ideal: "3.5T y Rabón para carga comercial e industrial al Bajío",
     casos: ["Refacciones y autopartes al corredor industrial", "Acero, perfiles y material para obra", "Maquinaria y equipos industriales", "Carga comercial voluminosa", "Mercancía comercial tarimada"],
     faqs: [
-      ["¿Cómo opera GDL → SLP?", "Salida directa con unidad dedicada, sin consolidar ni trasbordos."],
+      ["¿Cómo opera GDL → SLP?", "Salida directa con unidad directa, sin consolidar ni trasbordos."],
       ["¿Qué unidad me conviene?", "3.5T para carga media y mercancía voluminosa, Rabón 8T para carga industrial. Te confirmamos por fotos y peso."],
       ["¿Mueven acero o carga pesada?", "Sí, con Rabón 8T o Tráiler según peso y dimensiones. Mándanos fotos y medidas por WhatsApp y te confirmamos unidad."],
       ["¿Entregan en parques industriales de SLP?", "Sí, coordinamos ventana de entrega, acceso y maniobras si las requieres."]
@@ -70,7 +70,7 @@ export const RUTAS: RutaInfo[] = [
       ["¿Operan la ruta a Morelia?", "Sí. Cotiza y apartamos unidad y horario."],
       ["¿El precio incluye maniobras?", "Se cotizan como adicional. Indícalo y te damos precio cerrado."],
       ["¿Recolectan fuera de Morelia, como Uruapan o Zamora?", "Sí, cubrimos la región bajo cotización. Escríbenos el origen exacto y te damos precio cerrado."],
-      ["¿La unidad va dedicada?", "Siempre. Unidad exclusiva puerta a puerta, sin consolidar ni compartir."]
+      ["¿La unidad va directa?", "Siempre. Unidad exclusiva puerta a puerta, sin consolidar ni compartir."]
     ],
   },
   {
@@ -82,7 +82,7 @@ export const RUTAS: RutaInfo[] = [
     ideal: "Camioneta 1T y 3.5T para industria tequilera y proveeduría local",
     casos: ["Botella y producto terminado a CEDIS", "Barricas, cristal y equipo para destilerías", "Proveeduría a destilerías", "Movimientos locales de insumos", "Repartos express"],
     faqs: [
-      ["¿Hacen servicio local en ZMG y Tequila?", "Sí, recolectamos y entregamos puerta a puerta con unidad dedicada."],
+      ["¿Hacen servicio local en ZMG y Tequila?", "Sí, recolectamos y entregamos puerta a puerta con unidad directa."],
       ["¿Pueden facturar a empresas tequileras?", "Sí, facturación inmediata para tus auditorías."],
       ["¿Mueven tequila a granel o solo envasado?", "Solo envasado en tarima y caja. No movemos líquidos a granel ni pipas."],
       ["¿Hacen viajes recurrentes a Tequila?", "Sí, a ~60 km programamos viajes frecuentes para destilerías y proveedores. Cotiza tu ruta fija."]
@@ -95,7 +95,7 @@ export const RUTAS: RutaInfo[] = [
     destino: "Silao",
     distancia: "~ 230 km desde GDL",
     ideal: "Rabón y Tráiler para corredor automotriz del Bajío",
-    casos: ["Abasto just-in-time a planta automotriz", "Autopartes y proveeduría", "Acero y rollos para la industria", "Carga industrial tarimada", "Flete dedicado de alto volumen"],
+    casos: ["Abasto just-in-time a planta automotriz", "Autopartes y proveeduría", "Acero y rollos para la industria", "Carga industrial tarimada", "Flete directo de alto volumen"],
     faqs: [
       ["¿Entran a plantas en Silao?", "Sí, coordinamos acceso, ventana y documentos que pida tu planta."],
       ["¿Tienen seguro de carga?", "Cobertura por evento cotizada junto al flete para proteger el valor de tu mercancía."],
@@ -112,7 +112,7 @@ export const RUTAS: RutaInfo[] = [
     ideal: "Tráiler y Rabón para carga al puerto y retornos a Guadalajara",
     casos: ["Importación desconsolidada en tarimas y cajas", "Línea blanca y electrodomésticos de importación", "Carga comercial hacia el puerto", "Retorno Manzanillo → GDL", "Equipos y carga voluminosa"],
     faqs: [
-      ["¿Cómo opera GDL → Manzanillo?", "Servicio directo con unidad dedicada, sin consolidar ni trasbordos."],
+      ["¿Cómo opera GDL → Manzanillo?", "Servicio directo con unidad directa, sin consolidar ni trasbordos."],
       ["¿Hacen el regreso Manzanillo → GDL?", "Sí, cotizamos el retorno con la misma unidad. Escríbenos origen y destino."],
       ["¿Recogen en recinto portuario o aduana?", "Sí, operamos con unidades y operadores autorizados para despacho en aduana y recintos. Cotiza tu maniobra."],
       ["¿Mueven contenedores completos?", "No. Operamos con caja adaptable a tu mercancía para importación desconsolidada y carga general."]

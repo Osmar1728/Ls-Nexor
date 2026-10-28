@@ -13,11 +13,11 @@ export default function CoberturaPage() {
         poster="/hero-rutas-bajio.webp"
         eyebrow="Cobertura · Base Guadalajara"
         title="ZMG + 7 rutas foráneas directas"
-        desc="Operación local, corredores foráneos y despacho en aduana. Unidad dedicada con operadores autorizados. ¿Otra ruta? Cotizamos nacional bajo solicitud."
+        desc="Operación local, corredores foráneos y despacho en aduana. Unidad directa con operadores autorizados. ¿Otra ruta? Cotizamos nacional bajo solicitud."
         crumbs={[["Inicio", "/"], ["Cobertura", "/cobertura"]]}
         ctaPrimary={{ label: "Cotizar mi ruta", to: "/cotizar" }}
         ctaSecondary={{ label: "Ver flota", to: "/flota" }}
-        stats={[["7 + 1", "ZMG + rutas"], ["Aduana", "Recinto fiscal"], ["100%", "Dedicado"]]}
+        stats={[["7 + 1", "ZMG + rutas"], ["Aduana", "Recinto fiscal"], ["Seguridad", "Garantizada"]]}
       />
 
       <section className="bg-white py-16">
@@ -29,7 +29,7 @@ export default function CoberturaPage() {
                 Zona Metropolitana de Guadalajara
               </h2>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-slate-600">
-                Recolección y entrega con unidad dedicada y maniobras opcionales.
+                Recolección y entrega con unidad directa y maniobras opcionales.
               </p>
             </div>
             <a
@@ -92,7 +92,7 @@ export default function CoberturaPage() {
               <p className="eyebrow text-sky-300">Foráneo · Salidas desde GDL</p>
               <h2 className="font-heading mt-3 text-3xl font-bold sm:text-4xl">Elige tu destino</h2>
               <p className="mt-3 max-w-xl text-[15px] leading-relaxed text-white/70">
-                7 corredores directos con unidad dedicada. Cada boleto trae distancia,
+                7 corredores directos con unidad directa. Cada boleto trae distancia,
                 unidad ideal y ficha completa.
               </p>
             </div>
