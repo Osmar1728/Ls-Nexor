@@ -5,6 +5,8 @@ interface Props {
   video?: string;
   poster?: string;
   image?: string;
+  /** Posición del fondo cuando es imagen (ej. "object-[center_75%]"). Por defecto object-center. */
+  imagePosition?: string;
   eyebrow?: string;
   title: string;
   desc?: string;
@@ -17,7 +19,7 @@ interface Props {
 }
 
 /** Hero a video completo, mismo diseño claro del home en todas las páginas internas. */
-export default function VideoHero({ video, poster, image, eyebrow, title, desc, crumbs, ctaPrimary, ctaSecondary, stats, compact = false }: Props) {
+export default function VideoHero({ video, poster, image, imagePosition, eyebrow, title, desc, crumbs, ctaPrimary, ctaSecondary, stats, compact = false }: Props) {
   const videoRef = useAutoplayVideo<HTMLVideoElement>();
   const scrolleado = useScrolled();
   const imgSrc = image ?? poster;
@@ -40,7 +42,7 @@ export default function VideoHero({ video, poster, image, eyebrow, title, desc, 
         ) : imgSrc ? (
           <img
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-center"
+            className={`absolute inset-0 h-full w-full object-cover ${imagePosition ?? "object-center"}`}
             src={imgSrc}
             alt=""
             loading="eager"

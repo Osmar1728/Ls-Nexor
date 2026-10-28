@@ -4,6 +4,8 @@ export interface RutaInfo {
   distancia: string;
   imagen: string;
   hero: string;
+  /** Punto focal del hero (object-position). Por defecto centrado. */
+  heroPos?: string;
   ideal: string;
   casos: string[];
   faqs: [string, string][];
@@ -44,6 +46,7 @@ export const RUTAS: RutaInfo[] = [
     slug: "puerto-vallarta",
     imagen: "/img/rutas/puerto-vallarta.webp",
     hero: "/img/rutas/puerto-vallarta-hero.webp",
+    heroPos: "object-[center_75%]",
     destino: "Puerto Vallarta",
     distancia: "~ 300 km desde GDL",
     ideal: "Camioneta 1T y 3.5T para hotelería, retail y carga comercial a costa",

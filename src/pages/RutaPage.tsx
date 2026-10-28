@@ -68,6 +68,7 @@ export default function RutaPage({ slug }: { slug?: string }) {
     <>
       <VideoHero
         image={ruta.hero}
+        imagePosition={ruta.heroPos}
         eyebrow={`Foráneo · ${ruta.distancia}`}
         title={`Flete Guadalajara → ${ruta.destino}`}
         desc={`${ruta.ideal}. Unidad dedicada puerta a puerta, precio cerrado, facturación inmediata y seguro opcional.`}
