@@ -4,7 +4,7 @@ import "lenis/dist/lenis.css";
 import { Footer, WhatsFloat } from "./components/Footer";
 import Navbar from "./components/Navbar";
 import PageHero from "./components/PageHero";
-import { href, useRoute } from "./lib/router";
+import { href, setLenis, useRoute } from "./lib/router";
 import CoberturaPage from "./pages/CoberturaPage";
 import CotizarPage from "./pages/CotizarPage";
 import FlotaPage from "./pages/FlotaPage";
@@ -49,6 +49,7 @@ export default function App() {
 
   useEffect(() => {
     const lenis = new Lenis({ lerp: 0.1, smoothWheel: true });
+    setLenis(lenis);
     let raf = 0;
     const loop = (time: number) => {
       lenis.raf(time);
@@ -58,6 +59,7 @@ export default function App() {
     return () => {
       cancelAnimationFrame(raf);
       lenis.destroy();
+      setLenis(null);
     };
   }, []);
 

@@ -77,7 +77,7 @@ export function useRoute(): ParsedRoute & { queryString: string } {
       migrarHash();
       setRoute(parsePath(window.location.pathname));
       setQueryString(window.location.search.replace(/^\?/, ""));
-      window.scrollTo(0, 0);
+      scrollTop();
     };
 
     migrarHash();
@@ -228,6 +228,20 @@ function setHreflang(url: string) {
 
 // Lenis gestiona el scroll; el navegador restaura posición por defecto.
 
+// Instancia de Lenis registrada desde App: subir con su API, no con scroll nativo (Lenis lo sobrescribe).
+let lenisRef: { scrollTo: (value: number, options?: { immediate?: boolean }) => void } | null = null;
+
+export function setLenis(
+  instance: { scrollTo: (value: number, options?: { immediate?: boolean }) => void } | null,
+) {
+  lenisRef = instance;
+}
+
+function scrollTop() {
+  if (lenisRef) lenisRef.scrollTo(0, { immediate: true });
+  else window.scrollTo(0, 0);
+}
+
 export function usePageMeta(name: RouteName, extra?: string, image?: string) {
   useEffect(() => {
     const base = PAGE_META[name];
@@ -293,7 +307,7 @@ export function usePageMeta(name: RouteName, extra?: string, image?: string) {
     setCanonical(canonical);
     setHreflang(canonical);
 
-    // Lenis gestiona el scroll: subida suave al cambiar de ruta.
-    window.scrollTo(0, 0);
+    // Lenis gestiona el scroll: subida inmediata al cambiar de ruta.
+    scrollTop();
   }, [name, extra, image]);
 }
