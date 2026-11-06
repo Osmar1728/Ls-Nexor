@@ -87,3 +87,6 @@ User-agent: 360Spider
 Allow: /
 
 Sitemap: https://lsnexor.com/sitemap.xml
+
+# Content Signals: cómo pueden usar los agents/IA tu contenido
+Content-Signal: search=yes, ai-train=no

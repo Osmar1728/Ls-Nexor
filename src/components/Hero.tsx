@@ -29,9 +29,10 @@ export default function Hero() {
             Logística y transporte para tu empresa
           </h1>
           <p className="mt-4 max-w-xl text-[16px] leading-relaxed text-slate-600 max-sm:mt-3">
-            Unidades para todo tipo de mercancía: servicio local en ZMG, entregas foráneas a Bajío y
-            Occidente, y despacho en aduana. Precio cerrado, facturación inmediata, evidencia fotográfica
-            y seguimiento en ruta. Cotiza en menos de 3 horas.
+            Con base de operaciones en Guadalajara, ofrecemos transporte de mercancías con cobertura local
+            en la ZMG, así como rutas foráneas hacia el Bajío y Occidente. Contamos con unidades
+            habilitadas para ingreso a aduanas, facturación inmediata, cotizaciones al momento, evidencia
+            fotográfica y seguimiento en ruta, garantizando traslados seguros y eficientes.
           </p>
           <div className="mt-7 flex flex-col gap-3 max-sm:mt-5 sm:flex-row">
             <a

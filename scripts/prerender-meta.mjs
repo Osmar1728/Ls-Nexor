@@ -27,12 +27,15 @@ const setHref = (html, rel, v, extra = "") =>
     `<link rel="${rel}"${extra} href="${v}" />`,
   );
 
-function renderPage({ path, title, desc, image, keywords, article = false }) {
+function renderPage({ path, title, desc, image, keywords, article = false, noindex = false }) {
   const canonical = `${SITE_URL}${path}`;
   let html = template;
   html = setTitle(html, title);
   html = setContent(html, "name", "description", desc);
   html = setContent(html, "name", "keywords", keywords);
+  if (noindex) {
+    html = setContent(html, "name", "robots", "noindex,follow");
+  }
   html = setHref(html, "canonical", canonical);
   html = setHref(html, "alternate", canonical, ` hreflang="es-MX"`);
   html = setHref(html, "alternate", canonical, ` hreflang="x-default"`);
@@ -55,6 +58,23 @@ function renderPage({ path, title, desc, image, keywords, article = false }) {
   mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, "index.html"), html, "utf8");
   return canonical;
+}
+
+function render404() {
+  // 404.html en raíz de dist para ErrorDocument 404 (Apache sirve con status 404)
+  let html = template;
+  const title = PAGE_META.notfound.title;
+  const desc = PAGE_META.notfound.desc;
+  html = setTitle(html, title);
+  html = setContent(html, "name", "description", desc);
+  html = setContent(html, "name", "robots", "noindex,follow");
+  html = setContent(html, "property", "og:title", title);
+  html = setContent(html, "property", "og:description", desc);
+  html = setContent(html, "property", "og:url", `${SITE_URL}/404.html`);
+  html = setContent(html, "name", "twitter:title", title);
+  html = setContent(html, "name", "twitter:description", desc);
+  writeFileSync(join(dist, "404.html"), html, "utf8");
+  return `${SITE_URL}/404.html`;
 }
 
 const OG_DEFAULT = `${SITE_URL}/hero-rutas-bajio.webp`;
@@ -86,4 +106,5 @@ for (const r of RUTAS) {
     }),
   );
 }
-console.log(`Prerender OG: ${done.length} páginas -> dist/*/index.html`);
+done.push(render404());
+console.log(`Prerender OG: ${done.length} páginas -> dist/*/index.html + dist/404.html`);

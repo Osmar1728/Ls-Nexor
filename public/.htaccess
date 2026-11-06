@@ -9,9 +9,13 @@ RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} !^lsnexor\.com$ [NC]
 RewriteRule ^ https://lsnexor.com%{REQUEST_URI} [L,R=301]
 
-# 2) SPA fallback: rutas limpias -> index.html (los assets existen tal cual)
+# 2) 404 real para agents/bots: URLs inexistentes devuelven 404 con cuerpo /404.html (generado por prerender-meta.mjs)
+ErrorDocument 404 /404.html
+
+# 2b) SPA: fallback solo para rutas base conocidas sin archivo (rutas dinámicas /ruta/* ya están prerenderizadas en dist/)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} ^/(flota|cobertura|nosotros|servicios|cotizar|terminos|privacidad)/?(\?.*)?$
 RewriteRule ^ /index.html [L]
 
 # Seguridad / rendimiento basicos
@@ -20,6 +24,7 @@ RewriteRule ^ /index.html [L]
   Header set X-Frame-Options "SAMEORIGIN"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
   Header set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header set Link '<https://lsnexor.com/llms.txt>; rel="alternate"; type="text/markdown"'
 </IfModule>
 
 <IfModule mod_expires.c>
